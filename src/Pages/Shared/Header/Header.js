@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import bikeLogo from '../../../Images/logo.png';
+import siteLogo from '../../../Images/logo.png';
+import './Header.css';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -13,16 +14,27 @@ const Header = () => {
         bg="dark"
         variant="dark"
         sticky="top"
+        // className="navBarStyle"
       >
         <Container>
           <div onClick={() => navigate('/')}>
-            <img src={bikeLogo} alt="Bike Decor.png" />
+            <img
+              src={siteLogo}
+              alt="Bike Decor.png"
+              className="navBarStyleLogo"
+            />
           </div>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto">
               <Nav.Link as={Link} to="/">
                 Home
+              </Nav.Link>
+              <Nav.Link as={Link} to="/bikeInventories">
+                Inventories
+              </Nav.Link>
+              <Nav.Link as={Link} to="/blogs">
+                Blogs
               </Nav.Link>
               <Nav.Link as={Link} to="/manageitems">
                 Manage Items

@@ -8,7 +8,7 @@ import carouselImage_4 from '../../../Images/carousel_4.jpg';
 const Banner = () => {
   return (
     <div>
-      <Carousel variant="dark">
+      <Carousel variant="dark" interval={null}>
         <Carousel.Item>
           <img
             className="d-block w-100"

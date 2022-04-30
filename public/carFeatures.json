@@ -1,0 +1,26 @@
+[
+  {
+    "_id": 101,
+    "name": "Results Driven",
+    "desc": "Sed ut perspiciatis unde om nis natus error sit volup atem accusant dolorem que laudantium. Totam aperiam, eaque ipsa quae ai.",
+    "icon": "faChartColumn"
+  },
+  {
+    "_id": 102,
+    "name": "Proven Technology",
+    "desc": "Sed ut perspiciatis unde om nis natus error sit volup atem accusant dolorem que laudantium. Totam aperiam, eaque ipsa quae ai.",
+    "icon": "faRoad"
+  },
+  {
+    "_id": 103,
+    "name": "Winning Culture",
+    "desc": "Sed ut perspiciatis unde om nis natus error sit volup atem accusant dolorem que laudantium. Totam aperiam, eaque ipsa quae ai.",
+    "icon": "faFlagCheckered"
+  },
+  {
+    "_id": 104,
+    "name": "Top Performance",
+    "desc": "Sed ut perspiciatis unde om nis natus error sit volup atem accusant dolorem que laudantium. Totam aperiam, eaque ipsa quae ai.",
+    "icon": "faGaugeHigh"
+  }
+]
