@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import bikeLogo from '../../../Images/logo2.png';
+import bikeLogo from '../../../Images/logo.png';
 
 const Header = () => {
   const navigate = useNavigate();
