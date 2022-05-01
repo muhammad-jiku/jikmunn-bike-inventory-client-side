@@ -17,11 +17,6 @@ const Features = () => {
           <Feature key={carFeature?._id} carFeature={carFeature} />
         ))}
       </Row>
-
-      {/* <FontAwesomeIcon icon={faChartColumn} />
-      <FontAwesomeIcon icon={faRoad} />
-      <FontAwesomeIcon icon={faFlagCheckered} />
-      <FontAwesomeIcon icon={faGaugeHigh} /> */}
     </Container>
   );
 };

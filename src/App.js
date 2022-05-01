@@ -5,12 +5,14 @@ import BikeInventories from './Pages/BikeInventories/BikeInventories/BikeInvento
 import Blogs from './Pages/Blogs/Blogs';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header';
-import ManageItems from './Pages/Items/ManageItems/ManageItems';
+// import ManageItems from './Pages/Items/ManageItems/ManageItems';
 import AddItem from './Pages/Items/AddItem/AddItem';
 import MyItems from './Pages/Items/MyItems/MyItems';
 import LogIn from './Pages/Authentication/LogIn/LogIn';
 import Register from './Pages/Authentication/Register/Register';
 import NotFound from './Pages/Shared/NotFound/NotFound';
+// import BikeInventory from './Pages/BikeInventories/BikeInventory/BikeInventory';
+import BikeInventoryDetails from './Pages/BikeInventories/BikeInventoryDetails/BikeInventoryDetails';
 
 function App() {
   return (
@@ -21,9 +23,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/bikeInventories" element={<BikeInventories />} />
         <Route path="/blogs" element={<Blogs />} />
-        <Route path="/manageitems" element={<ManageItems />} />
+        <Route path="/manageinventories" element={<BikeInventories />} />
+        <Route
+          path="/manageinventory/:manageinventoryId"
+          element={<BikeInventoryDetails />}
+        />
+        {/* <Route path="/manageinventories" element={<ManageItems />} /> */}
         <Route path="/additem" element={<AddItem />} />
         <Route path="/myitems" element={<MyItems />} />
         <Route path="/login" element={<LogIn />} />
