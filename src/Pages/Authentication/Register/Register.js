@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
+import SocialLogIn from '../SocialLogIn/SocialLogIn';
 
 const Register = () => {
   return (
@@ -29,6 +30,7 @@ const Register = () => {
         Already have an account?
         <span> Log In now</span>
       </p>
+      <SocialLogIn />
     </Container>
   );
 };

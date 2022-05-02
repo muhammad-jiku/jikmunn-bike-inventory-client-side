@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
+import SocialLogIn from '../SocialLogIn/SocialLogIn';
 
 const LogIn = () => {
   return (
@@ -26,6 +27,7 @@ const LogIn = () => {
           Forget Password?
           <span> Reset Password</span>
         </p>
+        <SocialLogIn />
       </div>
     </Container>
   );
