@@ -6,7 +6,7 @@ const BikeInventories = () => {
   const [bikeInventory, setBikeInventory] = useState([]);
 
   useEffect(() => {
-    fetch('bikeInventories.json')
+    fetch('http://localhost:5000/bikeinventories')
       .then((res) => res.json())
       .then((data) => setBikeInventory(data))
       .catch((err) => console.log(err));
@@ -17,7 +17,7 @@ const BikeInventories = () => {
         {bikeInventory.map((bInventory) => (
           <div key={bInventory?._id}>
             <BikeInventory bInventory={bInventory} />
-            <Button>Delivered</Button>
+            <Button>Delete</Button>
           </div>
         ))}
       </Row>

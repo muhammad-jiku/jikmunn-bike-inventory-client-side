@@ -1,6 +1,5 @@
 [
   {
-    "_id": 101,
     "brand": "Yamaha",
     "name": "Yamaha R15M",
     "image": "https://i.ibb.co/0G4Dmcp/yamaha-r15m-image01.jpg",
@@ -10,7 +9,6 @@
     "supplier": "Ratul Auto, Barisal"
   },
   {
-    "_id": 102,
     "brand": "Honda",
     "name": "Honda CBR150R Repsol",
     "image": "https://i.ibb.co/Jp452cD/honda-cbr150r-repsol-first1.jpg",
@@ -20,7 +18,6 @@
     "supplier": "Royal Motors, Chapai Nawabganj"
   },
   {
-    "_id": 103,
     "brand": "Suzuki",
     "name": "Suzuki GSX R150",
     "image": "https://i.ibb.co/N7BcBmw/suzuki-gsx-r150-img-a1.jpg",
@@ -30,7 +27,6 @@
     "supplier": "Chittagong Bikers, Lohagara, Chittagong"
   },
   {
-    "_id": 104,
     "brand": "Bajaj",
     "name": "Bajaj Pulsar NS 160 ABS",
     "image": "https://i.ibb.co/BPKSfTy/bajaj-pulsar-ns-160-fi-first1.jpg",
@@ -40,7 +36,6 @@
     "supplier": "Uttara Bike Center, Bogra"
   },
   {
-    "_id": 105,
     "brand": "TVS",
     "name": "TVS Rider 125",
     "image": "https://i.ibb.co/SQqjKw0/tvs-rider-125-image1.jpg",
@@ -50,7 +45,6 @@
     "supplier": "GR Corporation, Bhola"
   },
   {
-    "_id": 106,
     "brand": "Hero",
     "name": "Hero Thriller 160R",
     "image": "https://i.ibb.co/wN3qVHV/hero-thriller-165-dd-image1.jpg",
@@ -60,7 +54,6 @@
     "supplier": "Dipu Enterprise, Chuadanga"
   },
   {
-    "_id": 107,
     "brand": "Yamaha",
     "name": "Yamaha MT 15",
     "image": "https://i.ibb.co/YWr8Zyt/yamaha-mt-15-first1.jpg",
@@ -70,7 +63,6 @@
     "supplier": "Raisa Motors, Gopalganj"
   },
   {
-    "_id": 108,
     "brand": "Honda",
     "name": "Honda Dio",
     "image": "https://i.ibb.co/x7SyjF7/honda-dio-first1.jpg",
@@ -80,7 +72,6 @@
     "supplier": "Rumpa Moni Motors, Gaibandha"
   },
   {
-    "_id": 109,
     "brand": "Suzuki",
     "name": "Suzuki Burgman Street",
     "image": "https://i.ibb.co/k5WNXMY/suzuki-burgman-street-first1.jpg",
@@ -90,7 +81,6 @@
     "supplier": "Khan Auto, Jessore"
   },
   {
-    "_id": 110,
     "brand": "Bajaj",
     "name": "Bajaj CT100",
     "image": "https://i.ibb.co/xs8Vngf/bajaj-ct100-first1.jpg",
@@ -100,7 +90,6 @@
     "supplier": "FM Motors, Jamalpur"
   },
   {
-    "_id": 111,
     "brand": "TVS",
     "name": "TVS Wego ",
     "image": "https://i.ibb.co/kqbvwH2/tvs-wego-110-first1.jpg",
@@ -110,7 +99,6 @@
     "supplier": "Star Bike Point, Feni"
   },
   {
-    "_id": 112,
     "brand": "Hero",
     "name": "Hero Destini 125",
     "image": "https://i.ibb.co/L999qv4/hero-destini-125-first1.jpg",
@@ -120,7 +108,6 @@
     "supplier": "Modina Motors, Feni"
   },
   {
-    "_id": 113,
     "brand": "Hero",
     "name": "Hero Maestro Edge 125",
     "image": "https://i.ibb.co/hgtfnQZ/hero-maestro-edge-125-first1.jpg",
@@ -130,7 +117,6 @@
     "supplier": "FJ Enterprise, Mohanpur, Rajshahi"
   },
   {
-    "_id": 114,
     "brand": "TVS",
     "name": "TVS Metro Plus",
     "image": "https://i.ibb.co/rFbbz0h/tvs-metro-plus-disc-image1.jpg",
@@ -140,7 +126,6 @@
     "supplier": "Ghost Riderz Station, Rajshahi"
   },
   {
-    "_id": 115,
     "brand": "Bajaj",
     "name": "Bajaj Discover 110",
     "image": "https://i.ibb.co/K7r2tXh/bajaj-discover-110-first01.jpg",
@@ -150,7 +135,6 @@
     "supplier": "M/s Haque Motors, Naogaon"
   },
   {
-    "_id": 116,
     "brand": "Suzuki",
     "name": "Suzuki Samurai 150",
     "image": "https://i.ibb.co/BBXG3vs/suzuki-samurai-150-first1.jpg",
@@ -160,7 +144,6 @@
     "supplier": "Rifat Motors, Dumuria, Khulna"
   },
   {
-    "_id": 117,
     "brand": "Yamaha",
     "name": "Yamaha Alpha",
     "image": "https://i.ibb.co/VjdWnJc/yamaha-alpha-first1.jpg",
@@ -170,7 +153,6 @@
     "supplier": "Arafat Auto, Joypurhat"
   },
   {
-    "_id": 118,
     "brand": "Honda",
     "name": "Honda Super Cub C125",
     "image": "https://i.ibb.co/GV0NNZ8/honda-super-cub-c125-image1.jpg",

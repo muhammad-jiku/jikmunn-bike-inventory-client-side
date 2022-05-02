@@ -1,9 +1,11 @@
 import React from 'react';
 import { Button, Col, Image } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const BikeInventory = ({ bInventory }) => {
-  // console.log(bInventory);
+  const navigate = useNavigate();
   const {
+    _id,
     // brand,
     name,
     image,
@@ -12,6 +14,10 @@ const BikeInventory = ({ bInventory }) => {
     price,
     quantity,
   } = bInventory;
+
+  const handleUpdateInventory = (id) => {
+    navigate(`/manageinventory/${id}`);
+  };
   return (
     <Col>
       <div>
@@ -22,7 +28,9 @@ const BikeInventory = ({ bInventory }) => {
         <h4>Supplier: {supplier} </h4>
         <p>{description}</p>
       </div>
-      <Button>Update Inventory</Button>
+      <Button onClick={() => handleUpdateInventory(_id)}>
+        Update Inventory
+      </Button>
     </Col>
   );
 };
