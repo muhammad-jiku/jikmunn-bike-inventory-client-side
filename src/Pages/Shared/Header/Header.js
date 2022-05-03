@@ -2,10 +2,33 @@ import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import siteLogo from '../../../Images/logo.png';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 import './Header.css';
+import { signOut } from 'firebase/auth';
 
 const Header = () => {
   const navigate = useNavigate();
+  const [user, loading, error] = useAuthState(auth);
+
+  if (loading) {
+    return (
+      <div>
+        <p>Loading User...</p>
+      </div>
+    );
+  }
+  if (error) {
+    return (
+      <div>
+        <p className="text-danger">Error: {error}</p>
+      </div>
+    );
+  }
+
+  const signingOut = () => {
+    signOut(auth);
+  };
   return (
     <>
       <Navbar
@@ -36,22 +59,29 @@ const Header = () => {
               <Nav.Link as={Link} to="/blogs">
                 Blogs
               </Nav.Link>
-              <Nav.Link as={Link} to="/manageinventories">
-                Manage Items
-              </Nav.Link>
-              <Nav.Link as={Link} to="/additem">
-                Add Item
-              </Nav.Link>
-              <Nav.Link as={Link} to="/myitems">
-                My Items
-              </Nav.Link>
-              <Nav.Link as={Link} to="/login">
-                Log In
-              </Nav.Link>
-              <Nav.Link as={Link} to="/register">
-                Register
-              </Nav.Link>
-              <Button>Log Out</Button>
+              {user ? (
+                <>
+                  <Nav.Link as={Link} to="/manageinventories">
+                    Manage Items
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/additem">
+                    Add Item
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/myitems">
+                    My Items
+                  </Nav.Link>
+                  <Button onClick={signingOut}>Log Out</Button>
+                </>
+              ) : (
+                <>
+                  <Nav.Link as={Link} to="/login">
+                    Log In
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/register">
+                    Register
+                  </Nav.Link>
+                </>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
