@@ -16,6 +16,24 @@ const LogIn = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
+  let errorElement = '';
+
+  if (user) {
+    navigate(from, { replace: true });
+  }
+
+  if (loading) {
+    return <p>Loading.....</p>;
+  }
+
+  if (error) {
+    errorElement = (
+      <div>
+        <p className="text-danger">Error: {error?.message} </p>
+      </div>
+    );
+  }
+
   const handleLogInSubmit = (e) => {
     e.preventDefault();
 
@@ -26,17 +44,6 @@ const LogIn = () => {
     signInWithEmailAndPassword(email, password);
   };
 
-  if (loading) {
-    return <p>Loading.....</p>;
-  }
-
-  if (error) {
-    return <p> {error?.message} </p>;
-  }
-
-  if (user) {
-    navigate(from, { replace: true });
-  }
   return (
     <Container>
       <h1> Log in here to join BIKE DECOR</h1>
@@ -71,6 +78,7 @@ const LogIn = () => {
           Forget Password?
           <span> Reset Password</span>
         </p>
+        {errorElement}
         <SocialLogIn />
       </div>
     </Container>
