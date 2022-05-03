@@ -13,6 +13,7 @@ import Register from './Pages/Authentication/Register/Register';
 import NotFound from './Pages/Shared/NotFound/NotFound';
 // import BikeInventory from './Pages/BikeInventories/BikeInventory/BikeInventory';
 import BikeInventoryDetails from './Pages/BikeInventories/BikeInventoryDetails/BikeInventoryDetails';
+import RequiredAuth from './Pages/Authentication/RequiredAuth/RequiredAuth';
 
 function App() {
   return (
@@ -24,14 +25,39 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/blogs" element={<Blogs />} />
-        <Route path="/manageinventories" element={<BikeInventories />} />
+        <Route
+          path="/manageinventories"
+          element={
+            <RequiredAuth>
+              <BikeInventories />
+            </RequiredAuth>
+          }
+        />
         <Route
           path="/manageinventory/:manageinventoryId"
-          element={<BikeInventoryDetails />}
+          element={
+            <RequiredAuth>
+              <BikeInventoryDetails />
+            </RequiredAuth>
+          }
         />
         {/* <Route path="/manageinventories" element={<ManageItems />} /> */}
-        <Route path="/additem" element={<AddItem />} />
-        <Route path="/myitems" element={<MyItems />} />
+        <Route
+          path="/additem"
+          element={
+            <RequiredAuth>
+              <AddItem />
+            </RequiredAuth>
+          }
+        />
+        <Route
+          path="/myitems"
+          element={
+            <RequiredAuth>
+              <MyItems />
+            </RequiredAuth>
+          }
+        />
         <Route path="/login" element={<LogIn />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
