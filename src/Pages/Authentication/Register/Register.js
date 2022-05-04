@@ -3,6 +3,7 @@ import { Button, Container, Form } from 'react-bootstrap';
 import SocialLogIn from '../SocialLogIn/SocialLogIn';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const nameRef = useRef('');
@@ -10,12 +11,16 @@ const Register = () => {
   const passwordRef = useRef('');
   const termsRef = useRef();
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || '/';
+
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   let errorElement = '';
 
   if (user) {
-    console.log(user);
+    navigate(from, { replace: true });
   }
 
   if (loading) {
@@ -95,7 +100,7 @@ const Register = () => {
       </Form>
       <p>
         Already have an account?
-        <span> Log In now</span>
+        <span onClick={() => navigate('/login')}> Log In now</span>
       </p>
       {errorElement}
       <SocialLogIn />

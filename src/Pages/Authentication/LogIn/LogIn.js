@@ -72,7 +72,7 @@ const LogIn = () => {
         </Form>
         <p>
           New here?
-          <span> Register now</span>
+          <span onClick={() => navigate('/register')}> Register now</span>
         </p>
         <p>
           Forget Password?
