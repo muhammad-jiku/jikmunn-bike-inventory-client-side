@@ -11,7 +11,7 @@ const Register = () => {
   const termsRef = useRef();
 
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   let errorElement = '';
 
   if (user) {
