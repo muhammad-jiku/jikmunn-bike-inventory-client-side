@@ -1,9 +1,13 @@
 import React, { useRef } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import SocialLogIn from '../SocialLogIn/SocialLogIn';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 const LogIn = () => {
   const emailRef = useRef('');
@@ -13,8 +17,10 @@ const LogIn = () => {
   const location = useLocation();
   let from = location.state?.from?.pathname || '/';
 
-  const [signInWithEmailAndPassword, user, loading, error] =
+  const [signInWithEmailAndPassword, user, loading, emailError] =
     useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending, resetEmailError] =
+    useSendPasswordResetEmail(auth);
 
   let errorElement = '';
 
@@ -26,10 +32,16 @@ const LogIn = () => {
     return <p>Loading.....</p>;
   }
 
-  if (error) {
+  if (sending) {
+    return <p>Sending...</p>;
+  }
+
+  if (emailError || resetEmailError) {
     errorElement = (
       <div>
-        <p className="text-danger">Error: {error?.message} </p>
+        <p className="text-danger">
+          Error: {emailError?.message} {resetEmailError?.message}
+        </p>
       </div>
     );
   }
@@ -42,6 +54,16 @@ const LogIn = () => {
 
     console.log(email, password);
     signInWithEmailAndPassword(email, password);
+  };
+
+  const handleResetEmail = async () => {
+    const email = emailRef?.current?.value;
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast('Sent email');
+    } else {
+      toast('Please insert a correct email');
+    }
   };
 
   return (
@@ -76,9 +98,10 @@ const LogIn = () => {
         </p>
         <p>
           Forget Password?
-          <span> Reset Password</span>
+          <span onClick={handleResetEmail}> Reset Password</span>
         </p>
         {errorElement}
+        <ToastContainer />
         <SocialLogIn />
       </div>
     </Container>
