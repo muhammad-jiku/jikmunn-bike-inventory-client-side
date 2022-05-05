@@ -1,18 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Button, Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import useBikeInventories from '../../../customHooks/useBikeInventories/useBikeInventories';
 import BikeInventory from '../../BikeInventories/BikeInventory/BikeInventory';
 
 const BikeInventoryForHomePage = () => {
   const navigate = useNavigate();
-  const [bikeInventory, setBikeInventory] = useState([]);
+  const [bikeInventory] = useBikeInventories();
 
-  useEffect(() => {
-    fetch('http://localhost:5000/bikeinventories')
-      .then((res) => res.json())
-      .then((data) => setBikeInventory(data))
-      .catch((err) => console.log(err));
-  }, []);
   return (
     <Container>
       <Row xs={1} md={2} lg={3} className="g-4">
