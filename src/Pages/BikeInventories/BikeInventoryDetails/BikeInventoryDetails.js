@@ -13,9 +13,7 @@ const BikeInventoryDetails = () => {
       .catch((err) => console.log(err));
   }, [manageinventoryId, bikeInventoryDetails]);
 
-  const handleDeliveredQuantity = (e) => {
-    e.preventDefault();
-
+  const handleDeliveredQuantity = () => {
     let quantity = bikeInventoryDetails?.quantity;
     quantity = parseInt(quantity) - 1;
 
@@ -47,9 +45,11 @@ const BikeInventoryDetails = () => {
   const handleUpdateQuantity = (e) => {
     e.preventDefault();
 
-    const quantity = parseInt(e.target.quantity.value);
+    let quantity = bikeInventoryDetails?.quantity;
+    const addQuantity = parseInt(e.target.quantity.value);
     // console.log(quantity);
-    if (quantity > 0) {
+    if (addQuantity > 0) {
+      quantity = parseInt(quantity) + addQuantity;
       const updatedInventory = { quantity };
       // console.log(updatedInventory);
       const url = `http://localhost:5000/bikeinventory/${manageinventoryId}`;
