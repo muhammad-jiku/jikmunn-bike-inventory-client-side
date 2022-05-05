@@ -33,10 +33,10 @@ const BikeInventoryDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setBikeInventoryDetails({
-          ...data,
-          quantity: quantity,
-        });
+        // setBikeInventoryDetails({
+        //   ...data,
+        //   quantity: quantity,
+        // });
         alert('delivered successfully');
       })
       .catch((err) => console.log(err));
@@ -47,13 +47,13 @@ const BikeInventoryDetails = () => {
 
     let quantity = bikeInventoryDetails?.quantity;
     const addQuantity = parseInt(e.target.quantity.value);
-    // console.log(quantity);
+
     if (addQuantity > 0) {
       quantity = parseInt(quantity) + addQuantity;
       const updatedInventory = { quantity };
-      // console.log(updatedInventory);
+
       const url = `http://localhost:5000/bikeinventory/${manageinventoryId}`;
-      // console.log(url);
+
       fetch(url, {
         method: 'PUT',
         headers: {

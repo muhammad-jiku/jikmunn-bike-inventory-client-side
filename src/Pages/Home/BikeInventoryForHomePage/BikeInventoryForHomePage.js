@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Container, Row } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import BikeInventory from '../../BikeInventories/BikeInventory/BikeInventory';
 
 const BikeInventoryForHomePage = () => {
+  const navigate = useNavigate();
   const [bikeInventory, setBikeInventory] = useState([]);
 
   useEffect(() => {
@@ -18,7 +20,9 @@ const BikeInventoryForHomePage = () => {
           <BikeInventory key={bInventory?._id} bInventory={bInventory} />
         ))}
       </Row>
-      <Button className="ms-auto">Manage Inventories</Button>
+      <Button onClick={() => navigate('/manageinventories')}>
+        Manage Inventories
+      </Button>
     </Container>
   );
 };
