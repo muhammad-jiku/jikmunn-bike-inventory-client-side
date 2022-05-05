@@ -7,17 +7,47 @@ const BikeInventoryDetails = () => {
   const [bikeInventoryDetails, setBikeInventoryDetails] = useState({});
   useEffect(() => {
     const url = `http://localhost:5000/bikeinventory/${manageinventoryId}`;
-    console.log(url);
     fetch(url)
       .then((res) => res.json())
       .then((data) => setBikeInventoryDetails(data))
       .catch((err) => console.log(err));
-  }, [manageinventoryId]);
+  }, [manageinventoryId, bikeInventoryDetails]);
+
+  const handleDeliveredQuantity = (e) => {
+    e.preventDefault();
+
+    let quantity = bikeInventoryDetails?.quantity;
+    quantity = parseInt(quantity) - 1;
+
+    if (quantity < 0) {
+      return alert('Quantity can not be less than zero');
+    }
+
+    const url = `http://localhost:5000/bikeinventory/${manageinventoryId}`;
+    // console.log(url);
+    fetch(url, {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({ quantity }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setBikeInventoryDetails({
+          ...data,
+          quantity: quantity,
+        });
+        alert('delivered successfully');
+      })
+      .catch((err) => console.log(err));
+  };
 
   const handleUpdateQuantity = (e) => {
     e.preventDefault();
 
-    const quantity = e.target.quantity.value;
+    const quantity = parseInt(e.target.quantity.value);
     // console.log(quantity);
     if (quantity > 0) {
       const updatedInventory = { quantity };
@@ -46,7 +76,6 @@ const BikeInventoryDetails = () => {
   };
   return (
     <div>
-      {console.log(bikeInventoryDetails)}
       <h1>This is bikes details of {manageinventoryId}</h1>
       <img src={bikeInventoryDetails?.image} alt={bikeInventoryDetails?.name} />
       <h3>Name: {bikeInventoryDetails?.name}</h3>
@@ -56,7 +85,7 @@ const BikeInventoryDetails = () => {
       <h5>
         Owned by <i> {bikeInventoryDetails?.brand}</i>{' '}
       </h5>
-      <Button>Delivered</Button>
+      <Button onClick={handleDeliveredQuantity}>Delivered</Button>
       <form onSubmit={handleUpdateQuantity}>
         <input
           type="text"
