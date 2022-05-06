@@ -8,7 +8,7 @@ import {
 import auth from '../../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import axios from 'axios';
+import useToken from '../../../customHooks/useToken/useToken';
 
 const LogIn = () => {
   const emailRef = useRef('');
@@ -23,10 +23,12 @@ const LogIn = () => {
   const [sendPasswordResetEmail, sending, resetEmailError] =
     useSendPasswordResetEmail(auth);
 
+  const [token] = useToken(user);
+
   let errorElement = '';
 
-  if (user) {
-    // navigate(from, { replace: true });
+  if (token) {
+    navigate(from, { replace: true });
   }
 
   if (loading) {
@@ -55,10 +57,10 @@ const LogIn = () => {
 
     console.log(email, password);
     await signInWithEmailAndPassword(email, password);
-    const { data } = await axios.post('http://localhost:5000/login', { email });
-    console.log(data);
-    localStorage.setItem('accessToken', data?.accessToken);
-    navigate(from, { replace: true });
+    // const { data } = await axios.post('http://localhost:5000/login', { email });
+    // console.log(data);
+    // localStorage.setItem('accessToken', data?.accessToken);
+    // navigate(from, { replace: true });
   };
 
   const handleResetEmail = async () => {

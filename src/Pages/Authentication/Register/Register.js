@@ -4,6 +4,7 @@ import SocialLogIn from '../SocialLogIn/SocialLogIn';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
+import useToken from '../../../customHooks/useToken/useToken';
 
 const Register = () => {
   const nameRef = useRef('');
@@ -19,7 +20,9 @@ const Register = () => {
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   let errorElement = '';
 
-  if (user) {
+  const [token] = useToken(user);
+
+  if (token) {
     navigate(from, { replace: true });
   }
 
