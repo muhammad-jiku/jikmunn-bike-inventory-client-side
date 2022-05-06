@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import useBikeInventoryDetails from '../../../customHooks/useBikeInventoryDetails/useBikeInventoryDetails';
 
 const BikeInventoryDetails = () => {
   const { manageinventoryId } = useParams();
-  const [bikeInventoryDetails, setBikeInventoryDetails] = useState({});
-  useEffect(() => {
-    const url = `http://localhost:5000/bikeinventory/${manageinventoryId}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setBikeInventoryDetails(data))
-      .catch((err) => console.log(err));
-  }, [manageinventoryId, bikeInventoryDetails]);
+  const [bikeInventoryDetails] = useBikeInventoryDetails(manageinventoryId);
 
   const handleDeliveredQuantity = () => {
     let quantity = bikeInventoryDetails?.quantity;
@@ -22,7 +16,6 @@ const BikeInventoryDetails = () => {
     }
 
     const url = `http://localhost:5000/bikeinventory/${manageinventoryId}`;
-    // console.log(url);
     fetch(url, {
       method: 'PUT',
       headers: {
@@ -76,7 +69,6 @@ const BikeInventoryDetails = () => {
   };
   return (
     <div>
-      <h1>This is bikes details of {manageinventoryId}</h1>
       <img src={bikeInventoryDetails?.image} alt={bikeInventoryDetails?.name} />
       <h3>Name: {bikeInventoryDetails?.name}</h3>
       <h4>Price: {bikeInventoryDetails?.price} </h4>
