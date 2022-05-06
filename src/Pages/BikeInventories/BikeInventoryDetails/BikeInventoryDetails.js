@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
@@ -16,14 +17,16 @@ const BikeInventoryDetails = () => {
     }
 
     const url = `http://localhost:5000/bikeinventory/${manageinventoryId}`;
-    fetch(url, {
-      method: 'PUT',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({ quantity }),
-    })
-      .then((res) => res.json())
+    // fetch(url, {
+    //   method: 'PUT',
+    //   headers: {
+    //     'content-type': 'application/json',
+    //   },
+    //   body: JSON.stringify({ quantity }),
+    // })
+    axios
+      .put(url, { quantity })
+      // .then((res) => res.json())
       .then((data) => {
         console.log(data);
         // setBikeInventoryDetails({
@@ -47,14 +50,16 @@ const BikeInventoryDetails = () => {
 
       const url = `http://localhost:5000/bikeinventory/${manageinventoryId}`;
 
-      fetch(url, {
-        method: 'PUT',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify(updatedInventory),
-      })
-        .then((res) => res.json())
+      // fetch(url, {
+      //   method: 'PUT',
+      //   headers: {
+      //     'content-type': 'application/json',
+      //   },
+      //   body: JSON.stringify(updatedInventory),
+      // })
+      axios
+        .put(url, updatedInventory)
+        // .then((res) => res.json())
         .then((data) => {
           console.log(data);
           alert('quantity updated successfully');

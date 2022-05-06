@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import { Button, Container, Row } from 'react-bootstrap';
 import useBikeInventories from '../../../customHooks/useBikeInventories/useBikeInventories';
@@ -11,10 +12,12 @@ const BikeInventories = () => {
     if (proceed) {
       console.log(id);
       const url = `http://localhost:5000/bikeinventory/${id}`;
-      fetch(url, {
-        method: 'DELETE',
-      })
-        .then((res) => res.json())
+      // fetch(url, {
+      //   method: 'DELETE',
+      // })
+      axios
+        .delete(url)
+        // .then((res) => res.json())
         .then((data) => {
           console.log(data);
           const remainingInventory = bikeInventory?.filter(
