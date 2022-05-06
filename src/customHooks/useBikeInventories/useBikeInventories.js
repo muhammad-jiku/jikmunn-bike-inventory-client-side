@@ -8,7 +8,7 @@ const useBikeInventories = () => {
       .then((res) => res.json())
       .then((data) => setBikeInventory(data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [bikeInventory]);
 
   return [bikeInventory, setBikeInventory];
 };

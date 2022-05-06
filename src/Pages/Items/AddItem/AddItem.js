@@ -2,8 +2,11 @@ import axios from 'axios';
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 const AddItem = () => {
+  const [user, loading, error] = useAuthState(auth);
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     console.log(data);
@@ -29,6 +32,21 @@ const AddItem = () => {
       })
       .catch((err) => console.log(err));
   };
+
+  if (loading) {
+    return (
+      <div>
+        <p>Initialising User...</p>
+      </div>
+    );
+  }
+  if (error) {
+    return (
+      <div>
+        <p>Error: {error}</p>
+      </div>
+    );
+  }
   return (
     <Container>
       <h1>Add the item to list</h1>
@@ -36,12 +54,19 @@ const AddItem = () => {
         <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column">
           <input
             className="mb-2"
-            placeholder=" Brand Name"
-            {...register('brand', { required: true, maxLength: 20 })}
+            value={user?.email}
+            type="email"
+            {...register('email', { required: true })}
+            readOnly
           />
           <input
             className="mb-2"
-            placeholder=" Model Name"
+            placeholder="Brand Name"
+            {...register('brand', { required: true, maxLength: 50 })}
+          />
+          <input
+            className="mb-2"
+            placeholder="Model Name"
             {...register('name', { required: true, maxLength: 20 })}
           />
           <input
