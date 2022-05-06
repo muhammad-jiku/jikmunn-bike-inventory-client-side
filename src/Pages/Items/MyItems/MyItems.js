@@ -11,9 +11,13 @@ const MyItems = () => {
     const getMyItems = async () => {
       const email = user?.email;
       const url = `http://localhost:5000/bikeinventory?email=${email}`;
-      const response = await axios.get(url);
-      console.log(response);
-      const { data } = response;
+      const { data } = await axios.get(url, {
+        headers: {
+          authorization: `Bearer ${localStorage?.getItem('accessToken')}`,
+        },
+      });
+      // console.log(response);
+      // const { data } = response;
       setMyInventoryItems(data);
       console.log(data);
     };
