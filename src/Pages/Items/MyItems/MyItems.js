@@ -1,9 +1,12 @@
 import axios from 'axios';
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 
 const MyItems = () => {
+  const navigate = useNavigate();
   const [user, loading, error] = useAuthState(auth);
   const [myInventoryItems, setMyInventoryItems] = useState([]);
 
@@ -11,18 +14,26 @@ const MyItems = () => {
     const getMyItems = async () => {
       const email = user?.email;
       const url = `http://localhost:5000/bikeinventory?email=${email}`;
-      const { data } = await axios.get(url, {
-        headers: {
-          authorization: `Bearer ${localStorage?.getItem('accessToken')}`,
-        },
-      });
-      // console.log(response);
-      // const { data } = response;
-      setMyInventoryItems(data);
-      console.log(data);
+      try {
+        const { data } = await axios.get(url, {
+          headers: {
+            authorization: `Bearer ${localStorage?.getItem('accessToken')}`,
+          },
+        });
+        // console.log(response);
+        // const { data } = response;
+        setMyInventoryItems(data);
+        console.log(data);
+      } catch (err) {
+        console.log(err.message);
+        if (err.response.status === 401 || err.response.status === 403) {
+          signOut(auth);
+          navigate('/login');
+        }
+      }
     };
     getMyItems();
-  }, [user]);
+  }, [navigate, user]);
 
   if (loading) {
     return (
