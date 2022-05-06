@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React from 'react';
 import { Button, Container, Row } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import useBikeInventories from '../../../customHooks/useBikeInventories/useBikeInventories';
 import BikeInventory from '../BikeInventory/BikeInventory';
 
 const BikeInventories = () => {
+  const navigate = useNavigate('');
   const [bikeInventory, setBikeInventory] = useBikeInventories();
 
   const handleDeleteInventory = (id) => {
@@ -31,6 +33,7 @@ const BikeInventories = () => {
 
   return (
     <Container>
+      <Button onClick={() => navigate('/additem')}>Add new Item</Button>
       <Row xs={1} md={2} lg={3} className="g-4">
         {bikeInventory.map((bInventory) => (
           <div key={bInventory?._id}>
