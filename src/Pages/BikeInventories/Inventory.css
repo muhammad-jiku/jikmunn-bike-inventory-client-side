@@ -1,0 +1,15 @@
+.customDetails{
+    display: flex;
+    
+}
+
+@media only screen and (max-width: 600px) {
+
+    .tableHeaderSpecial{
+        display: none;
+    }
+
+    .customDetails{
+        flex-direction: column;
+    }
+}

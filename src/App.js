@@ -5,15 +5,13 @@ import BikeInventories from './Pages/BikeInventories/BikeInventories/BikeInvento
 import Blogs from './Pages/Blogs/Blogs';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header';
-// import ManageItems from './Pages/Items/ManageItems/ManageItems';
-import AddItem from './Pages/Items/AddItem/AddItem';
-import MyItems from './Pages/Items/MyItems/MyItems';
 import LogIn from './Pages/Authentication/LogIn/LogIn';
 import Register from './Pages/Authentication/Register/Register';
 import NotFound from './Pages/Shared/NotFound/NotFound';
-// import BikeInventory from './Pages/BikeInventories/BikeInventory/BikeInventory';
 import BikeInventoryDetails from './Pages/BikeInventories/BikeInventoryDetails/BikeInventoryDetails';
 import RequiredAuth from './Pages/Authentication/RequiredAuth/RequiredAuth';
+import MyBikeInventory from './Pages/BikeInventories/MyBikeInventory/MyBikeInventory';
+import AddBikeInventory from './Pages/BikeInventories/AddBikeInventory/AddBikeInventory';
 
 function App() {
   return (
@@ -41,20 +39,19 @@ function App() {
             </RequiredAuth>
           }
         />
-        {/* <Route path="/manageinventories" element={<ManageItems />} /> */}
         <Route
-          path="/additem"
+          path="/addinventory"
           element={
             <RequiredAuth>
-              <AddItem />
+              <AddBikeInventory />
             </RequiredAuth>
           }
         />
         <Route
-          path="/myitems"
+          path="/myinventories"
           element={
             <RequiredAuth>
-              <MyItems />
+              <MyBikeInventory />
             </RequiredAuth>
           }
         />

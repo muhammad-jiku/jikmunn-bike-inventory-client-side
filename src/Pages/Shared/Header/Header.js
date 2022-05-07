@@ -50,25 +50,19 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link as={Link} to="/">
-                Home
-              </Nav.Link>
-              {/* <Nav.Link as={Link} to="/bikeInventories">
-                Inventories
-              </Nav.Link> */}
               <Nav.Link as={Link} to="/blogs">
                 Blogs
               </Nav.Link>
               {user ? (
                 <>
                   <Nav.Link as={Link} to="/manageinventories">
-                    Manage Items
+                    Inventories
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/additem">
-                    Add Item
+                  <Nav.Link as={Link} to="/addinventory">
+                    Add Inventory
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/myitems">
-                    My Items
+                  <Nav.Link as={Link} to="/myinventories">
+                    My Inventories
                   </Nav.Link>
                   <Button onClick={signingOut}>Log Out</Button>
                 </>

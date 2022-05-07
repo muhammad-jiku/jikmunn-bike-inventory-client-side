@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 
-const AddItem = () => {
+const AddBikeInventory = () => {
   const [user, loading, error] = useAuthState(auth);
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
@@ -103,4 +103,4 @@ const AddItem = () => {
   );
 };
 
-export default AddItem;
+export default AddBikeInventory;

@@ -1,37 +1,63 @@
+import axios from 'axios';
 import React from 'react';
-import { Button, Col, Image } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import useBikeInventories from '../../../customHooks/useBikeInventories/useBikeInventories';
 
 const BikeInventory = ({ bInventory }) => {
+  const [bikeInventory, setBikeInventory] = useBikeInventories();
   const navigate = useNavigate();
-  const {
-    _id,
-    // brand,
-    name,
-    image,
-    description,
-    supplier,
-    price,
-    quantity,
-  } = bInventory;
+  const { _id, brand, name, image, description, supplier, price, quantity } =
+    bInventory;
 
   const handleUpdateInventory = (id) => {
     navigate(`/manageinventory/${id}`);
   };
+
+  const handleDeleteInventory = (id) => {
+    const proceed = window.confirm('Are you sure want to delete this?');
+    if (proceed) {
+      console.log(id);
+      const url = `http://localhost:5000/bikeinventory/${id}`;
+      // fetch(url, {
+      //   method: 'DELETE',
+      // })
+      axios
+        .delete(url)
+        // .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          const remainingInventory = bikeInventory?.filter(
+            (bInventory) => bInventory?._id !== id
+          );
+          setBikeInventory(remainingInventory);
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
   return (
-    <Col>
-      <div>
+    <tr>
+      <td className="tableHeaderSpecial">
         <Image src={image} alt={name} fluid />
-        <h3> {name} </h3>
-        <h4>Price: BDT{price} </h4>
-        <h4>Quantity: {quantity} </h4>
-        <h4>Supplier: {supplier} </h4>
-        <p>{description}</p>
-      </div>
-      <Button onClick={() => handleUpdateInventory(_id)}>
-        Update Inventory
-      </Button>
-    </Col>
+      </td>
+      <td className="tableHeaderSpecial">{brand}</td>
+      <td>{name}</td>
+      <td>{price}</td>
+      <td>{quantity}</td>
+      <td className="tableHeaderSpecial">
+        {description?.length > 130
+          ? description?.slice(0, 130) + '...'
+          : description}
+      </td>
+      <td className="tableHeaderSpecial">{supplier}</td>
+      <td>
+        <div className="d-flex mx-3">
+          <Button onClick={() => handleUpdateInventory(_id)}>Update</Button>
+          <Button onClick={() => handleDeleteInventory(_id)}>Delete</Button>
+        </div>
+      </td>
+    </tr>
   );
 };
 

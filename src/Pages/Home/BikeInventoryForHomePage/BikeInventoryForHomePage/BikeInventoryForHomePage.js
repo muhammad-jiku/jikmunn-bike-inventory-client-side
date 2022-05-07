@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import useBikeInventories from '../../../customHooks/useBikeInventories/useBikeInventories';
-import BikeInventory from '../../BikeInventories/BikeInventory/BikeInventory';
+import useBikeInventories from '../../../../customHooks/useBikeInventories/useBikeInventories';
+import BikeInventory from '../BikeInventory/BikeInventory';
 
 const BikeInventoryForHomePage = () => {
   const navigate = useNavigate();

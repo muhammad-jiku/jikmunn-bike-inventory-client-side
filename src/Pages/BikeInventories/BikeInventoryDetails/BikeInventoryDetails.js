@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import useBikeInventoryDetails from '../../../customHooks/useBikeInventoryDetails/useBikeInventoryDetails';
 
@@ -73,27 +73,34 @@ const BikeInventoryDetails = () => {
     }
   };
   return (
-    <div>
-      <img src={bikeInventoryDetails?.image} alt={bikeInventoryDetails?.name} />
-      <h3>Name: {bikeInventoryDetails?.name}</h3>
-      <h4>Price: {bikeInventoryDetails?.price} </h4>
-      <h4>quantity: {bikeInventoryDetails?.quantity} </h4>
-      <h4>Supplier: {bikeInventoryDetails?.supplier} </h4>
-      <h5>
-        Owned by <i> {bikeInventoryDetails?.brand}</i>{' '}
-      </h5>
-      <Button onClick={handleDeliveredQuantity}>Delivered</Button>
-      <form onSubmit={handleUpdateQuantity}>
-        <input
-          type="text"
-          placeholder="Add quantity"
-          name="quantity"
-          id="quantity"
-          required
+    <Container className="customDetails">
+      <div>
+        <img
+          src={bikeInventoryDetails?.image}
+          alt={bikeInventoryDetails?.name}
         />
-        <Button type="submit">Add Quantity</Button>
-      </form>
-    </div>
+      </div>
+      <div>
+        <h3>Name: {bikeInventoryDetails?.name}</h3>
+        <h4>Price: {bikeInventoryDetails?.price} </h4>
+        <h4>quantity: {bikeInventoryDetails?.quantity} </h4>
+        <h4>Supplier: {bikeInventoryDetails?.supplier} </h4>
+        <h5>
+          Owned by <i> {bikeInventoryDetails?.brand}</i>{' '}
+        </h5>
+        <Button onClick={handleDeliveredQuantity}>Delivered</Button>
+        <form onSubmit={handleUpdateQuantity}>
+          <input
+            type="text"
+            placeholder="Add quantity"
+            name="quantity"
+            id="quantity"
+            required
+          />
+          <Button type="submit">Add Quantity</Button>
+        </form>
+      </div>
+    </Container>
   );
 };
 
