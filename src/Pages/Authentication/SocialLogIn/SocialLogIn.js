@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import googleLogo from '../../../Images/google.png';
 import githubLogo from '../../../Images/github.png';
 import { Button } from 'react-bootstrap';
@@ -10,33 +10,21 @@ import auth from '../../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useToken from '../../../customHooks/useToken/useToken';
 import Loading from '../../Shared/Loading/Loading';
+import { toast } from 'react-toastify';
 
 const SocialLogIn = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  let from = location.state?.from?.pathname || '/';
-  let errorElement = '';
-
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
   const [signInWithGithub, githubUser, githubLoading, githubError] =
     useSignInWithGithub(auth);
-
   const [token] = useToken(googleUser || githubUser);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || '/';
 
   if (token) {
     navigate(from, { replace: true });
-  }
-
-  if (googleError || githubError) {
-    errorElement = (
-      <div>
-        <p className="text-danger">
-          Error: {googleError?.message} {githubError?.message}
-        </p>
-      </div>
-    );
   }
 
   const handleGoogleLogIn = async () => {
@@ -45,13 +33,27 @@ const SocialLogIn = () => {
   const handleGithubLogIn = async () => {
     await signInWithGithub();
   };
+
+  useEffect(() => {
+    if (googleError) {
+      toast.error('Google sign in failed');
+    }
+    return;
+  }, [googleError]);
+
+  useEffect(() => {
+    if (githubError) {
+      toast.error('Github sign in failed');
+    }
+    return;
+  }, [githubError]);
+
   return (
     <>
       {googleLoading || githubLoading ? (
         <Loading />
       ) : (
         <>
-          {errorElement}
           <div className="d-flex align-items-center justify-content-center">
             <div></div>
             <p className="m-4">or</p>

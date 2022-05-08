@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import {
   useAuthState,
@@ -7,6 +7,7 @@ import {
 import auth from '../../../firebase.init';
 import { Button, Container } from 'react-bootstrap';
 import Loading from '../../Shared/Loading/Loading';
+import { toast } from 'react-toastify';
 
 const RequiredAuth = ({ children }) => {
   const location = useLocation();
@@ -14,20 +15,24 @@ const RequiredAuth = ({ children }) => {
   const [sendEmailVerification, sending, verifyError] =
     useSendEmailVerification(auth);
 
-  if (authError || verifyError) {
-    return (
-      <div>
-        <p>
-          Error: {authError?.message} {verifyError?.message}
-        </p>
-      </div>
-    );
-  }
-
   const handleVerifyEmail = async () => {
     await sendEmailVerification();
     alert('Email verification message sent');
   };
+
+  useEffect(() => {
+    if (authError) {
+      toast.error('Something went wrong');
+    }
+    return;
+  }, [authError]);
+
+  useEffect(() => {
+    if (verifyError) {
+      toast.error('Verification failed');
+    }
+    return;
+  }, [verifyError]);
 
   if (!user) {
     return <Navigate to="/login" state={{ from: location }} replace />;

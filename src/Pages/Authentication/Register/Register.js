@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import SocialLogIn from '../SocialLogIn/SocialLogIn';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -6,6 +6,7 @@ import auth from '../../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useToken from '../../../customHooks/useToken/useToken';
 import Loading from '../../Shared/Loading/Loading';
+import { toast } from 'react-toastify';
 
 const Register = () => {
   const nameRef = useRef('');
@@ -13,26 +14,16 @@ const Register = () => {
   const passwordRef = useRef('');
   const termsRef = useRef();
 
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [token] = useToken(user);
+
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || '/';
 
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-  let errorElement = '';
-
-  const [token] = useToken(user);
-
   if (token) {
     navigate(from, { replace: true });
-  }
-
-  if (error) {
-    errorElement = (
-      <div>
-        <p className="text-danger">Error: {error?.message}</p>
-      </div>
-    );
   }
 
   const handleRegisterSubmit = async (e) => {
@@ -56,6 +47,14 @@ const Register = () => {
 
     console.log(name, email, password);
   };
+
+  useEffect(() => {
+    if (error) {
+      toast.error('Failed to create an account');
+    }
+    return;
+  }, [error]);
+
   return (
     <Container>
       {loading ? (
@@ -106,7 +105,6 @@ const Register = () => {
             Already have an account?
             <span onClick={() => navigate('/login')}> Log In now</span>
           </p>
-          {errorElement}
           <SocialLogIn />
         </>
       )}

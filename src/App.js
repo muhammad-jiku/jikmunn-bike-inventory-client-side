@@ -12,6 +12,7 @@ import BikeInventoryDetails from './Pages/BikeInventories/BikeInventoryDetails/B
 import RequiredAuth from './Pages/Authentication/RequiredAuth/RequiredAuth';
 import MyBikeInventory from './Pages/BikeInventories/MyBikeInventory/MyBikeInventory';
 import AddBikeInventory from './Pages/BikeInventories/AddBikeInventory/AddBikeInventory';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <ToastContainer autoClose={10000} />
       <Footer />
     </div>
   );
