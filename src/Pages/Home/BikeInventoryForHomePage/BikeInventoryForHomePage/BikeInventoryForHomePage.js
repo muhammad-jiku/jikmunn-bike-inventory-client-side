@@ -10,7 +10,7 @@ const BikeInventoryForHomePage = () => {
 
   return (
     <Container>
-      <Row xs={1} md={2} lg={3} className="g-4">
+      <Row xs={1} md={2} lg={3} className="g-5">
         {bikeInventory?.slice(1, 7).map((bInventory) => (
           <BikeInventory key={bInventory?._id} bInventory={bInventory} />
         ))}
