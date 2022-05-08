@@ -15,14 +15,14 @@ const Header = () => {
     signOut(auth);
   };
   return (
-    <>
+    <div>
       <Navbar
         collapseOnSelect
         expand="lg"
         bg="dark"
         variant="dark"
         sticky="top"
-        // className="navBarStyle"
+        className="navBarStyle"
       >
         <Container>
           <div onClick={() => navigate('/')}>
@@ -65,7 +65,7 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </>
+    </div>
   );
 };
 

@@ -5,14 +5,14 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import axiosPrivate from '../../../api/axiosPrivate';
 import auth from '../../../firebase.init';
-import Loading from '../../Shared/Loading/Loading';
+// import Loading from '../../Shared/Loading/Loading';
 import BikeInventory from '../BikeInventory/BikeInventory';
 
 const MyBikeInventory = () => {
   const navigate = useNavigate();
   const [user, loading, error] = useAuthState(auth);
   const [myInventoryItems, setMyInventoryItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getMyItems = async () => {
@@ -23,7 +23,7 @@ const MyBikeInventory = () => {
         // console.log(response);
         // const { data } = response;
         setMyInventoryItems(data);
-        setIsLoading(false);
+        // setIsLoading(false);
         console.log(data);
       } catch (err) {
         console.log(err.message);
@@ -45,9 +45,9 @@ const MyBikeInventory = () => {
   }
   return (
     <Container>
-      {loading || isLoading ? (
+      {/* {loading || isLoading ? (
         <Loading />
-      ) : (
+      ) : ( */}
         <>
           <h4>
             {myInventoryItems?.length > 0
@@ -89,7 +89,7 @@ const MyBikeInventory = () => {
             </Table>
           )}
         </>
-      )}
+      {/* )} */}
     </Container>
   );
 };

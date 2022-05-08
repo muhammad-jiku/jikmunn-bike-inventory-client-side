@@ -4,7 +4,7 @@ import { Alert, Button, Container, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import Loading from '../../Shared/Loading/Loading';
+// import Loading from '../../Shared/Loading/Loading';
 
 const AddBikeInventory = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -48,9 +48,9 @@ const AddBikeInventory = () => {
   }
   return (
     <Container>
-      {loading ? (
+      {/* {loading ? (
         <Loading />
-      ) : (
+      ) : ( */}
         <>
           <h1>Add the item to list</h1>
           {!isValid && isSubmitted ? (
@@ -208,7 +208,7 @@ const AddBikeInventory = () => {
             </Form>
           </div>
         </>
-      )}
+      {/* )} */}
     </Container>
   );
 };

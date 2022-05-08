@@ -4,6 +4,7 @@ import { Button, Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import useBikeInventoryDetails from '../../../customHooks/useBikeInventoryDetails/useBikeInventoryDetails';
 // import Loading from '../../Shared/Loading/Loading';
+import { toast } from 'react-toastify';
 
 const BikeInventoryDetails = () => {
   const { manageinventoryId } = useParams();
@@ -14,7 +15,7 @@ const BikeInventoryDetails = () => {
     quantity = parseInt(quantity) - 1;
 
     if (quantity < 0) {
-      return alert('Quantity can not be less than zero');
+      return toast.error('Quantity can not be less than zero');
     }
 
     const url = `http://localhost:5000/bikeinventory/${manageinventoryId}`;
@@ -34,7 +35,7 @@ const BikeInventoryDetails = () => {
         //   ...data,
         //   quantity: quantity,
         // });
-        alert('delivered successfully');
+        toast.success('delivered successfully');
       })
       .catch((err) => console.log(err));
   };
@@ -63,12 +64,12 @@ const BikeInventoryDetails = () => {
         // .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          alert('quantity updated successfully');
+          toast.success('quantity updated successfully');
           e.target.reset();
         })
         .catch((err) => console.log(err));
     } else {
-      alert('Please insert positive number of quantiy');
+      toast.error('Please insert positive number of quantiy');
       e.target.reset();
       return;
     }

@@ -1,0 +1,110 @@
+.formDesign{
+    display: flex;
+    background-color: black;
+}
+
+.formDesignLeft{
+    width: 50%;
+    padding: 20px;
+    color: white;
+}
+
+
+.form{
+    margin: 20px auto;
+    width: 600px;
+    border: 1px solid brown;
+    padding: 20px;
+}
+
+
+.formDesignHeading{
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.formDesignButton{
+    background-color: brown;
+    width: 100%;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 30px;
+    margin: 10px 0;
+}
+
+
+.toggleSection{
+    margin-top: 10px;
+}
+
+.formDesignRight{
+  width: 50%;
+  padding: 20px;
+  backdrop-filter: blur(8px);
+  height: 100vh; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    background-image: 
+    url('../../Images/loginBg.jpg');
+}
+
+.formDesignRightBox{
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+.toggleSection > span {
+    cursor: pointer;
+    color: brown;
+    font-weight: 700;
+}
+
+.lineDraw{
+    background-color: white;
+    height: 2px;
+    width: 50%;
+}
+
+.socialButton{
+    background-color: brown;
+    width: 50%;
+    margin: 0 5px;
+    border: none;
+    padding: 10px;
+    border-radius: 30px;
+    color: white;
+}
+
+
+.formDesignButton:hover, .socialButton:hover{
+    background-color: rgb(196, 69, 69);
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .formDesign{
+        flex-direction: column-reverse;
+    }
+
+    .form{
+    width: 100%;
+  }
+
+    .formDesignLeft, .formDesignRight{
+        width: 100%;
+    }
+}

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import googleLogo from '../../../Images/google.png';
 import githubLogo from '../../../Images/github.png';
-import { Button } from 'react-bootstrap';
 import {
   useSignInWithGithub,
   useSignInWithGoogle,
@@ -55,19 +54,19 @@ const SocialLogIn = () => {
       ) : (
         <>
           <div className="d-flex align-items-center justify-content-center">
-            <div></div>
+            <div className="lineDraw"></div>
             <p className="m-4">or</p>
-            <div></div>
+            <div className="lineDraw"></div>
           </div>
           <div className="d-flex">
-            <Button onClick={handleGoogleLogIn}>
+            <button onClick={handleGoogleLogIn} className="socialButton">
               <span className="text-white">Log In with </span>
               <img src={googleLogo} alt="google's logo" />
-            </Button>
-            <Button onClick={handleGithubLogIn}>
+            </button>
+            <button onClick={handleGithubLogIn} className="socialButton">
               <span>Log In with </span>{' '}
               <img src={githubLogo} alt="github's logo" />
-            </Button>
+            </button>
           </div>
         </>
       )}

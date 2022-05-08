@@ -1,5 +1,9 @@
 .navBarStyle{
-    /* background-color: rgba(235, 235, 235, 0.2); */
+    background-color: black;
+    /* position:absolute;
+    width:100%;
+    z-index:10;
+    max-width:100%; */
 }
 
 .navBarStyleLogo{

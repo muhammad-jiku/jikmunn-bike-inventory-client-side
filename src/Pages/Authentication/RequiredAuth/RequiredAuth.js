@@ -17,7 +17,7 @@ const RequiredAuth = ({ children }) => {
 
   const handleVerifyEmail = async () => {
     await sendEmailVerification();
-    alert('Email verification message sent');
+    toast.success('Email verification message sent');
   };
 
   useEffect(() => {
@@ -33,7 +33,9 @@ const RequiredAuth = ({ children }) => {
     }
     return;
   }, [verifyError]);
-
+  if (loading) {
+    return;
+  }
   if (!user) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }

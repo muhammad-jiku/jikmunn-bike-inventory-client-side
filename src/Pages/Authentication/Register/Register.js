@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
+import React, { useEffect, useRef, useState } from 'react';
+import { Form } from 'react-bootstrap';
 import SocialLogIn from '../SocialLogIn/SocialLogIn';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
@@ -9,6 +9,7 @@ import Loading from '../../Shared/Loading/Loading';
 import { toast } from 'react-toastify';
 
 const Register = () => {
+  const [validated, setValidated] = useState(false);
   const nameRef = useRef('');
   const emailRef = useRef('');
   const passwordRef = useRef('');
@@ -21,6 +22,7 @@ const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || '/';
+  // let need;
 
   if (token) {
     navigate(from, { replace: true });
@@ -31,21 +33,18 @@ const Register = () => {
     const name = nameRef?.current?.value;
     const email = emailRef?.current?.value;
     const password = passwordRef?.current?.value;
+    const terms = termsRef?.current?.checked;
 
-    if (password?.length < 6) {
-      alert('Password must be at least 6 letters');
+    if (password?.length >= 1 && password?.length < 6) {
+      toast.error('Password must be at least 6 letters');
       return;
     }
-
-    const terms = termsRef?.current?.checked;
-    if (terms) {
+    if (terms && password?.length >= 6) {
       await createUserWithEmailAndPassword(email, password);
-      alert('Account created successfully');
-    } else {
-      alert('Please accept terms and conditions to create an account');
+      toast.success('Account created successfully');
     }
-
-    console.log(name, email, password);
+    setValidated(true);
+    console.log(name, email, password, terms);
   };
 
   useEffect(() => {
@@ -56,59 +55,90 @@ const Register = () => {
   }, [error]);
 
   return (
-    <Container>
-      {loading ? (
+    <div>
+      {/* {loading ? (
         <Loading />
-      ) : (
-        <>
-          <h1>Hurry up and create an account with BIKE DECOR</h1>
-          <Form onSubmit={handleRegisterSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter name"
-                ref={nameRef}
-                required
-              />
-            </Form.Group>
+      ) : ( */}
+      <>
+        <div className="formDesign">
+          <div className="formDesignLeft">
+            <h1 className="formDesignHeading">Sign Up</h1>
+            <div>
+              <Form
+                noValidate
+                validated={validated}
+                onSubmit={handleRegisterSubmit}
+                className="form"
+              >
+                <Form.Group className="mb-3" controlId="formBasicName">
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter name"
+                    ref={nameRef}
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please insert your name
+                  </Form.Control.Feedback>
+                </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter email"
-                ref={emailRef}
-                required
-              />
-            </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Email address</Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="Enter email"
+                    ref={emailRef}
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please insert your email
+                  </Form.Control.Feedback>
+                </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                ref={passwordRef}
-                required
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check
-                type="checkbox"
-                label="Accept terms & conditions"
-                ref={termsRef}
-              />
-            </Form.Group>
-            <Button type="submit">Register</Button>
-          </Form>
-          <p>
-            Already have an account?
-            <span onClick={() => navigate('/login')}> Log In now</span>
-          </p>
-          <SocialLogIn />
-        </>
-      )}
-    </Container>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    ref={passwordRef}
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please insert your password
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                  <Form.Check
+                    type="checkbox"
+                    label="Accept terms & conditions"
+                    ref={termsRef}
+                    feedback="You need to agree terms and conditions"
+                    feedbackType="invalid"
+                    required
+                  />
+                </Form.Group>
+                <button type="submit" className="formDesignButton">
+                  Sign Up
+                </button>
+                <p className="toggleSection">
+                  Already have an account?
+                  <span onClick={() => navigate('/login')}> Sign In here</span>
+                </p>
+              </Form>
+              <SocialLogIn />
+            </div>
+          </div>
+
+          <div className="formDesignRight">
+            <div className="formDesignRightBox">
+              <h1>Bike Decor</h1>
+            </div>
+          </div>
+        </div>
+      </>
+      {/* )} */}
+    </div>
   );
 };
 

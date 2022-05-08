@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
+import React, { useEffect, useRef, useState } from 'react';
+import { Form } from 'react-bootstrap';
 import SocialLogIn from '../SocialLogIn/SocialLogIn';
 import {
   useSendPasswordResetEmail,
@@ -10,8 +10,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useToken from '../../../customHooks/useToken/useToken';
 import Loading from '../../Shared/Loading/Loading';
+import '../Authentication.css';
 
 const LogIn = () => {
+  const [validated, setValidated] = useState(false);
   const emailRef = useRef('');
   const passwordRef = useRef('');
 
@@ -36,6 +38,7 @@ const LogIn = () => {
 
     console.log(email, password);
     await signInWithEmailAndPassword(email, password);
+    setValidated(true);
   };
 
   const handleResetEmail = async () => {
@@ -46,7 +49,7 @@ const LogIn = () => {
       toast.success('Reset email message is sent');
       return;
     } else {
-      toast.error('Invalid mail');
+      toast.error('Insert your email address please!');
       return;
     }
   };
@@ -59,14 +62,20 @@ const LogIn = () => {
   }, [error]);
 
   return (
-    <Container>
-      {loading || sending ? (
+    <div>
+      {/* {loading || sending ? (
         <Loading />
-      ) : (
-        <>
-          <h1> Log in here to join BIKE DECOR</h1>
+      ) : ( */}
+      <div className="formDesign">
+        <div className="formDesignLeft">
+          <h1 className="formDesignHeading">Sign In</h1>
           <div>
-            <Form onSubmit={handleLogInSubmit}>
+            <Form
+              noValidate
+              validated={validated}
+              onSubmit={handleLogInSubmit}
+              className="form"
+            >
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control
@@ -75,8 +84,10 @@ const LogIn = () => {
                   ref={emailRef}
                   required
                 />
+                <Form.Control.Feedback type="invalid">
+                  Please insert email
+                </Form.Control.Feedback>
               </Form.Group>
-
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
@@ -85,22 +96,34 @@ const LogIn = () => {
                   ref={passwordRef}
                   required
                 />
+                <Form.Control.Feedback type="invalid">
+                  Please insert password
+                </Form.Control.Feedback>
               </Form.Group>
-              <Button type="submit">Log in</Button>
+              <button type="submit" className="formDesignButton">
+                Sign In
+              </button>{' '}
+              <p className="toggleSection">
+                New to BIKE DECOR?
+                <span onClick={() => navigate('/register')}> Sign Up</span>
+              </p>
+              <p className="toggleSection">
+                Forget Password?
+                <span onClick={handleResetEmail}> Reset Password</span>
+              </p>
             </Form>
-            <p>
-              New here?
-              <span onClick={() => navigate('/register')}> Register now</span>
-            </p>
-            <p>
-              Forget Password?
-              <span onClick={handleResetEmail}> Reset Password</span>
-            </p>
             <SocialLogIn />
           </div>
-        </>
-      )}
-    </Container>
+        </div>
+
+        <div className="formDesignRight">
+          <div className="formDesignRightBox">
+            <h1>Bike Decor</h1>
+          </div>
+        </div>
+      </div>
+      {/* )} */}
+    </div>
   );
 };
 
