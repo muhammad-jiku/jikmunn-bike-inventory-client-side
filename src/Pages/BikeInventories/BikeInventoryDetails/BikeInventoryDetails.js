@@ -16,7 +16,7 @@ const BikeInventoryDetails = () => {
       return alert('Quantity can not be less than zero');
     }
 
-    const url = `http://localhost:5000/bikeinventory/${manageinventoryId}`;
+    const url = `https://cryptic-reef-07381.herokuapp.com/bikeinventory/${manageinventoryId}`;
     // fetch(url, {
     //   method: 'PUT',
     //   headers: {
@@ -48,7 +48,7 @@ const BikeInventoryDetails = () => {
       quantity = parseInt(quantity) + addQuantity;
       const updatedInventory = { quantity };
 
-      const url = `http://localhost:5000/bikeinventory/${manageinventoryId}`;
+      const url = `https://cryptic-reef-07381.herokuapp.com/bikeinventory/${manageinventoryId}`;
 
       // fetch(url, {
       //   method: 'PUT',

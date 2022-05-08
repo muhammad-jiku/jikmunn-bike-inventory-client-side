@@ -4,7 +4,7 @@ const useBikeInventories = () => {
   const [bikeInventory, setBikeInventory] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/bikeinventories')
+    fetch('https://cryptic-reef-07381.herokuapp.com/bikeinventories')
       .then((res) => res.json())
       .then((data) => setBikeInventory(data))
       .catch((err) => console.log(err));

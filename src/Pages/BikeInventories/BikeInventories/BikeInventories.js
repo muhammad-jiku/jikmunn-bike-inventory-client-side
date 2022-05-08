@@ -17,7 +17,7 @@ const BikeInventories = () => {
   //   const proceed = window.confirm('Are you sure want to delete this?');
   //   if (proceed) {
   //     console.log(id);
-  //     const url = `http://localhost:5000/bikeinventory/${id}`;
+  //     const url = `https://cryptic-reef-07381.herokuapp.com/bikeinventory/${id}`;
   //     // fetch(url, {
   //     //   method: 'DELETE',
   //     // })

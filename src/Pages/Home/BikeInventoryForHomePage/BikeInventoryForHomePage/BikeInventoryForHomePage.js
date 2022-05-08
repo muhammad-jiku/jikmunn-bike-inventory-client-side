@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import useBikeInventories from '../../../../customHooks/useBikeInventories/useBikeInventories';
 import BikeInventory from '../BikeInventory/BikeInventory';
@@ -15,9 +15,11 @@ const BikeInventoryForHomePage = () => {
           <BikeInventory key={bInventory?._id} bInventory={bInventory} />
         ))}
       </Row>
-      <Button onClick={() => navigate('/manageinventories')}>
-        Manage Inventories
-      </Button>
+      <div className="bikeInventorySeeMoreButton">
+        <button onClick={() => navigate('/manageinventories')}>
+          Manage Inventories
+        </button>
+      </div>
     </Container>
   );
 };

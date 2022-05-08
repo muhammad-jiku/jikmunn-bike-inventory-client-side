@@ -10,7 +10,7 @@ const AddBikeInventory = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    const url = `http://localhost:5000/bikeinventory`;
+    const url = `https://cryptic-reef-07381.herokuapp.com/bikeinventory`;
     // fetch(url, {
     //   method: 'POST',
     //   headers: {

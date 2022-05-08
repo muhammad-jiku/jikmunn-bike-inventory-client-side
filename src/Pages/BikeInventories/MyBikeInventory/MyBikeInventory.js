@@ -15,7 +15,7 @@ const MyBikeInventory = () => {
   useEffect(() => {
     const getMyItems = async () => {
       const email = user?.email;
-      const url = `http://localhost:5000/bikeinventory?email=${email}`;
+      const url = `https://cryptic-reef-07381.herokuapp.com/bikeinventory?email=${email}`;
       try {
         const { data } = await axiosPrivate.get(url);
         // console.log(response);
