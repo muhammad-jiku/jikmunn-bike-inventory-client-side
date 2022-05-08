@@ -1,9 +1,9 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import useBikeInventoryDetails from '../../../customHooks/useBikeInventoryDetails/useBikeInventoryDetails';
-import Loading from '../../Shared/Loading/Loading';
+// import Loading from '../../Shared/Loading/Loading';
 
 const BikeInventoryDetails = () => {
   const { manageinventoryId } = useParams();
