@@ -1,8 +1,9 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import useBikeInventoryDetails from '../../../customHooks/useBikeInventoryDetails/useBikeInventoryDetails';
+import Loading from '../../Shared/Loading/Loading';
 
 const BikeInventoryDetails = () => {
   const { manageinventoryId } = useParams();
@@ -16,7 +17,7 @@ const BikeInventoryDetails = () => {
       return alert('Quantity can not be less than zero');
     }
 
-    const url = `https://cryptic-reef-07381.herokuapp.com/bikeinventory/${manageinventoryId}`;
+    const url = `http://localhost:5000/bikeinventory/${manageinventoryId}`;
     // fetch(url, {
     //   method: 'PUT',
     //   headers: {
@@ -48,7 +49,7 @@ const BikeInventoryDetails = () => {
       quantity = parseInt(quantity) + addQuantity;
       const updatedInventory = { quantity };
 
-      const url = `https://cryptic-reef-07381.herokuapp.com/bikeinventory/${manageinventoryId}`;
+      const url = `http://localhost:5000/bikeinventory/${manageinventoryId}`;
 
       // fetch(url, {
       //   method: 'PUT',
@@ -74,32 +75,34 @@ const BikeInventoryDetails = () => {
   };
   return (
     <Container className="customDetails">
-      <div>
-        <img
-          src={bikeInventoryDetails?.image}
-          alt={bikeInventoryDetails?.name}
-        />
-      </div>
-      <div>
-        <h3>Name: {bikeInventoryDetails?.name}</h3>
-        <h4>Price: {bikeInventoryDetails?.price} </h4>
-        <h4>quantity: {bikeInventoryDetails?.quantity} </h4>
-        <h4>Supplier: {bikeInventoryDetails?.supplier} </h4>
-        <h5>
-          Owned by <i> {bikeInventoryDetails?.brand}</i>{' '}
-        </h5>
-        <Button onClick={handleDeliveredQuantity}>Delivered</Button>
-        <form onSubmit={handleUpdateQuantity}>
-          <input
-            type="text"
-            placeholder="Add quantity"
-            name="quantity"
-            id="quantity"
-            required
+      <>
+        <div>
+          <img
+            src={bikeInventoryDetails?.image}
+            alt={bikeInventoryDetails?.name}
           />
-          <Button type="submit">Add Quantity</Button>
-        </form>
-      </div>
+        </div>
+        <div>
+          <h3>Name: {bikeInventoryDetails?.name}</h3>
+          <h4>Price: {bikeInventoryDetails?.price} </h4>
+          <h4>quantity: {bikeInventoryDetails?.quantity} </h4>
+          <h4>Supplier: {bikeInventoryDetails?.supplier} </h4>
+          <h5>
+            Owned by <i> {bikeInventoryDetails?.brand}</i>{' '}
+          </h5>
+          <Button onClick={handleDeliveredQuantity}>Delivered</Button>
+          <form onSubmit={handleUpdateQuantity}>
+            <input
+              type="text"
+              placeholder="Add quantity"
+              name="quantity"
+              id="quantity"
+              required
+            />
+            <Button type="submit">Add Quantity</Button>
+          </form>
+        </div>
+      </>
     </Container>
   );
 };

@@ -9,6 +9,7 @@ import {
 import auth from '../../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useToken from '../../../customHooks/useToken/useToken';
+import Loading from '../../Shared/Loading/Loading';
 
 const SocialLogIn = () => {
   const navigate = useNavigate();
@@ -26,10 +27,6 @@ const SocialLogIn = () => {
 
   if (token) {
     navigate(from, { replace: true });
-  }
-
-  if (googleLoading || githubLoading) {
-    return <p>Loading...</p>;
   }
 
   if (googleError || githubError) {
@@ -50,21 +47,28 @@ const SocialLogIn = () => {
   };
   return (
     <>
-      {errorElement}
-      <div className="d-flex align-items-center justify-content-center">
-        <div></div>
-        <p className="m-4">or</p>
-        <div></div>
-      </div>
-      <div className="d-flex">
-        <Button onClick={handleGoogleLogIn}>
-          <span className="text-white">Log In with </span>
-          <img src={googleLogo} alt="google's logo" />
-        </Button>
-        <Button onClick={handleGithubLogIn}>
-          <span>Log In with </span> <img src={githubLogo} alt="github's logo" />
-        </Button>
-      </div>
+      {googleLoading || githubLoading ? (
+        <Loading />
+      ) : (
+        <>
+          {errorElement}
+          <div className="d-flex align-items-center justify-content-center">
+            <div></div>
+            <p className="m-4">or</p>
+            <div></div>
+          </div>
+          <div className="d-flex">
+            <Button onClick={handleGoogleLogIn}>
+              <span className="text-white">Log In with </span>
+              <img src={googleLogo} alt="google's logo" />
+            </Button>
+            <Button onClick={handleGithubLogIn}>
+              <span>Log In with </span>{' '}
+              <img src={githubLogo} alt="github's logo" />
+            </Button>
+          </div>
+        </>
+      )}
     </>
   );
 };

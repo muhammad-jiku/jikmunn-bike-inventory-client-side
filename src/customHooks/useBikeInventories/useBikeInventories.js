@@ -6,7 +6,9 @@ const useBikeInventories = () => {
   useEffect(() => {
     fetch('https://cryptic-reef-07381.herokuapp.com/bikeinventories')
       .then((res) => res.json())
-      .then((data) => setBikeInventory(data))
+      .then((data) => {
+        setBikeInventory(data);
+      })
       .catch((err) => console.log(err));
   }, [bikeInventory]);
 

@@ -3,8 +3,8 @@
   border-radius: 10px;
   padding: 10px 0;
   box-sizing: border-box;
-  width: 420px;
-  height: 750px; 
+  /* width: 420px;
+  height: 750px;  */
   position: relative;
   margin: 20px auto;
   font-family: 'Poppins', sans-serif;
@@ -12,8 +12,8 @@
 }
 
 .bikeInventoryCard > img {
-  width: 410px;
-  height: 280px;
+  /* width: 410px;
+  height: 280px; */
   border-radius: 10px;
   margin: 0 4px;
 }
@@ -66,14 +66,14 @@
 
 
 @media only screen and (max-width: 600px) {
-    .bikeInventoryCard{
+    /* .bikeInventoryCard{
         width: 320px;
         height: 800px;
     }
 
     .bikeInventoryCard > img {
         width: 310px;
-    }
+    } */
 
     .bikeInventorySeeMoreButton > button{
         left: 25%;

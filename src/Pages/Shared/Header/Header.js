@@ -9,22 +9,7 @@ import { signOut } from 'firebase/auth';
 
 const Header = () => {
   const navigate = useNavigate();
-  const [user, loading, error] = useAuthState(auth);
-
-  if (loading) {
-    return (
-      <div>
-        <p>Loading User...</p>
-      </div>
-    );
-  }
-  if (error) {
-    return (
-      <div>
-        <p className="text-danger">Error: {error}</p>
-      </div>
-    );
-  }
+  const [user] = useAuthState(auth);
 
   const signingOut = () => {
     signOut(auth);

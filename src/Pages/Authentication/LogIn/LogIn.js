@@ -9,6 +9,7 @@ import auth from '../../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import useToken from '../../../customHooks/useToken/useToken';
+import Loading from '../../Shared/Loading/Loading';
 
 const LogIn = () => {
   const emailRef = useRef('');
@@ -29,14 +30,6 @@ const LogIn = () => {
 
   if (token) {
     navigate(from, { replace: true });
-  }
-
-  if (loading) {
-    return <p>Loading.....</p>;
-  }
-
-  if (sending) {
-    return <p>Sending...</p>;
   }
 
   if (emailError || resetEmailError) {
@@ -75,42 +68,48 @@ const LogIn = () => {
 
   return (
     <Container>
-      <h1> Log in here to join BIKE DECOR</h1>
-      <div>
-        <Form onSubmit={handleLogInSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
-              ref={emailRef}
-              required
-            />
-          </Form.Group>
+      {loading || sending ? (
+        <Loading />
+      ) : (
+        <>
+          <h1> Log in here to join BIKE DECOR</h1>
+          <div>
+            <Form onSubmit={handleLogInSubmit}>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  ref={emailRef}
+                  required
+                />
+              </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              ref={passwordRef}
-              required
-            />
-          </Form.Group>
-          <Button type="submit">Log in</Button>
-        </Form>
-        <p>
-          New here?
-          <span onClick={() => navigate('/register')}> Register now</span>
-        </p>
-        <p>
-          Forget Password?
-          <span onClick={handleResetEmail}> Reset Password</span>
-        </p>
-        {errorElement}
-        <ToastContainer />
-        <SocialLogIn />
-      </div>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  ref={passwordRef}
+                  required
+                />
+              </Form.Group>
+              <Button type="submit">Log in</Button>
+            </Form>
+            <p>
+              New here?
+              <span onClick={() => navigate('/register')}> Register now</span>
+            </p>
+            <p>
+              Forget Password?
+              <span onClick={handleResetEmail}> Reset Password</span>
+            </p>
+            {errorElement}
+            <ToastContainer />
+            <SocialLogIn />
+          </div>
+        </>
+      )}
     </Container>
   );
 };
