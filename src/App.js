@@ -13,6 +13,9 @@ import RequiredAuth from './Pages/Authentication/RequiredAuth/RequiredAuth';
 import MyBikeInventory from './Pages/BikeInventories/MyBikeInventory/MyBikeInventory';
 import AddBikeInventory from './Pages/BikeInventories/AddBikeInventory/AddBikeInventory';
 import { ToastContainer } from 'react-toastify';
+import AboutUs from './Pages/AboutUs/AboutUs/AboutUs';
+import TermsAndConditions from './Pages/AboutUs/TermsAndConditions/TermsAndConditions';
+import Privacy from './Pages/AboutUs/Privacy/Privacy';
 
 function App() {
   return (
@@ -22,8 +25,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/aboutbikedecor" element={<AboutUs />} />
         <Route
           path="/manageinventories"
           element={
@@ -58,6 +61,8 @@ function App() {
         />
         <Route path="/login" element={<LogIn />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/terms" element={<TermsAndConditions />} />
+        <Route path="/privacy" element={<Privacy />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer autoClose={10000} />
