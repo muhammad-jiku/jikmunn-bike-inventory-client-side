@@ -16,6 +16,7 @@ import { ToastContainer } from 'react-toastify';
 import AboutUs from './Pages/AboutUs/AboutUs/AboutUs';
 import TermsAndConditions from './Pages/AboutUs/TermsAndConditions/TermsAndConditions';
 import Privacy from './Pages/AboutUs/Privacy/Privacy';
+import Developer from './Pages/Developer/Developer';
 
 function App() {
   return (
@@ -65,6 +66,7 @@ function App() {
         />
         <Route path="/login" element={<LogIn />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/aboutdeveloper" element={<Developer />} />
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="*" element={<NotFound />} />

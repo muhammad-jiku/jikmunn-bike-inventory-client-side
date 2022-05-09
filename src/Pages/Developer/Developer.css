@@ -1,0 +1,83 @@
+.developerSection{
+    background-color: black;
+    color: white;
+}
+
+.aboutSection{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.aboutSectionLeft > img{
+    border-radius: 50%;
+    height: 300px;
+}
+
+.aboutSectionRight{
+    padding: 20px;
+    text-align: justify;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+
+.aboutSectionRightName{
+    color: #FC4412;
+}
+
+.readMoreButton{
+    background-color: brown;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.readMoreButton:hover{
+    background-color: rgb(196, 69, 69);
+}
+
+.projects-section{
+    padding: 20px;
+}
+
+.projects{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.projects-section-header{
+    padding: 20px;
+    text-align: center;
+    font-family: 'Luxurious Roman', cursive;
+}
+
+.projects-section-header > h2{
+    font-size: 32px;
+    color: rgb(65, 19, 11);
+}
+
+.projects-card{
+    padding: 20px;
+    border: 1px solid white;
+    margin: 5px;
+}
+
+.projects-card > a {
+    
+    text-decoration: none;
+}
+
+.projects-card > a > img{
+    height: 175px;
+}
+
+@media only screen and (max-width: 600px) {
+  .aboutSection{
+      flex-direction: column;
+  }
+}

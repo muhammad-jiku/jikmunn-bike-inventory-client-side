@@ -21,12 +21,12 @@ const Footer = () => {
             alt="Bike Decor.png"
             className="navBarStyleLogo"
           />
-          <h3>
+          <p>
             This site is developed by{' '}
             <span className="authorName">
-              <Link to="/about">JIKMUNN</Link>
+              <Link to="/aboutdeveloper">JIKMUNN</Link>
             </span>
-          </h3>
+          </p>
         </div>
         <div className="footersectionDetailsSecond">
           <ul>
