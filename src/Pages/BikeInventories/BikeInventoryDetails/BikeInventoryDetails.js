@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import { Button, Container } from 'react-bootstrap';
+import { Button, Container, Image } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import useBikeInventoryDetails from '../../../customHooks/useBikeInventoryDetails/useBikeInventoryDetails';
 // import Loading from '../../Shared/Loading/Loading';
@@ -8,8 +8,7 @@ import { toast } from 'react-toastify';
 
 const BikeInventoryDetails = () => {
   const { manageinventoryId } = useParams();
-  const [bikeInventoryDetails, setBikeInventoryDetails] =
-    useBikeInventoryDetails(manageinventoryId);
+  const [bikeInventoryDetails] = useBikeInventoryDetails(manageinventoryId);
 
   const handleDeliveredQuantity = () => {
     let quantity = bikeInventoryDetails?.quantity;
@@ -80,16 +79,17 @@ const BikeInventoryDetails = () => {
     }
   };
   return (
-    <Container className="customDetails">
-      <>
-        <div>
+    <div className="inventoryDetails">
+      <Container className="customDetails">
+        <div className="customDetailsImage">
           {/* {console.log(bikeInventoryDetails)} */}
-          <img
+          <Image
             src={bikeInventoryDetails?.image}
             alt={bikeInventoryDetails?.name}
+            fluid
           />
         </div>
-        <div>
+        <div className="customDetailsInfo">
           <h3>Name: {bikeInventoryDetails?.name}</h3>
           <h4>Price: {bikeInventoryDetails?.price} </h4>
           <h4>quantity: {bikeInventoryDetails?.quantity} </h4>
@@ -97,20 +97,34 @@ const BikeInventoryDetails = () => {
           <h5>
             Owned by <i> {bikeInventoryDetails?.brand}</i>{' '}
           </h5>
-          <Button onClick={handleDeliveredQuantity}>Delivered</Button>
-          <form onSubmit={handleUpdateQuantity}>
-            <input
-              type="text"
-              placeholder="Add quantity"
-              name="quantity"
-              id="quantity"
-              required
-            />
-            <Button type="submit">Add Quantity</Button>
-          </form>
+          <div className="customDetailsInfoButtons">
+            <div>
+              <button
+                onClick={handleDeliveredQuantity}
+                className="customDetailsInfoButton"
+              >
+                Delivered
+              </button>
+            </div>
+            <div>
+              <form onSubmit={handleUpdateQuantity}>
+                <input
+                  type="text"
+                  placeholder="Restock Quantity"
+                  name="quantity"
+                  id="quantity"
+                  required
+                  className="customDetailsInfoInput"
+                />
+                <button type="submit" className="customDetailsInfoButton">
+                  Restock
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
-      </>
-    </Container>
+      </Container>
+    </div>
   );
 };
 

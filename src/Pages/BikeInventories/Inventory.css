@@ -1,6 +1,6 @@
-.customDetails{
-    display: flex;
-}
+
+
+/* add inventory section */
 
 .addInventory{
     /* width: 50%; */
@@ -47,6 +47,58 @@
     background-color: rgb(196, 69, 69);
 }
 
+/* inventory details section */
+.inventoryDetails{
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+.customDetails{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(82, 79, 79, 0.5);
+}
+.customDetailsImage{
+    padding: 20px;
+}
+
+.customDetailsInfo{
+    padding: 20px;
+}
+
+.customDetailsInfoButtons{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.customDetailsInfoButton{
+    /* margin-right:  5px; */
+    background-color: brown;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.customDetailsInfoButton:hover{
+    background-color: rgb(196, 69, 69);
+}
+
+.customDetailsInfoInput{
+    border: none;
+    padding: 10px;
+    background-color: transparent;
+    outline: none;
+    margin-left: 10px ;
+    width: 50%;
+    border-bottom: 1px solid brown;
+}
+
 @media only screen and (max-width: 600px) {
 
     .tableHeaderSpecial{
@@ -55,6 +107,17 @@
 
     .customDetails{
         flex-direction: column;
+    }
+
+    .customDetailsInfoButtons{
+        align-items: flex-start;
+        flex-direction: column;
+        
+    }
+
+    .customDetailsInfoInput{
+        margin-top: 10px;
+        margin-left: 0;
     }
 
     .addInventoryDesign{
