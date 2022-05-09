@@ -19,7 +19,7 @@ const Header = () => {
       <Navbar
         collapseOnSelect
         expand="lg"
-        bg="dark"
+        // bg="dark"
         variant="dark"
         sticky="top"
         className="navBarStyle"

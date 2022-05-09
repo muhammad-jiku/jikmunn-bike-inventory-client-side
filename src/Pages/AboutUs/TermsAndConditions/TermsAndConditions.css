@@ -10,3 +10,55 @@
     justify-content: space-around;
     align-items: center;
 }
+
+.termsHeaderLeft{
+    padding: 10px;
+    /* width: 20%; */
+}
+
+.termsHeaderLeft > h1{
+    font-size: 48px;
+    color: brown;
+}
+
+.readMoreButton, .declineTerms{
+    background-color: brown;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.acceptTerms{
+    background-color: #3496E1;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.acceptTerms:hover{
+    background-color: #87bde7d2;
+}
+
+.readMoreButton:hover, .declineTerms:hover{
+    background-color: rgb(196, 69, 69);
+}
+
+.termsHeaderRight{
+    /* width: 80%; */
+    padding: 20px;
+}
+
+.termsHeaderRight > img{
+    /* height: 525px; */
+}
+
+@media only screen and (max-width: 600px) {
+    .termsHeader{
+        flex-direction: column-reverse;
+    }
+}
