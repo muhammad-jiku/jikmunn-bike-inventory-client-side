@@ -18,7 +18,7 @@
     background-repeat: no-repeat;
     background-size: cover;
         background-image: 
-        url('../../../Images/aboutUs1.jpg');
+        url('../../../Images/aboutUs.jpg');
 }
 
 
@@ -32,9 +32,8 @@
 }
 
 @media only screen and (max-width: 600px) {
-.aboutUsDiv{
-    height: 20vh;
-   background-size: cover; 
-}
+    .aboutUsDiv{
+        height: 20vh;
+    }
 }
 
