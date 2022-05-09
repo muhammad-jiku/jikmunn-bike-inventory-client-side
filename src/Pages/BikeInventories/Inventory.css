@@ -1,6 +1,50 @@
 .customDetails{
     display: flex;
-    
+}
+
+.addInventory{
+    /* width: 50%; */
+    padding: 20px;
+    backdrop-filter: blur(8px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: 
+    url('../../Images/inventoryBG.jpeg');
+}
+
+.addInventoryHeading{
+    text-align: center;
+    margin-top: 20px;
+    color: brown;
+}
+
+.addInventoryDesign{
+    padding: 20px ;
+    width: 50%;
+    margin:20px auto;
+    background-color: rgba(82, 79, 79, 0.5);
+    /* margin-bottom: 20px; */
+}
+
+.addInventoryForm{
+    margin: 20px auto;
+    width: 600px;
+    padding: 20px;
+}
+
+.addInventoryFormButton{
+    background-color: brown;
+    width: 100%;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 30px;
+    margin: 10px 0;
+}
+
+.addInventoryFormButton:hover{
+    background-color: rgb(196, 69, 69);
 }
 
 @media only screen and (max-width: 600px) {
@@ -11,5 +55,13 @@
 
     .customDetails{
         flex-direction: column;
+    }
+
+    .addInventoryDesign{
+        width: 100%;
+    }
+
+    .addInventoryForm{
+        width: 100%;
     }
 }

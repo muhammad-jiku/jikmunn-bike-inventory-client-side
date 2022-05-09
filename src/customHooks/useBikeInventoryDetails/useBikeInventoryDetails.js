@@ -1,9 +1,10 @@
+// import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 const useBikeInventoryDetails = (manageinventoryId) => {
   const [bikeInventoryDetails, setBikeInventoryDetails] = useState({});
   useEffect(() => {
-    const url = `http://localhost:5000/bikeinventory/${manageinventoryId}`;
+    const url = `https://cryptic-reef-07381.herokuapp.com/bikeinventory/${manageinventoryId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

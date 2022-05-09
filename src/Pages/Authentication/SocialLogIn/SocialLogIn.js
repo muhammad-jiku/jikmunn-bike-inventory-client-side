@@ -49,27 +49,27 @@ const SocialLogIn = () => {
 
   return (
     <>
-      {googleLoading || githubLoading ? (
+      {/* {googleLoading || githubLoading ? (
         <Loading />
-      ) : (
-        <>
-          <div className="d-flex align-items-center justify-content-center">
-            <div className="lineDraw"></div>
-            <p className="m-4">or</p>
-            <div className="lineDraw"></div>
-          </div>
-          <div className="d-flex">
-            <button onClick={handleGoogleLogIn} className="socialButton">
-              <span className="text-white">Log In with </span>
-              <img src={googleLogo} alt="google's logo" />
-            </button>
-            <button onClick={handleGithubLogIn} className="socialButton">
-              <span>Log In with </span>{' '}
-              <img src={githubLogo} alt="github's logo" />
-            </button>
-          </div>
-        </>
-      )}
+      ) : ( */}
+      <>
+        <div className="d-flex align-items-center justify-content-center">
+          <div className="lineDraw"></div>
+          <p className="m-4">or</p>
+          <div className="lineDraw"></div>
+        </div>
+        <div className="d-flex">
+          <button onClick={handleGoogleLogIn} className="socialButton">
+            <span className="text-white">Log In with </span>
+            <img src={googleLogo} alt="google's logo" />
+          </button>
+          <button onClick={handleGithubLogIn} className="socialButton">
+            <span>Log In with </span>{' '}
+            <img src={githubLogo} alt="github's logo" />
+          </button>
+        </div>
+      </>
+      {/* )} */}
     </>
   );
 };

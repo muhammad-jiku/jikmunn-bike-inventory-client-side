@@ -1,42 +1,100 @@
 import axios from 'axios';
-import React from 'react';
-import { Alert, Button, Container, Form } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
+import React, { useRef, useState } from 'react';
+import { Button, Container, Form } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 // import Loading from '../../Shared/Loading/Loading';
 
 const AddBikeInventory = () => {
+  const navigate = useNavigate('');
+  const [validated, setValidated] = useState(false);
+  const emailRef = useRef('');
+  const brandRef = useRef('');
+  const nameRef = useRef('');
+  const quantityRef = useRef(0);
+  const priceRef = useRef(0);
+  const supplierRef = useRef('');
+  const descriptionRef = useRef('');
+  const imageUrlRef = useRef('');
+
   const [user, loading, error] = useAuthState(auth);
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitted, isValid },
-  } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+
+  const handleAddInventory = async (e) => {
+    e.preventDefault();
+
+    const email = emailRef?.current?.value;
+    const brand = brandRef?.current?.value;
+    const name = nameRef?.current?.value;
+    const quantity = parseInt(quantityRef?.current?.value);
+    const price = parseInt(priceRef?.current?.value);
+    const supplier = supplierRef?.current?.value;
+
+    const description = descriptionRef?.current?.value;
+    const image = imageUrlRef?.current?.value;
+    // let data = {
+    //   email,
+    //   brand,
+    //   name,
+    //   quantity,
+    //   price,
+    //   supplier,
+    //   description,
+    //   image,
+    // };
+    // console.log(data);
+    if (name?.length > 25) {
+      toast.error('Model name can not be above 25 letters');
+      return;
+    }
+
+    if (price === 1 || price < 10000) {
+      toast.error('Price can not be less than 10000 tk');
+      return;
+    }
+
+    if (supplier?.length > 25) {
+      toast.error('Supplier name can not be above 25 letters');
+      return;
+    }
+
+    if (description?.length > 250) {
+      toast.error('Description can not be above 25 letters');
+      return;
+    }
+
     const url = `https://cryptic-reef-07381.herokuapp.com/bikeinventory`;
-    // fetch(url, {
-    //   method: 'POST',
-    //   headers: {
-    //     'content-type': 'application/json',
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    axios
-      .post(url, data)
-      // .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        const { data } = result;
-        console.log(data);
-        if (data?.insertedId) {
-          alert('You just add an inventory item');
-          reset();
-        }
-      })
-      .catch((err) => console.log(err));
+    if (
+      name?.length < 25 &&
+      price > 10000 &&
+      supplier?.length < 25 &&
+      description?.length <= 250
+    ) {
+      await axios
+        .post(url, {
+          email,
+          brand,
+          name,
+          quantity,
+          price,
+          supplier,
+          description,
+          image,
+        })
+        .then((result) => {
+          console.log(result);
+          const { data } = result;
+          console.log(data);
+          if (data?.insertedId) {
+            toast.success('You just add an inventory item');
+            e.target.reset();
+            navigate('/myinventories');
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+    setValidated(true);
   };
 
   if (error) {
@@ -47,169 +105,131 @@ const AddBikeInventory = () => {
     );
   }
   return (
-    <Container>
+    <div className="addInventory">
       {/* {loading ? (
         <Loading />
       ) : ( */}
-        <>
-          <h1>Add the item to list</h1>
-          {!isValid && isSubmitted ? (
-            <Alert variant="danger">
-              {Object.values(errors).map((e, idx) => {
-                return <p key={idx}>{e.message}</p>;
-              })}
-            </Alert>
-          ) : (
-            <Alert variant="success">Please fill in the form</Alert>
-          )}
-          <div className="w-75 mx-auto">
-            <Form onSubmit={handleSubmit(onSubmit)} className="simpleForm">
-              <Form.Group>
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  className="mb-2"
-                  value={user?.email}
-                  type="email"
-                  {...register('email', {
-                    required: {
-                      value: true,
-                      message: 'Your email is not valid',
-                    },
-                  })}
-                  readOnly
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Brand</Form.Label>
-                <Form.Control
-                  className="mb-2"
-                  placeholder="Brand"
-                  type="text"
-                  {...register('brand', {
-                    required: {
-                      value: true,
-                      message: 'Please add brand name',
-                    },
-                    maxLength: {
-                      value: 10,
-                      message: 'Your brand name must be included in 10 letters',
-                    },
-                  })}
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Model</Form.Label>
-                <Form.Control
-                  className="mb-2"
-                  placeholder="Model"
-                  type="text"
-                  {...register('name', {
-                    required: {
-                      value: true,
-                      message: 'Please add model name',
-                    },
-                    maxLength: {
-                      value: 30,
-                      message: 'Your model name must be included in 30 letters',
-                    },
-                  })}
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Quantity</Form.Label>
-                <Form.Control
-                  className="mb-2"
-                  placeholder="Quantity"
-                  type="number"
-                  {...register('quantity', {
-                    required: {
-                      value: true,
-                      message: 'Please add number of quantity',
-                    },
-                    min: {
-                      value: 1,
-                      message:
-                        'Your number of model quantity must be at least 1',
-                    },
-                  })}
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Price</Form.Label>
-                <Form.Control
-                  className="mb-2"
-                  placeholder="Price"
-                  type="number"
-                  {...register('price', {
-                    required: {
-                      value: true,
-                      message: 'Please add number of quantity',
-                    },
-                    min: {
-                      value: 10000,
-                      message: 'Price must be at least 10000tk',
-                    },
-                  })}
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Supplier</Form.Label>
-                <Form.Control
-                  className="mb-2"
-                  placeholder="Supplier"
-                  type="text"
-                  {...register('supplier', {
-                    required: {
-                      value: true,
-                      message: 'Please add supplier name',
-                    },
-                    minLength: {
-                      value: 10,
-                      message:
-                        'Your supplier name at least included in 10 letters',
-                    },
-                  })}
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Description</Form.Label>
-                <Form.Control
-                  className="mb-2"
-                  placeholder="Description"
-                  type="text"
-                  {...register('description', {
-                    required: {
-                      value: true,
-                      message: 'Please add model description',
-                    },
-                    maxLength: {
-                      value: 250,
-                      message:
-                        'Your brand name must be included in 250 letters',
-                    },
-                  })}
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Photo URL</Form.Label>
-                <Form.Control
-                  className="mb-2"
-                  placeholder="Photo URL"
-                  type="text"
-                  {...register('image', {
-                    required: {
-                      value: true,
-                      message: 'Please add image url',
-                    },
-                  })}
-                />
-              </Form.Group>
-              <Button type="submit">Add Inventory</Button>
-            </Form>
-          </div>
-        </>
-      {/* )} */}
-    </Container>
+      <h1 className="addInventoryHeading">Add inventory</h1>
+      <div className="addInventoryDesign">
+        <Form
+          noValidate
+          validated={validated}
+          onSubmit={handleAddInventory}
+          className="addInventoryForm"
+        >
+          <Form.Group>
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              className="mb-2"
+              type="email"
+              ref={emailRef}
+              value={user?.email}
+              readOnly
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              Invalid Email
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Brand</Form.Label>
+            <Form.Control
+              className="mb-2"
+              type="text"
+              ref={brandRef}
+              placeholder="Brand"
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              Please insert Brand name
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Model</Form.Label>
+            <Form.Control
+              className="mb-2"
+              type="text"
+              ref={nameRef}
+              placeholder="Model"
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              Please insert model name
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Quantity</Form.Label>
+            <Form.Control
+              className="mb-2"
+              type="number"
+              ref={quantityRef}
+              placeholder="Quantity"
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              Please insert quantity
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Price</Form.Label>
+            <Form.Control
+              className="mb-2"
+              type="number"
+              ref={priceRef}
+              placeholder="Price"
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              Please insert price
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Supplier</Form.Label>
+            <Form.Control
+              className="mb-2"
+              type="text"
+              ref={supplierRef}
+              placeholder="Supplier"
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              Please insert supplier
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Description</Form.Label>
+            <Form.Control
+              className="mb-2"
+              type="text"
+              ref={descriptionRef}
+              placeholder="Description"
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              Please insert description
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Photo URL</Form.Label>
+            <Form.Control
+              className="mb-2"
+              type="text"
+              ref={imageUrlRef}
+              placeholder="Photo URL"
+              aria-required
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              Please insert image url
+            </Form.Control.Feedback>
+          </Form.Group>
+          <button type="submit" className="addInventoryFormButton">
+            Add Inventory
+          </button>
+        </Form>
+        <div className=""></div>
+      </div>
+    </div>
   );
 };
 

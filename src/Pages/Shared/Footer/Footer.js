@@ -68,7 +68,7 @@ const Footer = () => {
               <h3>Contact Us</h3>
             </li>
             <li>
-              <FontAwesomeIcon icon={faLocationDot} /> &nbsp;
+              <FontAwesomeIcon icon={faLocationDot} /> &nbsp;{' '}
               <span>Address</span>: Address
             </li>
             <li>

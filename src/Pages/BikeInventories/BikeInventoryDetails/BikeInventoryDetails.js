@@ -8,27 +8,30 @@ import { toast } from 'react-toastify';
 
 const BikeInventoryDetails = () => {
   const { manageinventoryId } = useParams();
-  const [bikeInventoryDetails] = useBikeInventoryDetails(manageinventoryId);
+  const [bikeInventoryDetails, setBikeInventoryDetails] =
+    useBikeInventoryDetails(manageinventoryId);
 
   const handleDeliveredQuantity = () => {
     let quantity = bikeInventoryDetails?.quantity;
+    console.log(quantity);
     quantity = parseInt(quantity) - 1;
-
+    console.log(quantity);
     if (quantity < 0) {
       return toast.error('Quantity can not be less than zero');
     }
 
-    const url = `http://localhost:5000/bikeinventory/${manageinventoryId}`;
-    // fetch(url, {
-    //   method: 'PUT',
-    //   headers: {
-    //     'content-type': 'application/json',
-    //   },
-    //   body: JSON.stringify({ quantity }),
-    // })
-    axios
-      .put(url, { quantity })
-      // .then((res) => res.json())
+    const url = `https://cryptic-reef-07381.herokuapp.com/bikeinventory/${manageinventoryId}`;
+
+    // axios
+    //   .put(url, { quantity: quantity })
+    fetch(url, {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({ quantity }),
+    })
+      .then((res) => res.json())
       .then((data) => {
         console.log(data);
         // setBikeInventoryDetails({
@@ -45,23 +48,25 @@ const BikeInventoryDetails = () => {
 
     let quantity = bikeInventoryDetails?.quantity;
     const addQuantity = parseInt(e.target.quantity.value);
+    console.log(quantity, addQuantity);
 
     if (addQuantity > 0) {
       quantity = parseInt(quantity) + addQuantity;
-      const updatedInventory = { quantity };
+      console.log(quantity);
+      const updatedInventory = { quantity: quantity };
+      console.log(updatedInventory);
 
-      const url = `http://localhost:5000/bikeinventory/${manageinventoryId}`;
+      const url = `https://cryptic-reef-07381.herokuapp.com/bikeinventory/${manageinventoryId}`;
 
-      // fetch(url, {
-      //   method: 'PUT',
-      //   headers: {
-      //     'content-type': 'application/json',
-      //   },
-      //   body: JSON.stringify(updatedInventory),
-      // })
-      axios
-        .put(url, updatedInventory)
-        // .then((res) => res.json())
+      // axios.put(url, updatedInventory);
+      fetch(url, {
+        method: 'PUT',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(updatedInventory),
+      })
+        .then((res) => res.json())
         .then((data) => {
           console.log(data);
           toast.success('quantity updated successfully');
@@ -78,6 +83,7 @@ const BikeInventoryDetails = () => {
     <Container className="customDetails">
       <>
         <div>
+          {/* {console.log(bikeInventoryDetails)} */}
           <img
             src={bikeInventoryDetails?.image}
             alt={bikeInventoryDetails?.name}
