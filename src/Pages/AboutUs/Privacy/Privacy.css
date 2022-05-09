@@ -1,0 +1,19 @@
+.privacy{
+    background-color: black;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.privacyHeading{
+    color: brown;
+    text-align: center;
+}
+
+.privacyBox{
+    padding: 10px;
+}
+
+.privacyBox > p{
+    text-align: justify;
+}

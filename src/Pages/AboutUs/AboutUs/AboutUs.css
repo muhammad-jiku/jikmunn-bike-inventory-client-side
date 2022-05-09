@@ -1,0 +1,40 @@
+.aboutUs{
+    background-color: black;
+    color: white;
+    /* backdrop-filter: blur(8px); */
+    /* height: 50vh;  */
+    /* background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+        background-image: 
+        url('../../../Images/aboutUs1.jpg'); */
+}
+
+.aboutUsDiv{
+    filter: blur(2px); 
+    /* backdrop-filter: blur(8px); */
+    height: 80vh; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+        background-image: 
+        url('../../../Images/aboutUs1.jpg');
+}
+
+
+.aboutUsDetails{
+    padding: 20px;
+}
+
+.aboutUsDetails > h1{
+    text-align: center;
+    color: brown;
+}
+
+@media only screen and (max-width: 600px) {
+.aboutUsDiv{
+    height: 20vh;
+   background-size: cover; 
+}
+}
+

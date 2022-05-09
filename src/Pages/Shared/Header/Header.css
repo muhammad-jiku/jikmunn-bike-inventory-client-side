@@ -1,5 +1,8 @@
 .navBarStyle{
-    background-color: rgb(15, 14, 14) !important;
+    background-color: rgb(15, 14, 14);
+    /* top: 0;
+    position: fixed;
+    z-index: 1, */
     /* position:absolute;
     width:100%;
     z-index:10;

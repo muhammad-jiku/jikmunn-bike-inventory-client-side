@@ -20,7 +20,11 @@ import Privacy from './Pages/AboutUs/Privacy/Privacy';
 function App() {
   return (
     <div
-      style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
     >
       <Header />
       <Routes>
