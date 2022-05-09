@@ -1,5 +1,7 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
-import { Button, Container, Table } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import useBikeInventories from '../../../customHooks/useBikeInventories/useBikeInventories';
 import BikeInventory from '../BikeInventory/BikeInventory';
@@ -36,9 +38,26 @@ const BikeInventories = () => {
   // };
 
   return (
-    <Container>
-      <Button onClick={() => navigate('/addinventory')}>Add new Item</Button>
-      <Table striped bordered hover responsive variant="dark" className="table">
+    <div className="allInventories">
+      <Container>
+        <div className="inventoriesIntro">
+          <h1>All Inventory</h1>
+          <button
+            onClick={() => navigate('/addinventory')}
+            className="goToInventoryFormButton"
+          >
+            <FontAwesomeIcon icon={faPlus} /> Add new Item
+          </button>
+        </div>
+        <div className="bottomLine"></div>
+        <Row xs={1} md={2} lg={3} className="g-4">
+          {bikeInventory?.slice(1, 7).map((bInventory) => (
+            <BikeInventory key={bInventory?._id} bInventory={bInventory} />
+          ))}
+        </Row>
+      </Container>
+
+      {/* <Table striped bordered hover responsive variant="dark" className="table">
         <thead>
           <tr>
             <th className="tableHeaderSpecial">Image</th>
@@ -56,8 +75,8 @@ const BikeInventories = () => {
             <BikeInventory key={bInventory?._id} bInventory={bInventory} />
           ))}
         </tbody>
-      </Table>
-    </Container>
+      </Table> */}
+    </div>
   );
 };
 

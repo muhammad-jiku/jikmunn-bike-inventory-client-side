@@ -47,6 +47,82 @@
     background-color: rgb(196, 69, 69);
 }
 
+/* bikeinventories */
+.allInventories{
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+.inventoriesIntro{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.goToInventoryFormButton{
+    background-color: brown;
+    border: none;
+    color: white;
+    padding: 10px 0;
+    margin: 10px 0;
+    border: none;
+    background-color: transparent;
+    font-size: 22px;
+}
+
+.bottomLine{
+    background-color: white;
+    height: 2px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.inventoryCard{
+    width: 350px;
+    background-color: #212226;
+    padding: 20px 10px;
+}
+
+.inventoryCardInfo{
+    padding: 20px 0;
+}
+
+.buttonsSection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.viewMoreButton{
+  background-color: #46b98b;
+    color: white;
+    font-size: 22px;
+    padding: 10px 15px;
+    border: none;  
+}
+
+.updateButton{
+    background-color: #3A85AD;
+    color: white;
+    font-size: 22px;
+    padding: 10px 15px;
+    border: none;
+    margin-left: 5px;
+}
+
+.deleteButton{
+    background-color: #F05842;
+    color: white;
+    font-size: 22px;
+    padding: 10px 15px;
+    border: none;
+    margin-left: 5px;
+}
+
+
+
 /* inventory details section */
 .inventoryDetails{
     background-color: black;
@@ -105,8 +181,26 @@
         display: none;
     }
 
-    .customDetails{
+
+
+    .addInventoryDesign{
+        width: 100%;
+    }
+
+    .addInventoryForm{
+        width: 100%;
+    }
+
+        .customDetails{
         flex-direction: column;
+    }
+
+    .goToInventoryFormButton{
+        font-size: 16px;
+    }
+
+    .bottomLine{
+        margin-bottom: 30px;
     }
 
     .customDetailsInfoButtons{
@@ -118,13 +212,5 @@
     .customDetailsInfoInput{
         margin-top: 10px;
         margin-left: 0;
-    }
-
-    .addInventoryDesign{
-        width: 100%;
-    }
-
-    .addInventoryForm{
-        width: 100%;
     }
 }

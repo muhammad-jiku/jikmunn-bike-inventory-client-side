@@ -1,11 +1,20 @@
+import {
+  faPenToSquare,
+  faTrash,
+  faAngleDown,
+  faAngleUp,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import React from 'react';
-import { Button, Image } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Col, Image } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import useBikeInventories from '../../../customHooks/useBikeInventories/useBikeInventories';
 
 const BikeInventory = ({ bInventory }) => {
+  const [seeMore, setSeeMore] = useState(false);
   const [bikeInventory, setBikeInventory] = useBikeInventories();
+
   const navigate = useNavigate();
   const { _id, brand, name, image, description, supplier, price, quantity } =
     bInventory;
@@ -37,27 +46,55 @@ const BikeInventory = ({ bInventory }) => {
   };
 
   return (
-    <tr>
-      <td className="tableHeaderSpecial">
+    <Col>
+      <div className="inventoryCard">
         <Image src={image} alt={name} fluid />
-      </td>
-      <td className="tableHeaderSpecial">{brand}</td>
-      <td>{name}</td>
-      <td>{price}</td>
-      <td>{quantity}</td>
-      <td className="tableHeaderSpecial">
-        {description?.length > 130
-          ? description?.slice(0, 130) + '...'
-          : description}
-      </td>
-      <td className="tableHeaderSpecial">{supplier}</td>
-      <td>
-        <div className="d-flex mx-3">
-          <Button onClick={() => handleUpdateInventory(_id)}>Update</Button>
-          <Button onClick={() => handleDeleteInventory(_id)}>Delete</Button>
+        <div className="inventoryCardInfo">
+          <h4>{name} </h4>
+          <h5>Price: BDT {price}/= </h5>
         </div>
-      </td>
-    </tr>
+        <div className="buttonsSection">
+          <div>
+            <button
+              onClick={() => setSeeMore(!seeMore)}
+              className="viewMoreButton"
+            >
+              Read more{' '}
+              {seeMore ? (
+                <FontAwesomeIcon icon={faAngleUp} />
+              ) : (
+                <FontAwesomeIcon icon={faAngleDown} />
+              )}
+            </button>
+          </div>
+          <div>
+            <button
+              onClick={() => handleUpdateInventory(_id)}
+              className="updateButton"
+            >
+              <FontAwesomeIcon icon={faPenToSquare} />
+            </button>
+            <button
+              onClick={() => handleDeleteInventory(_id)}
+              className="deleteButton"
+            >
+              <FontAwesomeIcon icon={faTrash} />
+            </button>
+          </div>
+        </div>
+        <div>
+          {seeMore ? (
+            <div>
+              <h4>Quantity: {quantity} </h4>
+              <h4>Supplier: {supplier} </h4>
+              <p>{description}</p>
+            </div>
+          ) : (
+            ''
+          )}
+        </div>
+      </div>
+    </Col>
   );
 };
 
