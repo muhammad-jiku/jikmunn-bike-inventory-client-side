@@ -6,12 +6,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import siteLogo from '../../../Images/logo.png';
 import './Footer.css';
 
 const Footer = () => {
   const date = new Date();
+  const navigate = useNavigate();
   return (
     <div className="footerSection">
       <div className="footersectionDetails">
@@ -19,7 +20,8 @@ const Footer = () => {
           <img
             src={siteLogo}
             alt="Bike Decor.png"
-            className="navBarStyleLogo"
+            className="footerStyleLogo"
+            onClick={() => navigate('/')}
           />
           <p>
             This site is developed by{' '}
@@ -78,7 +80,8 @@ const Footer = () => {
               <span>Email</span>: bikedecor123@gmail.com
             </li>
           </ul>
-
+        </div>
+        <div className="footersectionDetailsFive">
           <ul>
             <li>
               <h3>Follow</h3>
@@ -94,7 +97,10 @@ const Footer = () => {
         </div>
       </div>
       <div className="footerSectionCopyright">
-        <h4>&copy;copyright {date.getFullYear()}</h4>
+        <h4>
+          &copy;copyright {date.getFullYear()} All copyright rights reserved to
+          bike decor
+        </h4>
       </div>
     </div>
   );

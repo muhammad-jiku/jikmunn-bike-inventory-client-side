@@ -42,7 +42,7 @@ const Developer = () => {
         </div>
         {seeMore ? (
           <div className="projects-section">
-            <div class="projects-section-header">
+            <div className="projects-section-header">
               <h2>Projects I've designed</h2>
             </div>
             <div className="projects">
