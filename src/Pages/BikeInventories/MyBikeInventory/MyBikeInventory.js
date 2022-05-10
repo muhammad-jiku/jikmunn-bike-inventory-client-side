@@ -1,12 +1,13 @@
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
-import { Container, Table } from 'react-bootstrap';
+import { Container, Image, Row, Table } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import axiosPrivate from '../../../api/axiosPrivate';
 import auth from '../../../firebase.init';
 // import Loading from '../../Shared/Loading/Loading';
 import BikeInventory from '../BikeInventory/BikeInventory';
+import empty from '../../../Images/empty.gif';
 
 const MyBikeInventory = () => {
   const navigate = useNavigate();
@@ -44,53 +45,61 @@ const MyBikeInventory = () => {
     );
   }
   return (
-    <Container>
-      {/* {loading || isLoading ? (
-        <Loading />
-      ) : ( */}
-        <>
-          <h4>
-            {myInventoryItems?.length > 0
-              ? 'This ' + myInventoryItems?.length + ' items '
-              : 'No items '}
-            added by <i> {user?.email}</i>
-          </h4>
-          {!myInventoryItems?.length ? (
-            ''
-          ) : (
+    <div className="allInventories">
+      <div>
+        {!myInventoryItems?.length ? (
+          <div className="emptyinventories">
+            <div>
+              <Image src={empty} alt="" fluid />
+            </div>
+            <div>
+              <h4>No items added</h4>
+            </div>
+          </div>
+        ) : (
+          <div className="allInventories">
+            <div className="inventoriesIntro">
+              <h1>My Inventory</h1>
+              <button
+                onClick={() => navigate('/manageinventories')}
+                className="goToInventoryFormButton"
+              >
+                Manage Inventories
+              </button>
+            </div>
             <Table
               striped
               bordered
               hover
               responsive
               variant="dark"
-              className="table"
+              className="inventoriesTable"
             >
               <thead>
                 <tr>
-                  <th className="tableHeaderSpecial">Image</th>
-                  <th className="tableHeaderSpecial">Brand</th>
-                  <th>Name</th>
+                  <th>Image</th>
+                  <th>Brand</th>
+                  <th>Model</th>
                   <th>Price</th>
                   <th>Quantity</th>
-                  <th className="tableHeaderSpecial">Description</th>
-                  <th className="tableHeaderSpecial">Supplier</th>
+                  {/* <th >Description</th> */}
+                  <th>Supplier</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {myInventoryItems?.map((myInventory) => (
+                {myInventoryItems?.map((bInventory) => (
                   <BikeInventory
-                    key={myInventory?._id}
-                    bInventory={myInventory}
+                    key={bInventory?._id}
+                    bInventory={bInventory}
                   />
                 ))}
               </tbody>
             </Table>
-          )}
-        </>
-      {/* )} */}
-    </Container>
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 

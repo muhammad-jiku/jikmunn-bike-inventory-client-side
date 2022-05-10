@@ -1,11 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Table } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import useBikeInventories from '../../../customHooks/useBikeInventories/useBikeInventories';
 import BikeInventory from '../BikeInventory/BikeInventory';
 import '../Inventory.css';
+import '../InventoryTable.css';
 
 const BikeInventories = () => {
   const navigate = useNavigate('');
@@ -49,33 +50,33 @@ const BikeInventories = () => {
             <FontAwesomeIcon icon={faPlus} /> Add new Item
           </button>
         </div>
-        <div className="bottomLine"></div>
-        <Row xs={1} md={2} lg={3} className="g-4">
-          {bikeInventory?.slice(1, 7).map((bInventory) => (
-            <BikeInventory key={bInventory?._id} bInventory={bInventory} />
-          ))}
-        </Row>
+        <Table
+          striped
+          bordered
+          hover
+          responsive
+          variant="dark"
+          className="inventoriesTable"
+        >
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Brand</th>
+              <th>Model</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              {/* <th >Description</th> */}
+              <th>Supplier</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {bikeInventory.map((bInventory) => (
+              <BikeInventory key={bInventory?._id} bInventory={bInventory} />
+            ))}
+          </tbody>
+        </Table>
       </Container>
-
-      {/* <Table striped bordered hover responsive variant="dark" className="table">
-        <thead>
-          <tr>
-            <th className="tableHeaderSpecial">Image</th>
-            <th className="tableHeaderSpecial">Brand</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th className="tableHeaderSpecial">Description</th>
-            <th className="tableHeaderSpecial">Supplier</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {bikeInventory.map((bInventory) => (
-            <BikeInventory key={bInventory?._id} bInventory={bInventory} />
-          ))}
-        </tbody>
-      </Table> */}
     </div>
   );
 };

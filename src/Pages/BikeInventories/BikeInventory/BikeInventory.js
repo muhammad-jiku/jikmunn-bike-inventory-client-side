@@ -46,55 +46,80 @@ const BikeInventory = ({ bInventory }) => {
   };
 
   return (
-    <Col>
-      <div className="inventoryCard">
-        <Image src={image} alt={name} fluid />
-        <div className="inventoryCardInfo">
-          <h4>{name} </h4>
-          <h5>Price: BDT {price}/= </h5>
-        </div>
-        <div className="buttonsSection">
-          <div>
-            <button
-              onClick={() => setSeeMore(!seeMore)}
-              className="viewMoreButton"
-            >
-              Read more{' '}
-              {seeMore ? (
-                <FontAwesomeIcon icon={faAngleUp} />
-              ) : (
-                <FontAwesomeIcon icon={faAngleDown} />
-              )}
-            </button>
-          </div>
-          <div>
-            <button
-              onClick={() => handleUpdateInventory(_id)}
-              className="updateButton"
-            >
-              <FontAwesomeIcon icon={faPenToSquare} />
-            </button>
-            <button
-              onClick={() => handleDeleteInventory(_id)}
-              className="deleteButton"
-            >
-              <FontAwesomeIcon icon={faTrash} />
-            </button>
-          </div>
-        </div>
-        <div>
-          {seeMore ? (
-            <div>
-              <h4>Quantity: {quantity} </h4>
-              <h4>Supplier: {supplier} </h4>
-              <p>{description}</p>
-            </div>
-          ) : (
-            ''
-          )}
-        </div>
-      </div>
-    </Col>
+    // <Col>
+    //   <div className="inventoryCard">
+    //     <Image src={image} alt={name} fluid />
+    //     <div className="inventoryCardInfo">
+    //       <h4>{name} </h4>
+    //       <h5>Price: BDT {price}/= </h5>
+    //     </div>
+    //     <div className="buttonsSection">
+    //       <div>
+    //         <button
+    //           onClick={() => setSeeMore(!seeMore)}
+    //           className="viewMoreButton"
+    //         >
+    //           Read more{' '}
+    //           {seeMore ? (
+    //             <FontAwesomeIcon icon={faAngleUp} />
+    //           ) : (
+    //             <FontAwesomeIcon icon={faAngleDown} />
+    //           )}
+    //         </button>
+    //       </div>
+    //       <div>
+    //         <button
+    //           onClick={() => handleUpdateInventory(_id)}
+    //           className="updateButton"
+    //         >
+    //           <FontAwesomeIcon icon={faPenToSquare} />
+    //         </button>
+    //         <button
+    //           onClick={() => handleDeleteInventory(_id)}
+    //           className="deleteButton"
+    //         >
+    //           <FontAwesomeIcon icon={faTrash} />
+    //         </button>
+    //       </div>
+    //     </div>
+    //     <div>
+    //       {seeMore ? (
+    //         <div>
+    //           <h4>Quantity: {quantity} </h4>
+    //           <h4>Supplier: {supplier} </h4>
+    //           <p>{description}</p>
+    //         </div>
+    //       ) : (
+    //         ''
+    //       )}
+    //     </div>
+    //   </div>
+    // </Col>
+    <tr>
+      <td data-label="Image">
+        <Image src={image} alt={name} fluid className="inventoryImage" />
+      </td>
+      <td data-label="Brand">{brand}</td>
+      <td data-label="Model">{name}</td>
+      <td data-label="Price">{price} </td>
+      <td data-label="Quantity">{quantity}</td>
+      {/* <td data-label="Description">{description}</td> */}
+      <td data-label="Supplier"> {supplier} </td>
+      <td data-label="Actions">
+        <button
+          onClick={() => handleUpdateInventory(_id)}
+          className="updateButton"
+        >
+          <FontAwesomeIcon icon={faPenToSquare} />
+        </button>
+        <button
+          onClick={() => handleDeleteInventory(_id)}
+          className="deleteButton"
+        >
+          <FontAwesomeIcon icon={faTrash} />
+        </button>
+      </td>
+    </tr>
   );
 };
 

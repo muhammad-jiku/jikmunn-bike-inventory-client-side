@@ -54,6 +54,29 @@
     padding: 20px;
 }
 
+.seeAllInventories{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background-color: brown;
+    padding: 10px 12px;
+    margin-top: 10px;
+    position: relative;
+    top: 10px;
+    left: 80%;
+    right: 0;
+    bottom: 10px;
+    border-radius: 30px;
+}
+
+.emptyinventories{
+    background-color: black;
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .inventoriesIntro{
     padding: 20px;
     display: flex;
@@ -103,23 +126,9 @@
     border: none;  
 }
 
-.updateButton{
-    background-color: #3A85AD;
-    color: white;
-    font-size: 22px;
-    padding: 10px 15px;
-    border: none;
-    margin-left: 5px;
-}
 
-.deleteButton{
-    background-color: #F05842;
-    color: white;
-    font-size: 22px;
-    padding: 10px 15px;
-    border: none;
-    margin-left: 5px;
-}
+
+
 
 
 
@@ -177,11 +186,6 @@
 
 @media only screen and (max-width: 600px) {
 
-    .tableHeaderSpecial{
-        display: none;
-    }
-
-
 
     .addInventoryDesign{
         width: 100%;
@@ -191,7 +195,7 @@
         width: 100%;
     }
 
-        .customDetails{
+    .customDetails{
         flex-direction: column;
     }
 
@@ -206,11 +210,14 @@
     .customDetailsInfoButtons{
         align-items: flex-start;
         flex-direction: column;
-        
     }
 
     .customDetailsInfoInput{
         margin-top: 10px;
         margin-left: 0;
+    }
+
+    .emptyinventories{
+        flex-direction: column;
     }
 }
