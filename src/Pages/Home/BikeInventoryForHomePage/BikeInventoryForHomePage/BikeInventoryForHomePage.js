@@ -10,17 +10,14 @@ const BikeInventoryForHomePage = () => {
 
   return (
     <div className="allInventories">
-      <Container>
-        <Row xs={1} md={2} lg={3} className="g-5">
-          {bikeInventory?.slice(1, 7).map((bInventory) => (
+      <Container className="allInventories">
+        <Row xs={1} md={2} lg={3} className="g-4">
+          {bikeInventory?.slice(0, 6).map((bInventory) => (
             <BikeInventory key={bInventory?._id} bInventory={bInventory} />
           ))}
         </Row>
-        <div>
-          <button
-            onClick={() => navigate('/manageinventories')}
-            className="seeAllInventories"
-          >
+        <div className="seeAllInventoriesButton">
+          <button onClick={() => navigate('/manageinventories')}>
             Manage Inventories
           </button>
         </div>

@@ -1,6 +1,6 @@
 
 
-/* add inventory section */
+/* add inventory section starts */
 
 .addInventory{
     /* width: 50%; */
@@ -47,25 +47,15 @@
     background-color: rgb(196, 69, 69);
 }
 
+/* add inventory section ends */
+
+/* displaying inventories section starts */
+
 /* bikeinventories */
 .allInventories{
     background-color: black;
     color: white;
     padding: 20px;
-}
-
-.seeAllInventories{
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    background-color: brown;
-    padding: 10px 12px;
-    margin-top: 10px;
-    position: relative;
-    top: 10px;
-    left: 80%;
-    right: 0;
-    bottom: 10px;
-    border-radius: 30px;
 }
 
 .emptyinventories{
@@ -95,44 +85,11 @@
     font-size: 22px;
 }
 
-.bottomLine{
-    background-color: white;
-    height: 2px;
-    width: 100%;
-    margin: 20px auto;
-}
-
-.inventoryCard{
-    width: 350px;
-    background-color: #212226;
-    padding: 20px 10px;
-}
-
-.inventoryCardInfo{
-    padding: 20px 0;
-}
-
-.buttonsSection{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.viewMoreButton{
-  background-color: #46b98b;
-    color: white;
-    font-size: 22px;
-    padding: 10px 15px;
-    border: none;  
-}
-
-
-
-
-
+/* displaying inventories section ends */
 
 
 /* inventory details section */
+
 .inventoryDetails{
     background-color: black;
     color: white;
@@ -145,6 +102,7 @@
     justify-content: space-around;
     background-color: rgba(82, 79, 79, 0.5);
 }
+
 .customDetailsImage{
     padding: 20px;
 }
@@ -186,7 +144,6 @@
 
 @media only screen and (max-width: 600px) {
 
-
     .addInventoryDesign{
         width: 100%;
     }
@@ -201,10 +158,6 @@
 
     .goToInventoryFormButton{
         font-size: 16px;
-    }
-
-    .bottomLine{
-        margin-bottom: 30px;
     }
 
     .customDetailsInfoButtons{
