@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Button, Col, Image } from 'react-bootstrap';
+import React from 'react';
+import { Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import {
   faPenToSquare,

@@ -1,17 +1,20 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
 import BikeInventoryForHomePage from '../BikeInventoryForHomePage/BikeInventoryForHomePage/BikeInventoryForHomePage';
-import Description from '../Description/Description';
+import Welcome from '../Welcome/Welcome';
 import Location from '../Location/Location';
+import Features from '../Features/Features/Features';
+import Partners from '../Partners/Partners';
 // import Features from '../Features/Features/Features';
 
 const Home = () => {
   return (
     <>
       <Banner />
-      {/* <Features /> */}
+      <Welcome />
+      <Features />
       <BikeInventoryForHomePage />
-      <Description />
+      <Partners />
       <Location />
     </>
   );

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useRef, useState } from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { toast } from 'react-toastify';
@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 const AddBikeInventory = () => {
   const navigate = useNavigate('');
   const [validated, setValidated] = useState(false);
+
   const emailRef = useRef('');
   const brandRef = useRef('');
   const nameRef = useRef('');
@@ -25,14 +26,15 @@ const AddBikeInventory = () => {
     e.preventDefault();
 
     const email = emailRef?.current?.value;
-    const brand = brandRef?.current?.value;
-    const name = nameRef?.current?.value;
+    const brand = brandRef?.current?.value.toUpperCase();
+    const name = nameRef?.current?.value.toUpperCase();
     const quantity = parseInt(quantityRef?.current?.value);
     const price = parseInt(priceRef?.current?.value);
     const supplier = supplierRef?.current?.value;
 
     const description = descriptionRef?.current?.value;
     const image = imageUrlRef?.current?.value;
+    //
     // let data = {
     //   email,
     //   brand,
@@ -128,7 +130,7 @@ const AddBikeInventory = () => {
               required
             />
             <Form.Control.Feedback type="invalid">
-              Invalid Email
+              Email is not available
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group>
