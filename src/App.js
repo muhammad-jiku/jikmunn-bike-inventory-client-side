@@ -17,7 +17,6 @@ import AboutUs from './Pages/AboutUs/AboutUs/AboutUs';
 import TermsAndConditions from './Pages/AboutUs/TermsAndConditions/TermsAndConditions';
 import Privacy from './Pages/AboutUs/Privacy/Privacy';
 import Developer from './Pages/Developer/Developer';
-import DashBoard from './DashBoard/DashBoard';
 
 function App() {
   return (
