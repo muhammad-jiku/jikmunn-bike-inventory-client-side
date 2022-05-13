@@ -30,18 +30,18 @@
   background-color: #F3A020;
 }
 
-  .seeAllInventoriesButton{
-    position: relative;
-    padding: 20px;
-  }
+.seeAllInventoriesButton{
+  position: relative;
+  padding: 20px;
+}
 
-  .seeAllInventoriesButton > button{
-    border: none;
-    color: white;
-    /* background-color: brown; */
-    background-color: #F3A020;
-    padding: 10px 12px;
-    position: absolute;
-    top: 20px;
-    right: 0;
+.seeAllInventoriesButton > button{
+  border: none;
+  color: white;
+  /* background-color: brown; */
+  background-color: #F3A020;
+  padding: 10px 12px;
+  position: absolute;
+  top: 20px;
+  right: 0;
 }

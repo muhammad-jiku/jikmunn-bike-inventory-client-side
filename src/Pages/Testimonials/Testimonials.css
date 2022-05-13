@@ -1,0 +1,22 @@
+.testimonial{
+    position: relative;
+}
+
+.testimonialCard{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: wheat;
+}
+
+.testimonialCard  img{
+    border-radius: 50%;
+}
+
+.testimonialIcon{
+    color: #F39E20;
+    font-size: 48px;
+}

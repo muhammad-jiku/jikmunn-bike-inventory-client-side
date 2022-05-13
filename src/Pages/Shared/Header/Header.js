@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import siteLogo from '../../../Images/logo.png';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -19,48 +19,34 @@ const Header = () => {
       <Navbar
         collapseOnSelect
         expand="lg"
-        variant="dark"
         sticky="top"
-        className="navBarStyle"
+        className="navBarDesign"
       >
         <Container>
           <div onClick={() => navigate('/')}>
             <img
               src={siteLogo}
               alt="Bike Decor.png"
-              className="navBarStyleLogo"
+              className="navBarDesignLogo"
             />
           </div>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="ms-auto">
-              <Nav.Link as={Link} to="/blogs">
-                Blogs
-              </Nav.Link>
-              <Nav.Link as={Link} to="/aboutbikedecor">
-                About
-              </Nav.Link>
+            <Nav className="ms-auto navBarDesignLink">
+              <Link to="/testimonials">Testimonials</Link>
+              <Link to="/blogs">Blogs</Link>
+              <Link to="/aboutbikedecor">About</Link>
               {user ? (
                 <>
-                  <Nav.Link as={Link} to="/manageinventories">
-                    Inventories
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/addinventory">
-                    Add Inventory
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/myinventories">
-                    My Inventories
-                  </Nav.Link>
-                  <Button onClick={signingOut}>Log Out</Button>
+                  <Link to="/manageinventories">Inventories</Link>
+                  <Link to="/addinventory">Add Inventory</Link>
+                  <Link to="/myinventories">My Inventories</Link>
+                  <button onClick={signingOut}>Sign Out</button>
                 </>
               ) : (
                 <>
-                  <Nav.Link as={Link} to="/login">
-                    Log In
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/register">
-                    Register
-                  </Nav.Link>
+                  <Link to="/login">Log In</Link>
+                  <Link to="/register">Register</Link>
                 </>
               )}
             </Nav>

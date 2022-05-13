@@ -1,0 +1,22 @@
+.services{
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+.service{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.serviceIcon{
+    color: #F39E20;
+    font-size: 48px;
+}
+
+.service > p{
+    text-align: center;
+}

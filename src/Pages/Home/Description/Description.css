@@ -1,0 +1,38 @@
+.description{
+    background-color: black;
+    color: white;
+}
+
+.descriptionBox{
+    display: flex;
+}
+
+.descriptionBoxLeft{
+    width: 50%;
+    padding: 20px;
+}
+
+.descriptionBoxLeft > h3{
+    text-align: center;
+}
+
+.descriptionBoxLeft > p{
+    text-align: justify;
+}
+
+.descriptionBoxLeftSiteName{
+    color: #E3B022;
+}
+
+.descriptionBoxRight{
+    width: 50%;
+    padding: 20px;
+}
+
+.descriptionBoxRight > h3{
+    text-align: center;
+}
+
+.descriptionBoxRight > p{
+    text-align: justify;
+}

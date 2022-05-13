@@ -101,11 +101,11 @@ const LogIn = () => {
                 </Form.Control.Feedback>
               </Form.Group>
               <button type="submit" className="formDesignButton">
-                Sign In
+                sign in
               </button>{' '}
               <p className="toggleSection">
                 New to BIKE DECOR?
-                <span onClick={() => navigate('/register')}> Sign Up</span>
+                <span onClick={() => navigate('/register')}> sign up</span>
               </p>
               <p className="toggleSection">
                 Forget Password?

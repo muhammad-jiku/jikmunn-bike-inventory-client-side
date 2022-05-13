@@ -17,19 +17,23 @@ import AboutUs from './Pages/AboutUs/AboutUs/AboutUs';
 import TermsAndConditions from './Pages/AboutUs/TermsAndConditions/TermsAndConditions';
 import Privacy from './Pages/AboutUs/Privacy/Privacy';
 import Developer from './Pages/Developer/Developer';
+import Testimonials from './Pages/Testimonials/Testimonials';
+import './App.css';
 
 function App() {
   return (
     <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
-      }}
+      className="app"
+      // style={{
+      //   display: 'flex',
+      //   flexDirection: 'column',
+      //   minHeight: '100vh'
+      // }}
     >
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/aboutbikedecor" element={<AboutUs />} />
         <Route

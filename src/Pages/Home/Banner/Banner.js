@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel } from 'react-bootstrap';
+import { Carousel, Image } from 'react-bootstrap';
 import carouselImage_1 from '../../../Images/carousel_1.jpg';
 import carouselImage_2 from '../../../Images/carousel_2.jpg';
 import carouselImage_3 from '../../../Images/carousel_3.jpg';
@@ -10,10 +10,11 @@ const Banner = () => {
     <div>
       <Carousel variant="dark" interval={null}>
         <Carousel.Item>
-          <img
+          <Image
             className="d-block w-100"
             src={carouselImage_1}
             alt="First slide"
+            fluid
           />
           <Carousel.Caption>
             <h3>First slide label</h3>
@@ -21,10 +22,11 @@ const Banner = () => {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img
+          <Image
             className="d-block w-100"
             src={carouselImage_2}
             alt="Second slide"
+            fluid
           />
 
           <Carousel.Caption>
@@ -33,10 +35,11 @@ const Banner = () => {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img
+          <Image
             className="d-block w-100"
             src={carouselImage_3}
             alt="Third slide"
+            fluid
           />
 
           <Carousel.Caption>
@@ -47,10 +50,11 @@ const Banner = () => {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img
+          <Image
             className="d-block w-100"
             src={carouselImage_4}
             alt="Fourth slide"
+            fluid
           />
 
           <Carousel.Caption>

@@ -1,14 +1,57 @@
-.navBarStyle{
+.navBarDesign{
     background-color: rgb(15, 14, 14);
-    /* top: 0;
-    position: fixed;
-    z-index: 1, */
-    /* position:absolute;
-    width:100%;
-    z-index:10;
-    max-width:100%; */
 }
 
-.navBarStyleLogo{
+.navBarDesignLogo{
     cursor: pointer;
+}
+
+.navBarDesignLink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navBarDesignLink > a{
+    color: #F2B022;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 0 10px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.navBarDesignLink > a:hover, a:focus{
+    color: #F2B022;
+    text-decoration: underline;
+}
+
+.navBarDesignLink > button{
+    background-color: #F2B022;
+    color: #0B301A;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 10px 15px;
+}
+
+.navBarDesignLink > button:hover{
+    background-color: #0B301A;
+    color: #F2B022;
+    transition: 0.3s;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    .navBarDesignLink{
+        align-items: flex-start;
+
+    }
+
+    .navBarDesignLink > button{
+        margin: 10px 0;
+        width: 100%;
+    }
 }
