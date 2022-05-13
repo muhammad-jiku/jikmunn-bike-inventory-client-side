@@ -1,3 +1,6 @@
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
 .navBarDesign{
     background-color: rgb(15, 14, 14);
 }
@@ -17,7 +20,7 @@
     font-size: 18px;
     text-decoration: none;
     margin: 0 10px;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .navBarDesignLink > a:hover, a:focus{
@@ -34,6 +37,7 @@
     text-decoration: none;
     margin: 0 10px;
     padding: 10px 15px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .navBarDesignLink > button:hover{
@@ -47,7 +51,6 @@
 
     .navBarDesignLink{
         align-items: flex-start;
-
     }
 
     .navBarDesignLink > button{
