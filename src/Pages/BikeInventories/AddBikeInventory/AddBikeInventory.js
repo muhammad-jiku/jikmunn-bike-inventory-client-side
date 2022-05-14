@@ -5,7 +5,6 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-// import Loading from '../../Shared/Loading/Loading';
 import './AddInventory.css';
 
 const AddBikeInventory = () => {
@@ -21,7 +20,7 @@ const AddBikeInventory = () => {
   const descriptionRef = useRef('');
   const imageUrlRef = useRef('');
 
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   const handleAddInventory = async (e) => {
     e.preventDefault();
@@ -57,8 +56,8 @@ const AddBikeInventory = () => {
       return;
     }
 
-    if (supplier?.length > 25) {
-      toast.error('Supplier name can not be above 25 letters');
+    if (supplier?.length < 10 || supplier?.length > 25) {
+      toast.error('Supplier name must be between 10 to 25 letters');
       return;
     }
 
@@ -100,18 +99,8 @@ const AddBikeInventory = () => {
     setValidated(true);
   };
 
-  if (error) {
-    return (
-      <div>
-        <p>Error: {error}</p>
-      </div>
-    );
-  }
   return (
     <div className="addInventory">
-      {/* {loading ? (
-        <Loading />
-      ) : ( */}
       <h1 className="addInventoryHeading">Add inventory</h1>
       <div className="addInventoryDesign">
         <Form

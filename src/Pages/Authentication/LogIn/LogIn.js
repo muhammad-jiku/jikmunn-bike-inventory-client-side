@@ -26,9 +26,7 @@ const LogIn = () => {
   const location = useLocation();
   let from = location.state?.from?.pathname || '/';
 
-  if (token) {
-    navigate(from, { replace: true });
-  }
+
 
   const handleLogInSubmit = async (e) => {
     e.preventDefault();
@@ -54,18 +52,25 @@ const LogIn = () => {
     }
   };
 
-  useEffect(() => {
-    if (error) {
-      toast.error('Invalid email or password');
+   useEffect(() => {
+     if (error) {
+       toast.error('Invalid email or password');
+     }
+     return;
+   }, [error]);
+  
+    if (token) {
+      navigate(from, { replace: true });
     }
-    return;
-  }, [error]);
+
+    if (loading || sending) {
+      return <Loading />;
+    }
+
+ 
 
   return (
     <div>
-      {/* {loading || sending ? (
-        <Loading />
-      ) : ( */}
       <div className="formDesign">
         <div className="formDesignLeft">
           <h1 className="formDesignHeading">Sign In</h1>
@@ -122,7 +127,6 @@ const LogIn = () => {
           </div>
         </div>
       </div>
-      {/* )} */}
     </div>
   );
 };

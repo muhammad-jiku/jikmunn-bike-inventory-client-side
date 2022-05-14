@@ -5,7 +5,7 @@ import {
   useSendEmailVerification,
 } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import { Button, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import Loading from '../../Shared/Loading/Loading';
 import { toast } from 'react-toastify';
 import '../Authentication.css';
@@ -34,9 +34,11 @@ const RequiredAuth = ({ children }) => {
     }
     return;
   }, [verifyError]);
-  if (loading) {
-    return;
+  
+  if (loading || sending) {
+    return <Loading />;
   }
+
   if (!user) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
@@ -47,15 +49,11 @@ const RequiredAuth = ({ children }) => {
   ) {
     return (
       <Container className="requiredAuth">
-        {/* {loading || sending ? (
-          <Loading />
-        ) : ( */}
-
-        <h1>Your email is not verified</h1>
-        <h2>Please verify your email address </h2>
-        <button onClick={handleVerifyEmail}>Send Verification</button>
-
-        {/* )} */}
+        <div>
+          <h1>Your email is not verified</h1>
+          <h2>Please verify your email address </h2>
+          <button onClick={handleVerifyEmail}>Send Verification</button>
+        </div>
       </Container>
     );
   }

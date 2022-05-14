@@ -5,12 +5,16 @@ const useBikeInventories = () => {
   const [bikeInventory, setBikeInventory] = useState([]);
 
   useEffect(() => {
-    fetch('https://cryptic-reef-07381.herokuapp.com/bikeinventories')
-      // axios
-      //   .get('https://cryptic-reef-07381.herokuapp.com/bikeinventories')
-      .then((res) => res.json())
+    const url = 'https://cryptic-reef-07381.herokuapp.com/bikeinventories';
+    // fetch()
+    // axios
+    //   .get('https://cryptic-reef-07381.herokuapp.com/bikeinventories')
+    // .then((res) => res.json())
+    axios
+      .get(url)
       .then((data) => {
-        setBikeInventory(data);
+        console.log(data);
+        setBikeInventory(data?.data);
       })
       .catch((err) => console.log(err));
   }, [bikeInventory]);

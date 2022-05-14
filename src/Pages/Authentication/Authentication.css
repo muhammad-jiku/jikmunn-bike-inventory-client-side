@@ -99,11 +99,16 @@
   font-family: 'Headland One', serif;
 }
 
-
 .requiredAuth{
+    height: 100vh;  
     padding: 20px;
+}
+
+.requiredAuth > div{
     text-align: center;
     font-family: 'Headland One', serif;
+    position: relative;
+    top: 40%;
 }
 
 .requiredAuth h1{

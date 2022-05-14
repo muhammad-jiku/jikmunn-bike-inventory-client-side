@@ -22,10 +22,6 @@ const SocialLogIn = () => {
   const location = useLocation();
   let from = location.state?.from?.pathname || '/';
 
-  if (token) {
-    navigate(from, { replace: true });
-  }
-
   const handleGoogleLogIn = async () => {
     await signInWithGoogle();
   };
@@ -47,11 +43,16 @@ const SocialLogIn = () => {
     return;
   }, [githubError]);
 
+  if (token) {
+    navigate(from, { replace: true });
+  }
+
+  if (googleLoading || githubLoading) {
+    return <Loading />;
+  }
+
   return (
     <>
-      {/* {googleLoading || githubLoading ? (
-        <Loading />
-      ) : ( */}
       <>
         <div className="d-flex align-items-center justify-content-center">
           <div className="lineDraw"></div>
@@ -69,7 +70,6 @@ const SocialLogIn = () => {
           </button>
         </div>
       </>
-      {/* )} */}
     </>
   );
 };

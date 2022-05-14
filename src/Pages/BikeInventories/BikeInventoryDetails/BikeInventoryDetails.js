@@ -17,21 +17,23 @@ const BikeInventoryDetails = () => {
     quantity = parseInt(quantity) - 1;
     console.log(quantity);
     if (quantity < 0) {
-      return toast.error('Quantity can not be less than zero');
+      return toast.error(
+        'Delivery is not possible! in order to deliver you need to restock'
+      );
     }
 
     const url = `https://cryptic-reef-07381.herokuapp.com/bikeinventory/${manageinventoryId}`;
 
-    // axios
-    //   .put(url, { quantity: quantity })
-    fetch(url, {
-      method: 'PUT',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({ quantity }),
-    })
-      .then((res) => res.json())
+    axios
+      .put(url, { quantity: quantity })
+      // fetch(url, {
+      //   method: 'PUT',
+      //   headers: {
+      //     'content-type': 'application/json',
+      //   },
+      //   body: JSON.stringify({ quantity }),
+      // })
+      // .then((res) => res.json())
       .then((data) => {
         console.log(data);
         // setBikeInventoryDetails({

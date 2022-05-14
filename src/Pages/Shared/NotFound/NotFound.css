@@ -2,8 +2,14 @@
 
 .notFound{
     padding: 20px;
+    height: 100vh;
+}
+
+.notFound > div{
     text-align: center;
     font-family: 'Headland One', serif;
+    position: relative;
+    top: 40%;
 }
 
 .notFound h1{

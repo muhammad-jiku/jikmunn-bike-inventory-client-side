@@ -22,11 +22,8 @@ const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || '/';
-  // let need;
 
-  if (token) {
-    navigate(from, { replace: true });
-  }
+
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
@@ -54,11 +51,16 @@ const Register = () => {
     return;
   }, [error]);
 
+    if (token) {
+      navigate(from, { replace: true });
+    }
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <div>
-      {/* {loading ? (
-        <Loading />
-      ) : ( */}
       <>
         <div className="formDesign">
           <div className="formDesignLeft">
@@ -137,7 +139,6 @@ const Register = () => {
           </div>
         </div>
       </>
-      {/* )} */}
     </div>
   );
 };

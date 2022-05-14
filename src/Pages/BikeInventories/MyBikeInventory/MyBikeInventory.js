@@ -1,19 +1,18 @@
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
-import { Container, Image, Row, Table } from 'react-bootstrap';
+import { Container, Table } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import axiosPrivate from '../../../api/axiosPrivate';
 import auth from '../../../firebase.init';
-// import Loading from '../../Shared/Loading/Loading';
+import Loading from '../../Shared/Loading/Loading';
 import BikeInventory from '../BikeInventory/BikeInventory';
-import empty from '../../../Images/empty.gif';
 
 const MyBikeInventory = () => {
   const navigate = useNavigate();
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const [myInventoryItems, setMyInventoryItems] = useState([]);
-  // const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getMyItems = async () => {
@@ -24,7 +23,7 @@ const MyBikeInventory = () => {
         // console.log(response);
         // const { data } = response;
         setMyInventoryItems(data);
-        // setIsLoading(false);
+        setIsLoading(false);
         console.log(data);
       } catch (err) {
         console.log(err.message);
@@ -35,70 +34,62 @@ const MyBikeInventory = () => {
       }
     };
     getMyItems();
-  }, [navigate, user, myInventoryItems]);
+  }, [navigate, user, myInventoryItems, isLoading]);
 
-  if (error) {
-    return (
-      <div>
-        <p>Error: {error}</p>
-      </div>
-    );
-  }
   return (
-    <div className="allInventories">
-      <div>
-        {!myInventoryItems?.length ? (
-          <div className="emptyinventories">
-            <div>
-              <Image src={empty} alt="" fluid />
+    <div>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Container>
+          {!myInventoryItems?.length ? (
+            <div className="emptyinventories">
+              <h4>No items added yet!!</h4>
             </div>
+          ) : (
             <div>
-              <h4>No items added</h4>
-            </div>
-          </div>
-        ) : (
-          <div className="allInventories">
-            <div className="inventoriesIntro">
-              <h1>My Inventory</h1>
-              <button
-                onClick={() => navigate('/manageinventories')}
-                className="goToInventoryFormButton"
+              <div className="inventoriesIntro">
+                <h3>My Inventory</h3>
+                <button
+                  onClick={() => navigate('/manageinventories')}
+                  className="goToInventoryFormButton"
+                >
+                  Manage Inventories
+                </button>
+              </div>
+              <Table
+                striped
+                bordered
+                hover
+                responsive
+                variant="dark"
+                className="inventoriesTable"
               >
-                Manage Inventories
-              </button>
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    {/* <th >Description</th> */}
+                    <th>Supplier</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {myInventoryItems?.map((bInventory) => (
+                    <BikeInventory
+                      key={bInventory?._id}
+                      bInventory={bInventory}
+                    />
+                  ))}
+                </tbody>
+              </Table>
             </div>
-            <Table
-              striped
-              bordered
-              hover
-              responsive
-              variant="dark"
-              className="inventoriesTable"
-            >
-              <thead>
-                <tr>
-                  <th>Image</th>
-                  <th>Brand</th>
-                  <th>Model</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  {/* <th >Description</th> */}
-                  <th>Supplier</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {myInventoryItems?.map((bInventory) => (
-                  <BikeInventory
-                    key={bInventory?._id}
-                    bInventory={bInventory}
-                  />
-                ))}
-              </tbody>
-            </Table>
-          </div>
-        )}
-      </div>
+          )}
+        </Container>
+      )}
     </div>
   );
 };

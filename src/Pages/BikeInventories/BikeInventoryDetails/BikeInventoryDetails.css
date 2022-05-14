@@ -4,14 +4,14 @@
 
 .inventoryDetails{
     padding: 20px;
-    font-family: 'Headland One', serif;
+    font-family: 'Headland One', serif; 
 }
 
 .customDetails{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: #485362;
+    background-color: #15191F;
 }
 
 .customDetailsImage{
@@ -62,7 +62,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
+    .customDetails{
+        flex-direction: column;
+    }
+    
     .customDetailsInfoInput{
         font-size: 14px;
     }

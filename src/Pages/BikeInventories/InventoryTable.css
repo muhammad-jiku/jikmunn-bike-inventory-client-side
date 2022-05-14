@@ -1,6 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Headland+One&family=Newsreader:opsz,wght@6..72,600&family=Pacifico&family=Permanent+Marker&family=Poppins:wght@600&display=swap');
+
+
+.emptyinventories{
+    text-align: center;
+    font-family: 'Newsreader', serif;
+    text-transform: uppercase;
+    color: #F2B022;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.emptyinventories > h4{
+    font-size: 36px;
+}
+
+.inventoriesIntro{
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inventoriesIntro > h3{
+    font-family: 'Newsreader', serif;
+    color: #F2B022;
+}
+
+
+.goToInventoryFormButton{
+    border: none;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border: none;
+    color: #F2B022;
+    background-color: #0B301A;
+    font-family: 'Poppins', sans-serif;
+}
+
+.goToInventoryFormButton:hover{
+    color: #0B301A;
+    background-color: #F2B022;
+    transition: 0.3s;
+}
+
+.inventoriesTable{
+    font-family: 'Poppins', sans-serif;
+}
+
 .inventoriesTable thead tr th{
     padding: 20px;
-    color: wheat;
+    color: #F2B022;
+    font-size: 22px;
 }
 
 .inventoriesTable thead tr th, .inventoriesTable tbody tr td{
@@ -13,19 +63,19 @@
 }
 
 .updateButton{
-    background-color: #3A85AD;
+    background-color: #0B301A;
 }
 
 .deleteButton{
-    background-color: #F05842;
+    background-color: brown;
 }
 
 .updateButton, .deleteButton{
-    color: white;
     font-size: 22px;
     padding: 10px 15px;
     border: none;
     margin: 5px;
+    color: white;
 }
 
 
@@ -53,7 +103,7 @@
     }
 
     .inventoriesTable td::before{
-        color: wheat;
+        color: #F2B022;
         content: attr(data-label);
         position: absolute;
         left: 0;
@@ -61,6 +111,7 @@
         padding-left: 15px;
         text-align: left;
         font-weight: 700;
+        font-size: 22px;
     }
 
     

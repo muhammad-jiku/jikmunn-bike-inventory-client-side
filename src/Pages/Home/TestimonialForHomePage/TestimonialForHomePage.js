@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Container } from 'react-bootstrap';
+import useTestimonials from '../../../customHooks/useTestimonials/useTestimonials';
 import Testimony from '../../Testimonials/Testimony/Testimony';
 import './TestimonialForHomePage.css';
 
 const TestimonyAndLocation = () => {
-  const [testimonials, setTestimonials] = useState([]);
-  useEffect(() => {
-    fetch('https://cryptic-reef-07381.herokuapp.com/testimonials')
-      .then((res) => res.json())
-      .then((data) => setTestimonials(data))
-      .catch((err) => console.log(err));
-  }, []);
+  const [testimonials] = useTestimonials();
   return (
     <Container className="testimonyCard">
-      {testimonials?.slice(0, 1)?.map((testimonial) => (
+      {testimonials?.slice(1, 2)?.map((testimonial) => (
         <div key={testimonial?._id} className="testimonialCard">
           <Testimony testimonial={testimonial} />
         </div>

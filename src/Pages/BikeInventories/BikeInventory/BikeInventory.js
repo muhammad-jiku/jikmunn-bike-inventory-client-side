@@ -1,23 +1,16 @@
-import {
-  faPenToSquare,
-  faTrash,
-  faAngleDown,
-  faAngleUp,
-} from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import React, { useState } from 'react';
-import { Col, Image } from 'react-bootstrap';
+import React from 'react';
+import { Image } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import useBikeInventories from '../../../customHooks/useBikeInventories/useBikeInventories';
 
 const BikeInventory = ({ bInventory }) => {
-  const [seeMore, setSeeMore] = useState(false);
   const [bikeInventory, setBikeInventory] = useBikeInventories();
 
   const navigate = useNavigate();
-  const { _id, brand, name, image, description, supplier, price, quantity } =
-    bInventory;
+  const { _id, brand, name, image, supplier, price, quantity } = bInventory;
 
   const handleUpdateInventory = (id) => {
     navigate(`/manageinventory/${id}`);
