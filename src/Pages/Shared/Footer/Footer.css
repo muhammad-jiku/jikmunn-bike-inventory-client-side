@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Headland+One&family=Newsreader:opsz,wght@6..72,600&family=Pacifico&family=Permanent+Marker&family=Poppins:wght@600&display=swap');
+
+
 .footerSection{
     margin-top: auto;
     padding: 20px;
     background-color: #0F0E0E;
-    color: white;
+    font-family: 'Poppins', sans-serif;
 }
 
 .footersectionDetails{
@@ -11,26 +14,22 @@
     padding:  20px;
 }
 
-/* .footersectionDetailsFirst{
+.footersectionDetailsBox{
     padding: 10px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-.footersectionDetailsFirst >p{
-    text-align: center;
-    color: white;
-    margin-top: 10px;
-}*/
+.authorName{
+    color: #F2B022;
+    text-transform: uppercase;
+}
 
 .authorName > a{
-    color: white;
+    color: #F2B022;
     text-decoration: none;
 }
 
 .authorName > a:hover{
-    color: white;
+    color: #F2B022;
     text-decoration: underline;
 }
 
@@ -39,11 +38,14 @@
     cursor: pointer;
 } 
 
+.footersectionDetailsBox h3{
+    font-family: 'Headland One', serif;
+}
+
 .footerSectionCopyright{
     text-align: center;
     color: white;
-    font-size: 14px;
-    font-family: 'Lobster', cursive;
+    font-family: 'Poppins', sans-serif;
 }
 
 ul > li {

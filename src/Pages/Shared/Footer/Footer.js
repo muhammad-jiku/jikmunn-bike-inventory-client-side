@@ -16,7 +16,7 @@ const Footer = () => {
   return (
     <div className="footerSection">
       <div className="footersectionDetails">
-        <div className="footersectionDetailsFirst">
+        <div className="footersectionDetailsBox">
           <img
             src={siteLogo}
             alt="Bike Decor.png"
@@ -30,7 +30,7 @@ const Footer = () => {
             </span>
           </p>
         </div>
-        <div className="footersectionDetailsSecond">
+        <div className="footersectionDetailsBox">
           <ul>
             <li>
               <h3>Explore</h3>
@@ -39,17 +39,20 @@ const Footer = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
+              <Link to="/testimonials">Testimonials</Link>
+            </li>
+            <li>
+              <Link to="/blogs">Blogs</Link>
+            </li>
+            <li>
               <Link to="/aboutbikedecor">About</Link>
             </li>
             <li>
               <Link to="/manageinventories">Inventories</Link>
             </li>
-            <li>
-              <Link to="/blogs">Blogs</Link>
-            </li>
           </ul>
         </div>
-        <div className="footersectionDetailsThird">
+        <div className="footersectionDetailsBox">
           <ul>
             <li>
               <h3>Legal</h3>
@@ -62,14 +65,14 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="footersectionDetailsFour">
+        <div className="footersectionDetailsBox">
           <ul>
             <li>
               <h3>Contact Us</h3>
             </li>
             <li>
               <FontAwesomeIcon icon={faLocationDot} /> &nbsp;{' '}
-              <span>Address</span>: Address
+              <span>Address</span>: Grand Trunk Rd, FENI
             </li>
             <li>
               <FontAwesomeIcon icon={faPhone} /> &nbsp;
@@ -81,7 +84,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="footersectionDetailsFive">
+        <div className="footersectionDetailsBox">
           <ul>
             <li>
               <h3>Follow</h3>
@@ -97,10 +100,10 @@ const Footer = () => {
         </div>
       </div>
       <div className="footerSectionCopyright">
-        <h4>
+        <p>
           &copy;copyright {date.getFullYear()} All copyright rights reserved to
-          bike decor
-        </h4>
+          <span className="authorName"> bike decor</span>
+        </p>
       </div>
     </div>
   );
