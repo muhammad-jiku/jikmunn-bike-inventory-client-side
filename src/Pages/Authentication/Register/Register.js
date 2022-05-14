@@ -74,7 +74,7 @@ const Register = () => {
                   <Form.Label>Name</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="Enter name"
+                    placeholder="Name"
                     ref={nameRef}
                     required
                   />
@@ -84,10 +84,10 @@ const Register = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
+                  <Form.Label>Email</Form.Label>
                   <Form.Control
                     type="email"
-                    placeholder="Enter email"
+                    placeholder="Email"
                     ref={emailRef}
                     required
                   />
@@ -119,11 +119,11 @@ const Register = () => {
                   />
                 </Form.Group>
                 <button type="submit" className="formDesignButton">
-                  Sign Up
+                  Sign up
                 </button>
                 <p className="toggleSection">
                   Already have an account?
-                  <span onClick={() => navigate('/login')}> Sign In here</span>
+                  <span onClick={() => navigate('/login')}> Sign in</span>
                 </p>
               </Form>
               <SocialLogIn />

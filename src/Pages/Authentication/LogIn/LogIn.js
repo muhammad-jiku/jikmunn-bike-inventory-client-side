@@ -77,10 +77,10 @@ const LogIn = () => {
               className="form"
             >
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
+                <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="email"
-                  placeholder="Enter email"
+                  placeholder="Email"
                   ref={emailRef}
                   required
                 />
@@ -101,11 +101,11 @@ const LogIn = () => {
                 </Form.Control.Feedback>
               </Form.Group>
               <button type="submit" className="formDesignButton">
-                sign in
+                Sign in
               </button>{' '}
               <p className="toggleSection">
                 New to BIKE DECOR?
-                <span onClick={() => navigate('/register')}> sign up</span>
+                <span onClick={() => navigate('/register')}> Sign up</span>
               </p>
               <p className="toggleSection">
                 Forget Password?

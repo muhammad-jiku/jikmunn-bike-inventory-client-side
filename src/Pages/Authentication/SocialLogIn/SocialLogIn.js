@@ -60,7 +60,7 @@ const SocialLogIn = () => {
         </div>
         <div className="d-flex">
           <button onClick={handleGoogleLogIn} className="socialButton">
-            <span className="text-white">Sign in with </span>
+            <span>Sign in with </span>
             <img src={googleLogo} alt="google's logo" />
           </button>
           <button onClick={handleGithubLogIn} className="socialButton">

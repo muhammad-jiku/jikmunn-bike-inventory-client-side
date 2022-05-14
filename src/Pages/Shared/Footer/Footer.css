@@ -18,18 +18,16 @@
     padding: 10px 0;
 }
 
-.authorName{
+.authorName, .authorName > a, .authorName > a:hover{
     color: #F2B022;
     text-transform: uppercase;
 }
 
 .authorName > a{
-    color: #F2B022;
     text-decoration: none;
 }
 
 .authorName > a:hover{
-    color: #F2B022;
     text-decoration: underline;
 }
 
@@ -65,6 +63,6 @@ ul > li > a:hover{
 
 @media only screen and (max-width: 768px) {
     .footersectionDetails{
-        grid-template-columns: repeat(1,1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
 }

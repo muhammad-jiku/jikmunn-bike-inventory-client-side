@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Headland+One&family=Newsreader:opsz,wght@6..72,600&family=Pacifico&family=Permanent+Marker&family=Poppins:wght@600&display=swap');
+
+
 .formDesign{
     display: flex;
-    background-color: black;
-    padding: 20px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .formDesignLeft{
@@ -14,7 +16,7 @@
 .form{
     margin: 20px auto;
     width: 600px;
-    border: 1px solid brown;
+    border: 1px solid #F2B022;
     padding: 20px;
 }
 
@@ -22,29 +24,57 @@
 .formDesignHeading{
     text-align: center;
     margin-top: 20px;
+    color: #F2B022;
+    text-transform: uppercase;
+    font-family: 'Headland One', serif;
 }
 
 
-.formDesignButton{
-    background-color: brown;
+.formDesignButton, .socialButton{
+    color: #0B301A;
+    background-color: #F2B022;
     width: 100%;
     border: none;
-    color: white;
-    padding: 10px;
-    border-radius: 30px;
+}
+
+.formDesignButton{
+    padding: 10px 15px;
     margin: 10px 0;
 }
 
+.socialButton{
+    padding: 10px;
+    margin: 5px;
+}
 
 .toggleSection{
     margin-top: 10px;
+}
+
+.toggleSection > span {
+    cursor: pointer;
+    color: #F2B022;
+    font-weight: 700;
+}
+
+.lineDraw{
+    background-color: white;
+    height: 2px;
+    width: 50%;
+}
+
+
+.formDesignButton:hover, .socialButton:hover{
+    background-color: #0B301A;
+    color: #F2B022;
+    transition: 0.3s;
 }
 
 .formDesignRight{
   width: 50%;
   padding: 20px;
   backdrop-filter: blur(8px);
-  height: 100vh; 
+  height: 105vh; 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -54,7 +84,6 @@
 
 .formDesignRightBox{
   background: rgba(255, 255, 255, 0.2);
-  color: white;
   font-weight: bold;
   border: 3px solid #f1f1f1;
   position: absolute;
@@ -65,47 +94,33 @@
   width: 80%;
   padding: 20px;
   text-align: center;
-}
-
-.toggleSection > span {
-    cursor: pointer;
-    color: brown;
-    font-weight: 700;
-}
-
-.lineDraw{
-    background-color: white;
-    height: 2px;
-    width: 50%;
-}
-
-.socialButton{
-    background-color: brown;
-    width: 50%;
-    margin: 0 5px;
-    border: none;
-    padding: 10px;
-    border-radius: 30px;
-    color: white;
+  text-transform: uppercase;
+  color: #F2B022;
+  font-family: 'Headland One', serif;
 }
 
 
-.formDesignButton:hover, .socialButton:hover{
-    background-color: rgb(196, 69, 69);
-}
-
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
 
     .formDesign{
         flex-direction: column-reverse;
     }
 
     .form{
-    width: 100%;
-  }
+        width: 100%;
+    }
 
     .formDesignLeft, .formDesignRight{
         width: 100%;
     }
+    
+    .formDesignRight{
+        height: 80vh;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .formDesignRight{
+        height: 50vh;
+    } 
 }
