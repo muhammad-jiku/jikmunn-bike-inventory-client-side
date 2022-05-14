@@ -1,5 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Newsreader:opsz,wght@6..72,600&family=Pacifico&family=Permanent+Marker&family=Poppins:wght@600&display=swap');
+
+
 .testimonial{
-    position: relative;
+    padding: 20px;
+}
+
+.testimonial > h3{
+    text-align: center;
+    font-family: 'Newsreader', serif;
+    color: #F3A320;
 }
 
 .testimonialCard{
@@ -9,10 +18,20 @@
     align-items: center;
     flex-direction: column;
     padding: 20px;
-    background-color: wheat;
+    background-color: #485362;
 }
 
-.testimonialCard  img{
+.testimonialCard p{
+    font-family: 'Poppins', sans-serif;
+    text-align: justify;
+}
+
+.testimonialCard h3{
+    font-family: 'Pacifico', cursive;
+    color: #F3A320;
+}
+
+.testimonialCard img{
     border-radius: 50%;
 }
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,600&family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,600&family=Permanent+Marker&family=Poppins:wght@600&display=swap');
 
 .carouselCaption{
     margin-bottom: 225px;
@@ -9,7 +9,7 @@
     color: #e9a410;
     font-size: 48px;
     letter-spacing: 2px;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Permanent Marker', cursive;
 }
 
 .spanText{

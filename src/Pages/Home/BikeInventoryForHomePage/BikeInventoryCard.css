@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Headland+One&family=Newsreader:opsz,wght@6..72,600&family=Pacifico&family=Permanent+Marker&family=Poppins:wght@600&display=swap');
+
 
 .inventoryCard{
-    background-color: #fff;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.28);
-    color: rgb(0, 0, 0);
+  background-color: #485362;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.28);
 }
 
 .inventoryCardImage{
@@ -21,13 +22,41 @@
   text-align: center;
 }
 
+.inventoryCardInfo h4{
+  font-family: 'Headland One', serif;
+  font-size: 30px;
+  color: #F3A020;
+}
+
+.inventoryCardIcon{
+  font-size: 26px;
+  /* color: black; */
+  margin-right: 10px;
+}
+
+.inventoryCardInfo p{
+  font-family: 'Poppins', sans-serif;
+  color: rgb(255, 255, 255);
+  margin-top: 20px;
+  text-align: center;
+}
+
 .inventoryCardButton{
   width: 100%;
   border: none;
   color: white;
   padding: 20px;
-  /* background-color: brown; */
+  color: #0B301A;
   background-color: #F3A020;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.inventoryCardButton:hover{
+    background-color: #0B301A;
+    color: #F2B022;
+    transition: 0.3s;
 }
 
 .seeAllInventoriesButton{
@@ -37,11 +66,19 @@
 
 .seeAllInventoriesButton > button{
   border: none;
-  color: white;
-  /* background-color: brown; */
+  color: #0B301A;
   background-color: #F3A020;
   padding: 10px 12px;
   position: absolute;
   top: 20px;
   right: 0;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.seeAllInventoriesButton > button:hover{
+    background-color: #0B301A;
+    color: #F2B022;
+    transition: 0.3s;
 }

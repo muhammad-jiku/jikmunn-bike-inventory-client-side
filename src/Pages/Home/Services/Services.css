@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Newsreader:opsz,wght@6..72,600&family=Permanent+Marker&family=Poppins:wght@600&display=swap');
+
 .services{
-    background-color: black;
-    color: white;
-    padding: 20px;
+    /* padding: 20px; */
+    margin: 20px 0;
 }
 
 .service{
@@ -17,6 +18,35 @@
     font-size: 48px;
 }
 
-.service > p{
+.service > h5{
+    margin-top: 20px;
     text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.service > p{
+    text-align: justify;
+    font-family: 'Comfortaa', cursive;
+}
+
+.brandSection{
+    margin: 20px 0;
+}
+
+.brandSection > h4{
+    text-align: center;
+    font-family: 'Newsreader', serif;
+    font-size: 30px;
+}
+
+.brand{
+    margin: 10px auto;
+    padding: 20px 10px;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 600px) {
+    .brandSection > h4{
+        font-size: 24px;
+    }
 }

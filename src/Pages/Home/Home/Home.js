@@ -1,24 +1,21 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
-import BikeInventoryForHomePage from '../BikeInventoryForHomePage/BikeInventoryForHomePage/BikeInventoryForHomePage';
 import Description from '../Description/Description';
+import BikeInventoryForHomePage from '../BikeInventoryForHomePage/BikeInventoryForHomePage/BikeInventoryForHomePage';
 import Location from '../Location/Location';
+import TestimonialForHomePage from '../TestimonialForHomePage/TestimonialForHomePage';
 import Services from '../Services/Services';
-import TestimonyAndLocation from '../TestimonyAndLocation/TestimonyAndLocation';
-// import Testimonials from '../../Testimonials/Testimonials';
 
 const Home = () => {
   return (
-    <>
+    <div>
       <Banner />
       <Description />
       <BikeInventoryForHomePage />
       <Location />
-      <TestimonyAndLocation />
+      <TestimonialForHomePage />
       <Services />
-      {/* <Testimonials /> */}
-      {/* <Location /> */}
-    </>
+    </div>
   );
 };
 

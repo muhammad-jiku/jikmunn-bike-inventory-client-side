@@ -17,8 +17,8 @@ import AboutUs from './Pages/AboutUs/AboutUs/AboutUs';
 import TermsAndConditions from './Pages/AboutUs/TermsAndConditions/TermsAndConditions';
 import Privacy from './Pages/AboutUs/Privacy/Privacy';
 import Developer from './Pages/Developer/Developer';
-import Testimonials from './Pages/Testimonials/Testimonials';
 import './App.css';
+import Testimonials from './Pages/Testimonials/Testimonials/Testimonials';
 
 function App() {
   return (

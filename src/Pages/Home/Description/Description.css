@@ -1,38 +1,44 @@
-.description{
-    background-color: black;
-    color: white;
-}
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,600&family=Permanent+Marker&family=Poppins:wght@600&display=swap');
+
 
 .descriptionBox{
-    display: flex;
+    margin: 20px 0;
 }
 
-.descriptionBoxLeft{
-    width: 50%;
-    padding: 20px;
-}
-
-.descriptionBoxLeft > h3{
+.descriptionBox h3, .descriptionBox h4{
     text-align: center;
+    font-family: 'Newsreader', serif;
 }
 
-.descriptionBoxLeft > p{
+.descriptionBox h3{
+    margin: 20px 0;
+    font-size: 36px;
+}
+
+.descriptionBox h4{
+    margin: 20px 0;
+    font-size: 30px;
+}
+
+
+.descriptionBox p{
     text-align: justify;
+    font-family: 'Poppins', sans-serif;
 }
 
-.descriptionBoxLeftSiteName{
+.descriptionBoxSpan{
     color: #E3B022;
 }
 
-.descriptionBoxRight{
-    width: 50%;
-    padding: 20px;
+.brands{
+    margin: 0 auto;
+    padding: 20px 10px;
+    box-sizing: border-box;
 }
 
-.descriptionBoxRight > h3{
-    text-align: center;
+@media only screen and (max-width: 600px) {
+    .descriptionBox h4{
+        font-size: 24px;
+    }
 }
 
-.descriptionBoxRight > p{
-    text-align: justify;
-}

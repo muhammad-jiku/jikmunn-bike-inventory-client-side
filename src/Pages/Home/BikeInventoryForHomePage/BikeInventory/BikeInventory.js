@@ -2,10 +2,8 @@ import React from 'react';
 import { Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import {
-  faPenToSquare,
   faListOl,
   faTag,
-  faUser,
   faCartFlatbedSuitcase,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,7 +11,7 @@ import '../BikeInventoryCard.css';
 
 const BikeInventory = ({ bInventory }) => {
   const navigate = useNavigate();
-  const { _id, name, image, description, supplier, price, quantity, email } =
+  const { _id, name, image, description, supplier, price, quantity } =
     bInventory;
 
   const handleUpdateInventory = (id) => {
@@ -36,21 +34,26 @@ const BikeInventory = ({ bInventory }) => {
             <FontAwesomeIcon icon={faUser} /> {email}
           </p> */}
           <p>
-            <FontAwesomeIcon icon={faListOl} />{' '}
+            <FontAwesomeIcon icon={faListOl} className="inventoryCardIcon" />{' '}
             {quantity > 1 ? quantity + 'pcs are' : 'pc is'} available now
           </p>
           <p>
-            <FontAwesomeIcon icon={faTag} /> BDT {price} tk only
+            <FontAwesomeIcon icon={faTag} className="inventoryCardIcon" /> BDT{' '}
+            {price} tk only
           </p>
           <p>
-            <FontAwesomeIcon icon={faCartFlatbedSuitcase} /> {supplier}
+            <FontAwesomeIcon
+              icon={faCartFlatbedSuitcase}
+              className="inventoryCardIcon"
+            />{' '}
+            {supplier}
           </p>
         </div>
         <button
           onClick={() => handleUpdateInventory(_id)}
           className="inventoryCardButton"
         >
-          Update <FontAwesomeIcon icon={faPenToSquare} />
+          Update
         </button>
       </div>
     </Col>

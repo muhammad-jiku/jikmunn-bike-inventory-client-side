@@ -33,28 +33,23 @@ const Features = () => {
                   icon={icons[service?.icon]}
                   className="serviceIcon"
                 />
-                <h4>{service?.title}</h4>
+                <h5>{service?.title}</h5>
                 <p>{service?.desc}</p>
               </div>
             </Col>
           ))}
         </Row>
         <div className="brandSection">
-          <h1 className="text-center">
-            We have been partners with these brands
-          </h1>
-          <Row sm={2} md={4}>
-            {/* {console.log(pics)} */}
-            {pics?.slice(8, 16)?.map((pic) => (
-              <Col
-                key={pic?._id}
-                // style={{ padding: '20px', margin: '10px auto' }}
-                className="m-auto p-5"
-              >
-                <img src={pic?.img} alt="" />
-              </Col>
-            ))}
-          </Row>
+          <h4>We have been partners with these brands</h4>
+          <Container>
+            <Row sm={2} md={4}>
+              {pics?.slice(8, 16)?.map((pic) => (
+                <Col key={pic?._id} className="brand">
+                  <img src={pic?.img} alt="" />
+                </Col>
+              ))}
+            </Row>
+          </Container>
         </div>
       </Container>
     </div>
