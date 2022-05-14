@@ -6,6 +6,7 @@ import auth from '../../../firebase.init';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 // import Loading from '../../Shared/Loading/Loading';
+import './AddInventory.css';
 
 const AddBikeInventory = () => {
   const navigate = useNavigate('');
@@ -61,8 +62,8 @@ const AddBikeInventory = () => {
       return;
     }
 
-    if (description?.length > 250) {
-      toast.error('Description can not be above 25 letters');
+    if (description?.length < 100 || description?.length > 250) {
+      toast.error('Description must be between 100 to 250 letters');
       return;
     }
 

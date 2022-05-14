@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Headland+One&family=Newsreader:opsz,wght@6..72,600&family=Pacifico&family=Permanent+Marker&family=Poppins:wght@600&display=swap');
+
+
+.addInventory{
+    padding: 20px;
+}
+
+.addInventoryHeading{
+    text-align: center;
+    margin-top: 20px;
+    color: #F2B022;
+    font-family: 'Headland One', serif;
+    text-transform: uppercase;
+}
+
+.addInventoryDesign{
+    padding: 20px ;
+    margin:20px auto;
+    background-color: #15191f;
+    font-family: 'Poppins', sans-serif;
+    width: 50%;
+}
+
+.addInventoryForm{
+    width: 100%;
+    padding: 10px 5px;
+}
+
+.addInventoryFormButton{
+    background-color: #0B301A;
+    color: #F2B022;
+    width: 100%;
+    border: none;
+    padding: 10px 15px;
+    margin: 20px 0;
+}
+
+.addInventoryFormButton:hover{
+    background-color: #F2B022;
+    color: #0B301A;
+    transition: 0.3s;
+}
+
+@media only screen and (max-width: 768px) {
+    .addInventoryDesign{
+        width: 100%;
+    }
+}
+
+
