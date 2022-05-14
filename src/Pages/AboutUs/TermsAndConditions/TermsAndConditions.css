@@ -25,19 +25,9 @@
     text-align: left;
 }
 
-.readMoreBtn{
+.readMoreBtn, .acceptTerms{
     background-color: #F2B022  ;
     color: #0B301A  ;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-
-.acceptTerms{
-    background-color: #F2B022;
-    color: #0B301A;
     border: none;
     padding: 10px 15px;
     cursor: pointer;

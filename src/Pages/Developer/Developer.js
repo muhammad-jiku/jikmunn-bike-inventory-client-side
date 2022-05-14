@@ -1,22 +1,31 @@
-import React, { useState } from 'react';
-import { Container } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Col, Container, Image, Row } from 'react-bootstrap';
 import './Developer.css';
 import pic from '../../Images/developer.jpg';
-import sust from '../../Images/sust.png';
-import servey from '../../Images/survey.png';
-import trbiute1 from '../../Images/tribute-1.png';
-import tribute2 from '../../Images/tribute-2.png';
-import tech from '../../Images/tech.png';
-import influencer from '../../Images/influencer.png';
-import review from '../../Images/review.png';
-import restaurant from '../../Images/restaurant.png';
-import doc from '../../Images/doc.png';
-import convention from '../../Images/convention.png';
+// import sust from '../../Images/sust.png';
+// import servey from '../../Images/survey.png';
+// import trbiute1 from '../../Images/tribute-1.png';
+// import tribute2 from '../../Images/tribute-2.png';
+// import tech from '../../Images/tech.png';
+// import influencer from '../../Images/influencer.png';
+// import review from '../../Images/review.png';
+// import restaurant from '../../Images/restaurant.png';
+// import doc from '../../Images/doc.png';
+// import convention from '../../Images/convention.png';
 
 const Developer = () => {
   const [seeMore, setSeeMore] = useState(false);
+  const [collection, setCollection] = useState([]);
+
+  useEffect(() => {
+    fetch('https://cryptic-reef-07381.herokuapp.com/mycollections')
+      .then((res) => res.json())
+      .then((data) => setCollection(data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
-    <div className="developerSection">
+    <div>
       <Container>
         <div className="aboutSection">
           <div className="aboutSectionLeft">
@@ -36,16 +45,31 @@ const Developer = () => {
               onClick={() => setSeeMore(!seeMore)}
               className="readMoreButton"
             >
-              See More
+              See {seeMore ? 'Less' : 'More'}
             </button>
           </div>
         </div>
         {seeMore ? (
-          <div className="projects-section">
-            <div className="projects-section-header">
-              <h2>Projects I've designed</h2>
+          <div className="projectsSection">
+            <div className="projectsSectionHeader">
+              <h4>Projects I've designed and developed</h4>
             </div>
-            <div className="projects">
+            <Row xs={1} md={2} lg={3} className="g-4">
+              {collection?.map((collect) => (
+                <Col key={collect?._id}>
+                  <div className="projectsCard">
+                    <a href={collect?.link} target="_blank" rel="noreferrer">
+                      <Image src={collect?.image} alt="" fluid />
+                      <div className="projectsCardHeader">
+                        <p>{collect?.project}</p>
+                      </div>
+                    </a>
+                  </div>
+                </Col>
+              ))}
+            </Row>
+
+            {/* <div className="projects">
               <div className="projects-card">
                 <a
                   href="https://muhammad-jiku.github.io/practice-1-sust-html-css/"
@@ -174,7 +198,7 @@ const Developer = () => {
                   </div>
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
         ) : (
           ''

@@ -1,8 +1,5 @@
-.developerSection{
-    background-color: black;
-    color: white;
-    padding: 20px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Headland+One&family=Newsreader:opsz,wght@6..72,600&family=Pacifico&family=Permanent+Marker&family=Poppins:wght@600&display=swap');
+
 
 .aboutSection{
     display: flex;
@@ -27,57 +24,51 @@
 }
 
 .readMoreButton{
-    background-color: brown;
+    background-color: #F2B022  ;
+    color: #0B301A  ;
     border: none;
     padding: 10px 15px;
-    border-radius: 30px;
-    color: white;
     cursor: pointer;
 }
 
 .readMoreButton:hover{
-    background-color: rgb(196, 69, 69);
+    background-color:#0B301A  ;
+    color: #F2B022  ;
+    transition: 0.3s;
 }
 
-.projects-section{
+.projectsSection{
     padding: 20px;
 }
 
-.projects{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-
-}
-
-.projects-section-header{
-    padding: 20px;
+.projectsSectionHeader{
+    color: #F2B022;
     text-align: center;
-    font-family: 'Luxurious Roman', cursive;
+    text-transform: uppercase;
+    font-family: 'Newsreader', serif;
 }
 
-.projects-section-header > h2{
-    font-size: 32px;
-    color: rgb(65, 19, 11);
-}
-
-.projects-card{
-    padding: 20px;
+.projectsCard{
     border: 1px solid white;
-    margin: 5px;
 }
 
-.projects-card > a {
-    
+.projectsCard > a {
     text-decoration: none;
 }
 
-.projects-card > a > img{
-    height: 175px;
+.projectsCard > a:hover {
+    color: white;
+    text-decoration: underline;
 }
 
-@media only screen and (max-width: 600px) {
+.projectsCardHeader{
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+@media only screen and (max-width: 768px) {
   .aboutSection{
       flex-direction: column;
   }

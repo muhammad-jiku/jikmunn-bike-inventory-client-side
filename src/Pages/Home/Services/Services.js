@@ -9,7 +9,7 @@ const Features = () => {
   const [pics, setPics] = useState([]);
 
   useEffect(() => {
-    fetch('https://cryptic-reef-07381.herokuapp.com/servicess')
+    fetch('https://cryptic-reef-07381.herokuapp.com/services')
       .then((res) => res.json())
       .then((data) => setServices(data))
       .catch((err) => console.log(err));
