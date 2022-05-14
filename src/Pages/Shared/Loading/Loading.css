@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Headland+One&family=Newsreader:opsz,wght@6..72,600&family=Pacifico&family=Permanent+Marker&family=Poppins:wght@600&display=swap');
+
+
 .spinnerSection{
     display: flex;
     margin: 10px;
     align-items: center;
     justify-content: space-between;
+    color: #F2B022;
+    font-family: 'Headland One', serif;
 }

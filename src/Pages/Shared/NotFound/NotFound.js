@@ -1,24 +1,17 @@
 import React from 'react';
 import { Container, Image } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Error from '../../../Images/404.gif';
+import './NotFound.css';
 
 const NotFound = () => {
-  return (
-    <Container className="d-flex">
-      <div>
-        <Image
-          src={Error}
-          alt="Page not found"
-          style={{ border: '1px solid black' }}
-          fluid
-        />
-      </div>
+  const navigate = useNavigate();
 
-      <div>
-        <h3>Hello there! Sorry for being lost</h3>
-        <h3>Go to </h3> <Link to="/">Home</Link>
-      </div>
+  return (
+    <Container className="notFound">
+      <h1>404</h1>
+      <h2>Ooops! Sorry page not found</h2>
+      <button onClick={() => navigate('/')}>Go to Home</button>
     </Container>
   );
 };

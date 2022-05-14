@@ -8,6 +8,7 @@ import auth from '../../../firebase.init';
 import { Button, Container } from 'react-bootstrap';
 import Loading from '../../Shared/Loading/Loading';
 import { toast } from 'react-toastify';
+import '../Authentication.css';
 
 const RequiredAuth = ({ children }) => {
   const location = useLocation();
@@ -45,16 +46,16 @@ const RequiredAuth = ({ children }) => {
     !user?.emailVerified
   ) {
     return (
-      <Container>
-        {loading || sending ? (
+      <Container className="requiredAuth">
+        {/* {loading || sending ? (
           <Loading />
-        ) : (
-          <>
-            <h3 className="text-danger">Your email is not verified</h3>
-            <h5 className="text-success">Please verify your email address </h5>
-            <Button onClick={handleVerifyEmail}>Send Verification</Button>
-          </>
-        )}
+        ) : ( */}
+
+        <h1>Your email is not verified</h1>
+        <h2>Please verify your email address </h2>
+        <button onClick={handleVerifyEmail}>Send Verification</button>
+
+        {/* )} */}
       </Container>
     );
   }
