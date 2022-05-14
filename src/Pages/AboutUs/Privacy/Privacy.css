@@ -1,19 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Headland+One&family=Newsreader:opsz,wght@6..72,600&family=Pacifico&family=Permanent+Marker&family=Poppins:wght@600&display=swap');
+
 .privacy{
-    background-color: black;
-    color: white;
     padding: 20px;
-    box-sizing: border-box;
 }
 
 .privacyHeading{
-    color: brown;
+    /* color: brown; */
+    color: #F2B022;
+    font-family: 'Newsreader', serif;
     text-align: center;
+    text-transform: uppercase;
 }
 
 .privacyBox{
     padding: 10px;
 }
 
+.privacyBox > h3{
+    font-family: 'Headland One', serif;
+}
+
 .privacyBox > p{
     text-align: justify;
+    font-family: 'Poppins', sans-serif;
 }

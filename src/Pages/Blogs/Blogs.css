@@ -1,10 +1,9 @@
-.blogs{
-    background-color: black;
-    color: white;
-}
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Headland+One&family=Newsreader:opsz,wght@6..72,600&family=Pacifico&family=Permanent+Marker&family=Poppins:wght@600&display=swap');
+
 
 .blogsImage{
-    height: 100vh; 
+    height: 70vh; 
+    filter: blur(2px); 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,7 +14,12 @@
 .blogsHeading {
     padding: 20px;
     text-align: center;
-    color: brown;
+    font-family: 'Newsreader', serif;
+    text-transform: uppercase;
+}
+
+.blogsSpan{
+    color: #F2B022;
 }
 
 .blogsQuestion{
@@ -23,8 +27,13 @@
 }
 
 .blogsQuestion > h4 {
-    color: brown;
+    color: #F2B022;
+    font-family: 'Headland One', serif;
+}
 
+.blogsQuestion > p {
+    text-align: justify;
+    font-family: 'Poppins', sans-serif;
 }
 
 @media only screen and (max-width: 600px) {

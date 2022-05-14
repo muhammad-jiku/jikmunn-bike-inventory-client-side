@@ -1,61 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Headland+One&family=Newsreader:opsz,wght@6..72,600&family=Pacifico&family=Permanent+Marker&family=Poppins:wght@600&display=swap');
+
 .terms{
     padding: 20px;
     box-sizing: border-box;
-    background-color: black;
-    color: white;
+    font-family: 'Poppins', sans-serif;
+    text-align: justify;
 }
 
 .termsHeader{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 }
 
 .termsHeaderLeft{
     padding: 10px;
-    /* width: 20%; */
 }
 
-.termsHeaderLeft > h1{
-    font-size: 48px;
-    color: brown;
+.termsHeaderLeft > h3{
+    font-size: 36px;
+    color: #F2B022;
+    font-family: 'Newsreader', serif;
+    text-transform: uppercase;
+    text-align: left;
 }
 
-.readMoreButton, .declineTerms{
-    background-color: brown;
+.readMoreBtn{
+    background-color: #F2B022  ;
+    color: #0B301A  ;
     border: none;
     padding: 10px 15px;
-    border-radius: 30px;
-    color: white;
-    cursor: pointer;
-}
-
-.acceptTerms{
-    background-color: #3496E1;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 30px;
-    color: white;
     cursor: pointer;
     margin-right: 10px;
 }
 
-.acceptTerms:hover{
-    background-color: #87bde7d2;
+
+.acceptTerms{
+    background-color: #F2B022;
+    color: #0B301A;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-right: 10px;
 }
 
-.readMoreButton:hover, .declineTerms:hover{
+.declineTerms{
+    background-color: brown;
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.readMoreBtn:hover, .acceptTerms:hover{
+    background-color:#0B301A  ;
+    color: #F2B022  ;
+    transition: 0.3s;
+}
+
+.declineTerms:hover{
     background-color: rgb(196, 69, 69);
 }
 
 .termsHeaderRight{
-    /* width: 80%; */
     padding: 20px;
 }
 
-.termsHeaderRight > img{
-    /* height: 525px; */
-}
 
 @media only screen and (max-width: 600px) {
     .termsHeader{

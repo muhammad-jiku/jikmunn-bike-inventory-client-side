@@ -45,8 +45,8 @@ const Header = () => {
                 </>
               ) : (
                 <>
-                  <Link to="/login">Log In</Link>
-                  <Link to="/register">Register</Link>
+                  <Link to="/login">Sign In</Link>
+                  <Link to="/register">Sign Up</Link>
                 </>
               )}
             </Nav>

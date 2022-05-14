@@ -4,10 +4,12 @@ import './AboutUs.css';
 
 const AboutUs = () => {
   return (
-    <div className="aboutUs">
+    <div>
       <div className="aboutUsDiv"></div>
       <Container className="aboutUsDetails">
-        <h1>Welcome To Bike Decor</h1>
+        <h1>
+          Welcome To <span className="aboutUsSpan">Bike Decor</span>
+        </h1>
         <p>Hello guys! I am from Bike Decor</p>
 
         <p>

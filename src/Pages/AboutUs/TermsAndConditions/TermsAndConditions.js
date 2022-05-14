@@ -12,7 +12,7 @@ const TermsAndConditions = () => {
     <div className="terms">
       <div className="termsHeader">
         <Container className="termsHeaderLeft">
-          <h1>Terms & Conditions</h1>
+          <h3>Terms & Conditions</h3>
           <p>
             Bike decor reserves the right to monitor all Comments and to remove
             any Comments which can be considered inappropriate, offensive or
@@ -23,9 +23,9 @@ const TermsAndConditions = () => {
           </p>
           <button
             onClick={() => setReadMore(!readMore)}
-            className="readMoreButton"
+            className="readMoreBtn"
           >
-            Read More
+            Read {readMore ? 'Less' : 'More'}
           </button>
         </Container>
         <div className="termsHeaderRight">
@@ -33,7 +33,7 @@ const TermsAndConditions = () => {
         </div>
       </div>
       {readMore ? (
-        <Container>
+        <Container className="terms">
           <h2>
             <strong>Terms and Conditions</strong>
           </h2>

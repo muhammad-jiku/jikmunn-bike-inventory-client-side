@@ -4,9 +4,11 @@ import './Blogs.css';
 
 const Blogs = () => {
   return (
-    <div className="blogs">
+    <div>
       <div className="blogsImage"></div>
-      <h2 className="blogsHeading">Welcome to the blogs section</h2>
+      <h2 className="blogsHeading">
+        Welcome to the <span className="blogsSpan">blogs</span>
+      </h2>
       <Container>
         <div className="blogsQuestion">
           <h4> Difference between javascript and nodejs?</h4>

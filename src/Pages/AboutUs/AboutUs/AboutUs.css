@@ -1,19 +1,9 @@
-.aboutUs{
-    background-color: black;
-    color: white;
-    /* backdrop-filter: blur(8px); */
-    /* height: 50vh;  */
-    /* background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-        background-image: 
-        url('../../../Images/aboutUs1.jpg'); */
-}
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Headland+One&family=Newsreader:opsz,wght@6..72,600&family=Pacifico&family=Permanent+Marker&family=Poppins:wght@600&display=swap');
+
 
 .aboutUsDiv{
     filter: blur(2px); 
-    /* backdrop-filter: blur(8px); */
-    height: 80vh; 
+    height: 70vh; 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -28,12 +18,21 @@
 
 .aboutUsDetails > h1{
     text-align: center;
-    color: brown;
+    font-family: 'Newsreader', serif;
+}
+
+.aboutUsSpan{
+    color: #F2B022;
+}
+
+.aboutUsDetails > p{
+    text-align: justify;
+    font-family: 'Poppins', sans-serif;
 }
 
 @media only screen and (max-width: 600px) {
     .aboutUsDiv{
-        height: 20vh;
+        height: 30vh;
     }
 }
 
