@@ -40,13 +40,23 @@ const AddBikeInventory = () => {
       return;
     }
 
+    if (quantity < 1) {
+      toast.error('At least add one item');
+      return;
+    }
+
     if (price === 1 || price < 10000) {
       toast.error('Price can not be less than 10000 tk');
       return;
     }
 
-    if (supplier?.length < 10 || supplier?.length > 25) {
-      toast.error('Supplier name must be between 10 to 25 letters');
+    if (!image?.length) {
+      toast.error('Insert correct image url');
+      return;
+    }
+
+    if (description?.length < 100 || description?.length > 250) {
+      toast.error('Description must be between 100 to 250 letters');
       return;
     }
 
@@ -57,10 +67,13 @@ const AddBikeInventory = () => {
 
     const url = `https://cryptic-reef-07381.herokuapp.com/bikeinventory`;
     if (
+      brand?.length > 2 &&
       name?.length < 25 &&
+      quantity > 1 &&
       price > 10000 &&
-      supplier?.length < 25 &&
-      description?.length <= 250
+      (supplier?.length > 10 || supplier?.length < 25) &&
+      (description?.length > 100 || description?.length < 250) &&
+      image?.length > 2
     ) {
       await axios
         .post(url, {
