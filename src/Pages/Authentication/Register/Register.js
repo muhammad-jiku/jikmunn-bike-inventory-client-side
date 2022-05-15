@@ -23,14 +23,17 @@ const Register = () => {
   const location = useLocation();
   let from = location.state?.from?.pathname || '/';
 
-
-
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     const name = nameRef?.current?.value;
     const email = emailRef?.current?.value;
     const password = passwordRef?.current?.value;
     const terms = termsRef?.current?.checked;
+
+    if (name?.length < 3) {
+      toast.error('Name must be at least 3 letters');
+      return;
+    }
 
     if (password?.length >= 1 && password?.length < 6) {
       toast.error('Password must be at least 6 letters');
@@ -41,7 +44,6 @@ const Register = () => {
       toast.success('Account created successfully');
     }
     setValidated(true);
-    console.log(name, email, password, terms);
   };
 
   useEffect(() => {
@@ -51,9 +53,9 @@ const Register = () => {
     return;
   }, [error]);
 
-    if (token) {
-      navigate(from, { replace: true });
-    }
+  if (token) {
+    navigate(from, { replace: true });
+  }
 
   if (loading) {
     return <Loading />;

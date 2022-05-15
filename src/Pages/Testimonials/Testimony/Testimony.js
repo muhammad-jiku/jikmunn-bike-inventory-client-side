@@ -1,10 +1,11 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
-import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 
 const Testimony = ({ testimonial }) => {
   const { _id, pic, review, name } = testimonial;
+
   return (
     <Col key={_id}>
       <div className="testimonialCard">

@@ -6,6 +6,7 @@ import './TestimonialForHomePage.css';
 
 const TestimonyAndLocation = () => {
   const [testimonials] = useTestimonials();
+  
   return (
     <Container className="testimonyCard">
       {testimonials?.slice(1, 2)?.map((testimonial) => (

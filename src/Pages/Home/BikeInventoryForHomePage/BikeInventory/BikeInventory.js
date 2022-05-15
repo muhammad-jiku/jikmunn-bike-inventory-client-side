@@ -7,7 +7,7 @@ import {
   faCartFlatbedSuitcase,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import '../BikeInventoryCard.css';
+import '../BikeInventoryCard.css'; 
 
 const BikeInventory = ({ bInventory }) => {
   const navigate = useNavigate();
@@ -30,9 +30,6 @@ const BikeInventory = ({ bInventory }) => {
               ? description?.slice(0, 80) + '...'
               : description}
           </p>
-          {/* <p>
-            <FontAwesomeIcon icon={faUser} /> {email}
-          </p> */}
           <p>
             <FontAwesomeIcon icon={faListOl} className="inventoryCardIcon" />{' '}
             {quantity > 1 ? quantity + 'pcs are' : 'pc is'} available now

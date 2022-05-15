@@ -5,38 +5,12 @@ import { Container, Table } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import useBikeInventories from '../../../customHooks/useBikeInventories/useBikeInventories';
 import BikeInventory from '../BikeInventory/BikeInventory';
-import '../InventoryTable.css';
 import Loading from '../../Shared/Loading/Loading';
+import '../InventoryTable.css';
 
 const BikeInventories = () => {
   const navigate = useNavigate('');
   const [bikeInventory] = useBikeInventories();
-
-  // const handleUpdateInventory = (id) => {
-  //   navigate(`/manageinventory/${id}`);
-  // };
-
-  // const handleDeleteInventory = (id) => {
-  //   const proceed = window.confirm('Are you sure want to delete this?');
-  //   if (proceed) {
-  //     console.log(id);
-  //     const url = `https://cryptic-reef-07381.herokuapp.com/bikeinventory/${id}`;
-  //     // fetch(url, {
-  //     //   method: 'DELETE',
-  //     // })
-  //     axios
-  //       .delete(url)
-  //       // .then((res) => res.json())
-  //       .then((data) => {
-  //         console.log(data);
-  //         const remainingInventory = bikeInventory?.filter(
-  //           (bInventory) => bInventory?._id !== id
-  //         );
-  //         setBikeInventory(remainingInventory);
-  //       })
-  //       .catch((err) => console.log(err));
-  //   }
-  // };
 
   return (
     <div>
@@ -68,7 +42,6 @@ const BikeInventories = () => {
                 <th>Model</th>
                 <th>Price</th>
                 <th>Quantity</th>
-                {/* <th >Description</th> */}
                 <th>Supplier</th>
                 <th>Actions</th>
               </tr>

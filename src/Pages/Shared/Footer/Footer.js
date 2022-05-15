@@ -91,7 +91,6 @@ const Footer = () => {
             </li>
             <li>
               <FontAwesomeIcon icon={faFacebook} /> &nbsp; Facebook
-              {/* <FontAwesomeIcon icon={faWhatsApp} /> &nbsp; */}
             </li>
             <li>
               <FontAwesomeIcon icon={faWhatsapp} /> &nbsp; WhatsApp

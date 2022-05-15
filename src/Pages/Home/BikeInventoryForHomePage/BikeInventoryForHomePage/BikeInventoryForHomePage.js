@@ -4,10 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import useBikeInventories from '../../../../customHooks/useBikeInventories/useBikeInventories';
 import BikeInventory from '../BikeInventory/BikeInventory';
 import Loading from '../../../Shared/Loading/Loading';
+import '../BikeInventoryCard.css'
 
 const BikeInventoryForHomePage = () => {
-  const [bikeInventory] = useBikeInventories();
   const navigate = useNavigate();
+  const [bikeInventory] = useBikeInventories();
 
   return (
     <div>

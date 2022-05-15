@@ -6,12 +6,10 @@ const useTestimonials = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const url = 'https://cryptic-reef-07381.herokuapp.com/testimonials';
-    // fetch('https://cryptic-reef-07381.herokuapp.com/testimonials')
-    //   .then((res) => res.json())
     axios
       .get(url)
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setTestimonials(data?.data);
         setIsLoading(false);
       })

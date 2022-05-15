@@ -34,18 +34,7 @@ const AddBikeInventory = () => {
 
     const description = descriptionRef?.current?.value;
     const image = imageUrlRef?.current?.value;
-    //
-    // let data = {
-    //   email,
-    //   brand,
-    //   name,
-    //   quantity,
-    //   price,
-    //   supplier,
-    //   description,
-    //   image,
-    // };
-    // console.log(data);
+
     if (name?.length > 25) {
       toast.error('Model name can not be above 25 letters');
       return;
@@ -85,9 +74,9 @@ const AddBikeInventory = () => {
           image,
         })
         .then((result) => {
-          console.log(result);
+          // console.log(result);
           const { data } = result;
-          console.log(data);
+          // console.log(data);
           if (data?.insertedId) {
             toast.success('You just add an inventory item');
             e.target.reset();
@@ -219,7 +208,6 @@ const AddBikeInventory = () => {
             Add Inventory
           </button>
         </Form>
-        <div className=""></div>
       </div>
     </div>
   );

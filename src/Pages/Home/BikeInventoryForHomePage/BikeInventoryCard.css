@@ -24,13 +24,12 @@
 
 .inventoryCardInfo h4{
   font-family: 'Headland One', serif;
-  font-size: 30px;
+  font-size: 26px;
   color: #F3A020;
 }
 
 .inventoryCardIcon{
   font-size: 26px;
-  /* color: black; */
   margin-right: 10px;
 }
 
@@ -44,7 +43,6 @@
 .inventoryCardButton{
   width: 100%;
   border: none;
-  color: white;
   padding: 20px;
   color: #0B301A;
   background-color: #F3A020;

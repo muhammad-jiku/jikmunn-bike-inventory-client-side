@@ -10,7 +10,7 @@ const Banner = () => {
   return (
     <div>
       <Carousel variant="dark" interval={null}>
-        <Carousel.Item className="carouselItem">
+        <Carousel.Item>
           <Image
             className="d-block w-100"
             src={carouselImage_1}
@@ -24,7 +24,7 @@ const Banner = () => {
             <h3>business from your website</h3>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item className="carouselItem">
+        <Carousel.Item>
           <Image
             className="d-block w-100"
             src={carouselImage_2}
@@ -39,7 +39,7 @@ const Banner = () => {
             <h3>your perception</h3>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item className="carouselItem">
+        <Carousel.Item>
           <Image
             className="d-block w-100"
             src={carouselImage_3}
@@ -54,7 +54,7 @@ const Banner = () => {
             <h3>Attract, Engage & Convert more qualified bike shoppers</h3>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item className="carouselItem">
+        <Carousel.Item>
           <Image
             className="d-block w-100"
             src={carouselImage_4}

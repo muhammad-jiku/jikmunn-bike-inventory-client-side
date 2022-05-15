@@ -6,13 +6,11 @@ const useDeveloper = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // fetch('https://cryptic-reef-07381.herokuapp.com/mycollections')
     const url = 'https://cryptic-reef-07381.herokuapp.com/mycollections';
-    // .then((res) => res.json())
     axios
       .get(url)
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setCollection(data?.data);
         setIsLoading(false);
       })

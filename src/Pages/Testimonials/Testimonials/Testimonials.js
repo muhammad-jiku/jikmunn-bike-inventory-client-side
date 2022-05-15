@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 import Testimony from '../Testimony/Testimony';
-import '../Testimonials.css';
 import useTestimonials from '../../../customHooks/useTestimonials/useTestimonials';
 import Loading from '../../Shared/Loading/Loading';
+import '../Testimonials.css';
 
 const Testimonials = () => {
   const [testimonials, isLoading] = useTestimonials();

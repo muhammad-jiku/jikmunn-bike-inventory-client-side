@@ -17,19 +17,12 @@ import AboutUs from './Pages/AboutUs/AboutUs/AboutUs';
 import TermsAndConditions from './Pages/AboutUs/TermsAndConditions/TermsAndConditions';
 import Privacy from './Pages/AboutUs/Privacy/Privacy';
 import Developer from './Pages/Developer/Developer';
-import './App.css';
 import Testimonials from './Pages/Testimonials/Testimonials/Testimonials';
+import './App.css';
 
 function App() {
   return (
-    <div
-      className="app"
-      // style={{
-      //   display: 'flex',
-      //   flexDirection: 'column',
-      //   minHeight: '100vh'
-      // }}
-    >
+    <div className="app">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

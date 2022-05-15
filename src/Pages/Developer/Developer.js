@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Col, Container, Image, Row } from 'react-bootstrap';
-import './Developer.css';
 import pic from '../../Images/developer.jpg';
 import useDeveloper from '../../customHooks/useDeveloper/useDeveloper';
 import Loading from '../Shared/Loading/Loading';
+import './Developer.css';
 
 const Developer = () => {
   const [seeMore, setSeeMore] = useState(false);

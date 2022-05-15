@@ -16,10 +16,12 @@
 
 .customDetailsImage{
     padding: 20px;
+    width: 40%;
 }
 
 .customDetailsInfo{
     padding: 20px;
+    width: 60%;
 }
 
 .customDetailsInfo > div{
@@ -66,7 +68,11 @@
     .customDetails{
         flex-direction: column;
     }
-    
+
+    .customDetailsImage, .customDetailsInfo{
+        width: 100%;
+    }
+   
     .customDetailsInfoInput{
         font-size: 14px;
     }

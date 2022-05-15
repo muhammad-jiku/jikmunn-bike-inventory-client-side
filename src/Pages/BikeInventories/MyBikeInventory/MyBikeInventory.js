@@ -7,6 +7,7 @@ import axiosPrivate from '../../../api/axiosPrivate';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
 import BikeInventory from '../BikeInventory/BikeInventory';
+import '../InventoryTable.css';
 
 const MyBikeInventory = () => {
   const navigate = useNavigate();
@@ -20,13 +21,11 @@ const MyBikeInventory = () => {
       const url = `https://cryptic-reef-07381.herokuapp.com/bikeinventory?email=${email}`;
       try {
         const { data } = await axiosPrivate.get(url);
-        // console.log(response);
-        // const { data } = response;
         setMyInventoryItems(data);
         setIsLoading(false);
-        console.log(data);
+        // console.log(data);
       } catch (err) {
-        console.log(err.message);
+        // console.log(err.message);
         if (err.response.status === 401 || err.response.status === 403) {
           signOut(auth);
           navigate('/login');
@@ -72,7 +71,6 @@ const MyBikeInventory = () => {
                     <th>Model</th>
                     <th>Price</th>
                     <th>Quantity</th>
-                    {/* <th >Description</th> */}
                     <th>Supplier</th>
                     <th>Actions</th>
                   </tr>

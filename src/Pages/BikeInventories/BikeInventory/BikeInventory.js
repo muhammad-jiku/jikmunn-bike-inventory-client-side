@@ -5,6 +5,7 @@ import React from 'react';
 import { Image } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import useBikeInventories from '../../../customHooks/useBikeInventories/useBikeInventories';
+import '../InventoryTable.css';
 
 const BikeInventory = ({ bInventory }) => {
   const [bikeInventory, setBikeInventory] = useBikeInventories();
@@ -19,16 +20,13 @@ const BikeInventory = ({ bInventory }) => {
   const handleDeleteInventory = (id) => {
     const proceed = window.confirm('Are you sure want to delete this?');
     if (proceed) {
-      console.log(id);
+      // console.log(id);
       const url = `https://cryptic-reef-07381.herokuapp.com/bikeinventory/${id}`;
-      // fetch(url, {
-      //   method: 'DELETE',
-      // })
+
       axios
         .delete(url)
-        // .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           const remainingInventory = bikeInventory?.filter(
             (bInventory) => bInventory?._id !== id
           );
@@ -39,55 +37,6 @@ const BikeInventory = ({ bInventory }) => {
   };
 
   return (
-    // <Col>
-    //   <div className="inventoryCard">
-    //     <Image src={image} alt={name} fluid />
-    //     <div className="inventoryCardInfo">
-    //       <h4>{name} </h4>
-    //       <h5>Price: BDT {price}/= </h5>
-    //     </div>
-    //     <div className="buttonsSection">
-    //       <div>
-    //         <button
-    //           onClick={() => setSeeMore(!seeMore)}
-    //           className="viewMoreButton"
-    //         >
-    //           Read more{' '}
-    //           {seeMore ? (
-    //             <FontAwesomeIcon icon={faAngleUp} />
-    //           ) : (
-    //             <FontAwesomeIcon icon={faAngleDown} />
-    //           )}
-    //         </button>
-    //       </div>
-    //       <div>
-    //         <button
-    //           onClick={() => handleUpdateInventory(_id)}
-    //           className="updateButton"
-    //         >
-    //           <FontAwesomeIcon icon={faPenToSquare} />
-    //         </button>
-    //         <button
-    //           onClick={() => handleDeleteInventory(_id)}
-    //           className="deleteButton"
-    //         >
-    //           <FontAwesomeIcon icon={faTrash} />
-    //         </button>
-    //       </div>
-    //     </div>
-    //     <div>
-    //       {seeMore ? (
-    //         <div>
-    //           <h4>Quantity: {quantity} </h4>
-    //           <h4>Supplier: {supplier} </h4>
-    //           <p>{description}</p>
-    //         </div>
-    //       ) : (
-    //         ''
-    //       )}
-    //     </div>
-    //   </div>
-    // </Col>
     <tr>
       <td data-label="Image">
         <Image src={image} alt={name} fluid className="inventoryImage" />
@@ -96,7 +45,6 @@ const BikeInventory = ({ bInventory }) => {
       <td data-label="Model">{name}</td>
       <td data-label="Price">{price} </td>
       <td data-label="Quantity">{quantity}</td>
-      {/* <td data-label="Description">{description}</td> */}
       <td data-label="Supplier"> {supplier} </td>
       <td data-label="Actions">
         <button
