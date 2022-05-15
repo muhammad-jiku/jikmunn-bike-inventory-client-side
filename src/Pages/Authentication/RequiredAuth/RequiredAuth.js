@@ -13,8 +13,7 @@ import '../Authentication.css';
 const RequiredAuth = ({ children }) => {
   const location = useLocation();
   const [user, loading, authError] = useAuthState(auth);
-  const [sendEmailVerification, sending, verifyError] =
-    useSendEmailVerification(auth);
+  const [sendEmailVerification, sending] = useSendEmailVerification(auth);
 
   const handleVerifyEmail = async () => {
     await sendEmailVerification();
@@ -28,13 +27,6 @@ const RequiredAuth = ({ children }) => {
     return;
   }, [authError]);
 
-  useEffect(() => {
-    if (verifyError) {
-      toast.error('Verification failed');
-    }
-    return;
-  }, [verifyError]);
-  
   if (loading || sending) {
     return <Loading />;
   }
