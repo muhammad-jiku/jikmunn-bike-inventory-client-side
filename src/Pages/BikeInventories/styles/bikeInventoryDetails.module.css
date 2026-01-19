@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Headland+One&family=Newsreader:opsz,wght@6..72,600&family=Pacifico&family=Permanent+Marker&family=Poppins:wght@600&display=swap');
+
+.inventoryDetails {
+  padding: 20px;
+  font-family: 'Headland One', serif;
+}
+
+.inventoriesIntro {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inventoriesIntro > h3 {
+  font-family: 'Newsreader', serif;
+  color: #f2b022;
+}
+
+.goToInventoryFormButton {
+  border: none;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border: none;
+  color: #f2b022;
+  background-color: #0b301a;
+  font-family: 'Poppins', sans-serif;
+}
+
+.goToInventoryFormButton:hover {
+  color: #0b301a;
+  background-color: #f2b022;
+  transition: 0.3s;
+}
+
+.customDetails {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #15191f;
+}
+
+.customDetailsImage {
+  padding: 20px;
+  width: 40%;
+}
+
+.customDetailsInfo {
+  padding: 20px;
+  width: 60%;
+}
+
+.customDetailsInfo > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detailsSpan {
+  color: #f2b022;
+  font-style: italic;
+}
+
+.customDetailsInfoButton {
+  font-family: 'Poppins', sans-serif;
+  color: #f2b022;
+  background-color: #0b301a;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.customDetailsInfoButton:hover {
+  color: #0b301a;
+  background-color: #f2b022;
+  transition: 0.3s;
+}
+
+.customDetailsInfoInput {
+  border: none;
+  padding: 10px;
+  background-color: transparent;
+  outline: none;
+  margin-right: 10px;
+  border-bottom: 1px solid #0b301a;
+  width: 50%;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+@media only screen and (max-width: 768px) {
+  .customDetails {
+    flex-direction: column;
+  }
+
+  .customDetailsImage,
+  .customDetailsInfo {
+    width: 100%;
+  }
+
+  .customDetailsInfoInput {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,77 @@
+
+.testimonyCard {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+
+.testimonialCard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #485362;
+  box-sizing: border-box;
+  margin: 0 20px;
+  min-width: 320px;
+  max-width: 400px;
+  width: 100%;
+}
+.testimonialCard p {
+  font-family: 'Poppins', sans-serif;
+  text-align: justify;
+}
+
+.testimonialCard h3 {
+  font-family: 'Pacifico', cursive;
+  color: #F3A320;
+}
+
+.testimonialCard img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.testimonialIcon {
+  color: #F39E20;
+  font-size: 48px;
+}
+
+
+@media only screen and (max-width: 1400px) {
+  .testimonialCard {
+    max-width: 80%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .testimonialCard {
+    max-width: 95%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .testimonialCard {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .testimonyCard {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .testimonialCard {
+    max-width: 100%;
+  }
+}

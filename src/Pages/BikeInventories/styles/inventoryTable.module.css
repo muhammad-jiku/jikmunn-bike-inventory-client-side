@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Headland+One&family=Newsreader:opsz,wght@6..72,600&family=Pacifico&family=Permanent+Marker&family=Poppins:wght@600&display=swap');
+
+.emptyinventories {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  font-family: 'Newsreader', serif;
+  text-transform: uppercase;
+  color: #f2b022;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.emptyinventories > h4 {
+  font-size: 36px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.inventoriesIntro {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inventoriesIntro > h3 {
+  font-family: 'Newsreader', serif;
+  color: #f2b022;
+}
+
+.goToInventoryFormButton {
+  border: none;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border: none;
+  color: #f2b022;
+  background-color: #0b301a;
+  font-family: 'Poppins', sans-serif;
+}
+
+.goToInventoryFormButton:hover {
+  color: #0b301a;
+  background-color: #f2b022;
+  transition: 0.3s;
+}
+
+.inventoriesTable {
+  font-family: 'Poppins', sans-serif;
+}
+
+.inventoriesTable thead tr th {
+  padding: 20px;
+  color: #f2b022;
+  font-size: 22px;
+}
+
+.inventoriesTable thead tr th,
+.inventoriesTable tbody tr td {
+  text-align: center;
+}
+
+.inventoryImage {
+  height: 75px;
+  width: 90px;
+}
+
+.updateButton {
+  background-color: #0b301a;
+}
+
+.deleteButton {
+  background-color: brown;
+}
+
+.updateButton,
+.deleteButton {
+  font-size: 22px;
+  padding: 10px 15px;
+  border: none;
+  margin: 5px;
+  color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  .inventoriesTable thead {
+    display: none;
+  }
+
+  .inventoriesTable tbody tr td {
+    border: 1px solid white;
+  }
+
+  .inventoriesTable,
+  .inventoriesTable tbody,
+  .inventoriesTable tr,
+  .inventoriesTable td {
+    display: block;
+  }
+
+  .inventoriesTable tr {
+    margin-bottom: 15px;
+  }
+
+  .inventoriesTable tbody tr td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .inventoriesTable td::before {
+    color: #f2b022;
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 22px;
+  }
+}

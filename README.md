@@ -1,17 +1,52 @@
 # Bike Decor
 
-## Site Link : https://bike-decor.web.app/
-## Server Link : https://cryptic-reef-07381.herokuapp.com/
+## Project Description
+Bike Decor is a full-stack inventory management web application for bike dealers and users. It allows authenticated users to manage, stock, deliver, and restock bike inventories, view testimonials, and connect with popular brands. The platform is designed for reliability, ease of use, and scalability.
 
-### Features of this site
+## Tech Stack
+- **Frontend:** React 19, React Bootstrap, Bootstrap 5, FontAwesome, Axios, React Router DOM, React Toastify, Firebase Auth, React Firebase Hooks
+- **Backend:** Node.js, Express.js, MongoDB (API endpoints, not included in this repo)
+- **Other:** Google Fonts, JWT Authentication
 
-* This inventory website is build for bike decor.
-* User or dealer can only stock bikes in this site.
-* Without sign in or sign up by email or by google or github user or dealer can not be add or deliver or restock inventory bike item.
-* email verification system is implemented.
-* User should be authenticate before using this site by gooogle or github ot by email.
-* User or dealer can delivered their product.
-* User or dealer can restock to the specific bike they want.
-* User or dealer can add bike inventory for their inventories and delivery or restock them.
-* User or dealer can accept terms and services and privacy policy.
-* For development purpose this site uses bootstrap, react-bootstrap, axios, firebase, react-firebase-hooks, react-router-dom, react-toastify , font-awesome, google fonts.
+## About
+Bike Decor is trusted by over 75,000 companies worldwide. The site provides a seamless experience for inventory management, including authentication, email verification, and integration with major e-commerce platforms. Users can view and manage inventories, read and submit testimonials, and explore partner brands.
+
+## Getting Started
+
+### Prerequisites
+- Node.js (v18 or later recommended)
+- Yarn or npm
+
+### Installation
+1. Clone the repository:
+	```bash
+	git clone https://github.com/muhammad-jiku/jikmunn-bike-inventory-client-side.git
+	cd bike-decor-client
+	```
+2. Install dependencies:
+	```bash
+	yarn install
+	# or
+	npm install
+	```
+3. Create a `.env.local` file based on `.env.local.example` and add your API and Firebase credentials.
+4. Start the development server:
+	```bash
+	yarn start
+	# or
+	npm start
+	```
+
+### Deployment
+This project is ready to deploy on Firebase Hosting. See `firebase.json` for configuration.
+
+## Owner
+- **Name:** Muhammad Azizul Hoque JIKU
+- **GitHub:** [muhammad-jiku](https://github.com/muhammad-jiku)
+
+## Repository
+- [Repo](https://github.com/muhammad-jiku/jikmunn-bike-inventory-client-side)
+
+## License
+
+This project is for demo purposes only.

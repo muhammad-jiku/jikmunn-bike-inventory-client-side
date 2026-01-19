@@ -1,36 +1,35 @@
-import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Home from './Pages/Home/Home/Home';
-import BikeInventories from './Pages/BikeInventories/BikeInventories/BikeInventories';
-import Blogs from './Pages/Blogs/Blogs';
-import Footer from './Pages/Shared/Footer/Footer';
-import Header from './Pages/Shared/Header/Header';
-import LogIn from './Pages/Authentication/LogIn/LogIn';
-import Register from './Pages/Authentication/Register/Register';
-import NotFound from './Pages/Shared/NotFound/NotFound';
-import BikeInventoryDetails from './Pages/BikeInventories/BikeInventoryDetails/BikeInventoryDetails';
-import RequiredAuth from './Pages/Authentication/RequiredAuth/RequiredAuth';
-import MyBikeInventory from './Pages/BikeInventories/MyBikeInventory/MyBikeInventory';
-import AddBikeInventory from './Pages/BikeInventories/AddBikeInventory/AddBikeInventory';
 import { ToastContainer } from 'react-toastify';
-import AboutUs from './Pages/AboutUs/AboutUs/AboutUs';
-import TermsAndConditions from './Pages/AboutUs/TermsAndConditions/TermsAndConditions';
-import Privacy from './Pages/AboutUs/Privacy/Privacy';
-import Developer from './Pages/Developer/Developer';
-import Testimonials from './Pages/Testimonials/Testimonials/Testimonials';
 import './App.css';
+import AboutUs from './Pages/AboutUs/AboutUs';
+import Privacy from './Pages/AboutUs/Privacy';
+import TermsAndConditions from './Pages/AboutUs/TermsAndConditions';
+import LogIn from './Pages/Authentication/LogIn';
+import Register from './Pages/Authentication/Register';
+import RequiredAuth from './Pages/Authentication/RequiredAuth';
+import AddBikeInventory from './Pages/BikeInventories/AddBikeInventory';
+import BikeInventories from './Pages/BikeInventories/BikeInventories';
+import BikeInventoryDetails from './Pages/BikeInventories/BikeInventoryDetails';
+import MyBikeInventory from './Pages/BikeInventories/MyBikeInventory';
+import Blogs from './Pages/Blogs/Blogs';
+import Developer from './Pages/Developer/Developer';
+import Home from './Pages/Home/Home';
+import Footer from './Pages/Shared/Footer';
+import Header from './Pages/Shared/Header';
+import NotFound from './Pages/Shared/NotFound';
+import Testimonials from './Pages/Testimonials/Testimonials';
 
 function App() {
   return (
-    <div className="app">
+    <div className='app'>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/testimonials" element={<Testimonials />} />
-        <Route path="/blogs" element={<Blogs />} />
-        <Route path="/aboutbikedecor" element={<AboutUs />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/testimonials' element={<Testimonials />} />
+        <Route path='/blogs' element={<Blogs />} />
+        <Route path='/aboutbikedecor' element={<AboutUs />} />
         <Route
-          path="/manageinventories"
+          path='/manageinventories'
           element={
             <RequiredAuth>
               <BikeInventories />
@@ -38,7 +37,7 @@ function App() {
           }
         />
         <Route
-          path="/manageinventory/:manageinventoryId"
+          path='/manageinventory/:manageinventoryId'
           element={
             <RequiredAuth>
               <BikeInventoryDetails />
@@ -46,7 +45,7 @@ function App() {
           }
         />
         <Route
-          path="/addinventory"
+          path='/addinventory'
           element={
             <RequiredAuth>
               <AddBikeInventory />
@@ -54,21 +53,21 @@ function App() {
           }
         />
         <Route
-          path="/myinventories"
+          path='/myinventories'
           element={
             <RequiredAuth>
               <MyBikeInventory />
             </RequiredAuth>
           }
         />
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/aboutdeveloper" element={<Developer />} />
-        <Route path="/terms" element={<TermsAndConditions />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path='/login' element={<LogIn />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/aboutdeveloper' element={<Developer />} />
+        <Route path='/terms' element={<TermsAndConditions />} />
+        <Route path='/privacy' element={<Privacy />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
-      <ToastContainer autoClose={10000} />
+      <ToastContainer autoClose={7000} />
       <Footer />
     </div>
   );
